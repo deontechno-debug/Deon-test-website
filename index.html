@@ -371,6 +371,92 @@
 
     .footer-bottom-links a { color: var(--text-grey); text-decoration: none; transition: color 0.15s; }
     .footer-bottom-links a:hover { color: var(--blue); }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      color: var(--text); padding: 0.5rem; margin-left: auto;
+      align-items: center; justify-content: center;
+    }
+    .nav-hamburger:focus-visible { outline: 2px solid var(--blue); }
+
+    @media (max-width: 1024px) {
+      .markets-grid { grid-template-columns: repeat(3, 1fr); }
+      .discover-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 768px) {
+      /* NAV */
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: var(--nav-h); left: 0; right: 0;
+        background: var(--white);
+        flex-direction: column;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 0.5rem 0; margin-left: 0;
+        z-index: 199;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links li a { height: auto; line-height: 1.3; padding: 0.875rem 1.5rem; font-size: 0.9375rem; }
+      .nav-right { display: none; }
+
+      /* HERO */
+      .hero-media { height: 220px; }
+      .hero-caption { padding: 1.25rem 1rem 0.875rem; max-width: 100%; }
+      .hero-caption h1 { font-size: 1.125rem; }
+
+      /* SEARCH */
+      .search-bar-section { padding: 0.75rem 1rem 1rem; }
+      .search-bar { width: 100%; }
+
+      /* SECTIONS */
+      .section { padding: 1.5rem 1rem; }
+
+      /* MARKETS */
+      .markets-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+
+      /* BENEFITS */
+      .benefits-header { padding: 1.5rem 1rem 1rem; }
+      .benefit-block { grid-template-columns: 1fr; min-height: auto; }
+      .benefit-block:nth-child(even) .benefit-img { order: 0; }
+      .benefit-block:nth-child(even) .benefit-txt { order: 1; }
+      .benefit-img { min-height: 220px; }
+      .benefit-txt { padding: 1.5rem 1.25rem; }
+
+      /* CTA */
+      .cta-strip { grid-template-columns: 1fr; min-height: auto; }
+      .cta-img { min-height: 200px; }
+      .cta-content { padding: 2rem 1.25rem; }
+      .cta-content h2 { font-size: 1.5rem; }
+
+      /* DISCOVER */
+      .discover-section { padding: 1.5rem 1rem 2rem; }
+      .discover-grid { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
+
+      /* FOOTER SEARCH BAR */
+      .footer-search-bar { flex-direction: column; align-items: stretch; gap: 0.875rem; padding: 1.25rem 1rem; }
+      .fs-form { flex: none; width: 100%; }
+      .fs-text { max-width: none; }
+      .fs-image { display: none; }
+
+      /* FOOTER */
+      footer { padding: 2rem 1rem 1.25rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .footer-bottom-links { gap: 0.875rem; }
+    }
+
+    @media (max-width: 480px) {
+      .discover-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -399,6 +485,11 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -661,5 +752,19 @@
     </div>
   </footer>
 
+  <script>
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('is-open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
