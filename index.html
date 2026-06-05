@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tesa® — Adhesive Solutions for Industrial Markets</title>
+  <title>DEON — Adhesive Solutions for Industrial Markets</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="brand_assets/Deon_Logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:       #0097d4;
-      --red:        #e3000b;
-      --navy:       #0f377f;
+      --blue:       #0072ce;
+      --red:        #ed1c24;
+      --navy:       #00457c;
       --text:       #333333;
       --text-mid:   #666666;
       --light-grey: #f0f0f0;
@@ -24,11 +25,15 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Open Sans', 'Gill Sans MT', Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       font-size: 18px;
       line-height: 1.5;
       color: var(--text);
       -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', 'Inter', system-ui, Arial, sans-serif;
     }
 
     img { display: block; max-width: 100%; height: auto; }
@@ -839,22 +844,22 @@
       <span class="hb-bar"></span>
     </button>
     <div class="nav-logo">
-      <a href="#" aria-label="DEON — Home">
+      <a href="index.html" aria-label="DEON — Home">
         <img src="brand_assets/Deon_Logo.png" alt="DEON — It's Power-Strong" />
       </a>
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#" data-open-panel="markets">Markets</a></li>
-      <li><a href="#">Applications</a></li>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">Sustainability</a></li>
-      <li><a href="#">Press &amp; Insights</a></li>
-      <li><a href="#">Contact us</a></li>
+      <li><a href="applications.html">Applications</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="resources.html#insights">Press &amp; Insights</a></li>
+      <li><a href="contact.html">Contact us</a></li>
     </ul>
     <div class="nav-right">
-      <button class="nav-icon-btn" aria-label="Search">
+      <a class="nav-icon-btn" href="search.html" aria-label="Search">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
+      </a>
       <button class="nav-icon-btn" aria-label="Language">
         EN
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -868,17 +873,17 @@
       <img src="https://placehold.co/1600x600/8a9eaf/c0d0dd?text=" alt="Industrial workers" />
     </div>
     <div class="hero-card">
-      <h1><span class="brand">tesa<sup>®</sup></span> adhesive solutions for industrial markets</h1>
-      <p>Progress comes from the power of close partnerships and a backbone of innovation capabilities. We at tesa Industry continuously move our adhesive solutions forward to solve your challenges of today and innovate for tomorrow.</p>
+      <h1><span class="brand">DEON</span> adhesive solutions for industrial markets</h1>
+      <p>Progress comes from the power of close partnerships and a backbone of innovation capabilities. We at DEON Industry continuously move our adhesive solutions forward to solve your challenges of today and innovate for tomorrow.</p>
     </div>
   </div>
 
   <!-- SEARCH — standalone section below the hero -->
   <div class="hero-search-section">
-    <div class="hero-search">
+    <form class="hero-search" action="search.html" method="get" role="search">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="search" placeholder="Search tesa.com" aria-label="Search" />
-    </div>
+      <input type="search" name="q" placeholder="Search deontechnology.co.in" aria-label="Search" />
+    </form>
   </div>
 
   <!-- SELECT YOUR MARKET — title above image -->
@@ -892,48 +897,62 @@
     </div>
     <div class="markets-viewport" id="marketsViewport">
       <div class="markets-track" id="marketsTrack">
-        <div class="market-card">
+        <a class="market-card" href="market.html?m=packaging">
           <div class="market-card-body">
-            <div class="market-card-title">Automotive</div>
-            <a href="#" class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="market-card-title">Packaging &amp; Logistics</div>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
-          <div class="market-card-img"><img src="https://placehold.co/300x300/7a8ea8/b8cad8?text=" alt="Automotive" /></div>
-        </div>
-        <div class="market-card">
+          <div class="market-card-img"><img src="https://placehold.co/300x300/6a88a8/b0c4d8?text=" alt="Packaging &amp; Logistics" /></div>
+        </a>
+        <a class="market-card" href="market.html?m=electrical">
+          <div class="market-card-body">
+            <div class="market-card-title">Electrical &amp; Insulation</div>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="market-card-img"><img src="https://placehold.co/300x300/7a8ea8/b8cad8?text=" alt="Electrical &amp; Insulation" /></div>
+        </a>
+        <a class="market-card" href="market.html?m=automotive">
+          <div class="market-card-body">
+            <div class="market-card-title">Automotive &amp; Transportation</div>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+          <div class="market-card-img"><img src="https://placehold.co/300x300/8a9a7a/c0d0b0?text=" alt="Automotive &amp; Transportation" /></div>
+        </a>
+        <a class="market-card" href="electronics.html">
           <div class="market-card-body">
             <div class="market-card-title">Electronics</div>
-            <a href="#" class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
-          <div class="market-card-img"><img src="https://placehold.co/300x300/6a88a8/b0c4d8?text=" alt="Electronics" /></div>
-        </div>
-        <div class="market-card">
+          <div class="market-card-img"><img src="https://placehold.co/300x300/6a78a0/b0bcd4?text=" alt="Electronics" /></div>
+        </a>
+        <a class="market-card" href="market.html?m=appliance">
           <div class="market-card-body">
-            <div class="market-card-title">Print &amp; Paper</div>
-            <a href="#" class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="market-card-title">Appliance Manufacturing</div>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
-          <div class="market-card-img"><img src="https://placehold.co/300x300/8a9a7a/c0d0b0?text=" alt="Print and Paper" /></div>
-        </div>
-        <div class="market-card">
+          <div class="market-card-img"><img src="https://placehold.co/300x300/a09070/d0c0a0?text=" alt="Appliance Manufacturing" /></div>
+        </a>
+        <a class="market-card" href="market.html?m=hvac-metal">
           <div class="market-card-body">
-            <div class="market-card-title">Industrial Distribution Partners</div>
-            <a href="#" class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="market-card-title">HVAC &amp; Metal Processing</div>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
-          <div class="market-card-img"><img src="https://placehold.co/300x300/a09070/d0c0a0?text=" alt="Industrial Distribution Partners" /></div>
-        </div>
-        <div class="market-card">
+          <div class="market-card-img"><img src="https://placehold.co/300x300/9090a0/c8c8d4?text=" alt="HVAC &amp; Metal Processing" /></div>
+        </a>
+        <a class="market-card" href="market.html?m=construction">
           <div class="market-card-body">
-            <div class="market-card-title">Construction</div>
-            <a href="#" class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="market-card-title">Construction &amp; Building</div>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
-          <div class="market-card-img"><img src="https://placehold.co/300x300/9090a0/c8c8d4?text=" alt="Construction" /></div>
-        </div>
-        <div class="market-card">
+          <div class="market-card-img"><img src="https://placehold.co/300x300/788090/b8c4d0?text=" alt="Construction &amp; Building" /></div>
+        </a>
+        <a class="market-card" href="market.html?m=renewable">
           <div class="market-card-body">
-            <div class="market-card-title">General Industry</div>
-            <a href="#" class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="market-card-title">Renewable Energy</div>
+            <span class="market-card-link">Read more <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
-          <div class="market-card-img"><img src="https://placehold.co/300x300/788090/b8c4d0?text=" alt="General Industry" /></div>
-        </div>
+          <div class="market-card-img"><img src="https://placehold.co/300x300/6f967f/bcd6c0?text=" alt="Renewable Energy" /></div>
+        </a>
       </div>
     </div>
   </section>
@@ -1029,7 +1048,7 @@
     <div class="cta-body">
       <h2>Let's talk!</h2>
       <p>Are you looking for a specific solution for your individual adhesive challenge? Do you have any other requests for us?</p>
-      <a href="#" class="cta-btn">Get in touch</a>
+      <a href="contact.html" class="cta-btn">Get in touch</a>
     </div>
   </div>
 
@@ -1042,9 +1061,9 @@
           <img src="https://placehold.co/380x285/7a90a8/c0d0e0?text=" alt="Article 1" />
         </div>
         <div class="discover-card-body">
-          <div class="discover-card-category">tesa</div>
-          <div class="discover-card-title">Introducing tesa® flameXtinct — next-generation flame-retardant tape</div>
-          <a href="#" class="discover-card-link">Read more</a>
+          <div class="discover-card-category">DEON</div>
+          <div class="discover-card-title">Introducing DEON FlameGuard — next-generation flame-retardant tape</div>
+          <a href="resources.html#insights" class="discover-card-link">Read more</a>
         </div>
       </div>
       <div class="discover-card">
@@ -1053,7 +1072,7 @@
         </div>
         <div class="discover-card-body">
           <div class="discover-card-title">Patch instead of plug — a smarter fastening solution for modern assembly</div>
-          <a href="#" class="discover-card-link">Read more</a>
+          <a href="resources.html#insights" class="discover-card-link">Read more</a>
         </div>
       </div>
       <div class="discover-card">
@@ -1062,8 +1081,8 @@
         </div>
         <div class="discover-card-body">
           <div class="discover-card-category" style="color:var(--blue)">Sustainability</div>
-          <div class="discover-card-title">Contributing to sustainability — Recycled PET tesa® 60412 packaging tape</div>
-          <a href="#" class="discover-card-link">Read more</a>
+          <div class="discover-card-title">Contributing to sustainability — Recycled PET DEON 60412 packaging tape</div>
+          <a href="resources.html#insights" class="discover-card-link">Read more</a>
         </div>
       </div>
       <div class="discover-card">
@@ -1071,9 +1090,9 @@
           <img src="https://placehold.co/380x285/907868/dcc8b8?text=" alt="Article 4" />
         </div>
         <div class="discover-card-body">
-          <div class="discover-card-category">tesa</div>
-          <div class="discover-card-title">tesa® 4965 Bondineer — precision bonding for complex industrial assemblies</div>
-          <a href="#" class="discover-card-link">Read more</a>
+          <div class="discover-card-category">DEON</div>
+          <div class="discover-card-title">DEON 4965 Bondineer — precision bonding for complex industrial assemblies</div>
+          <a href="resources.html#insights" class="discover-card-link">Read more</a>
         </div>
       </div>
     </div>
@@ -1084,12 +1103,12 @@
     <div class="footer-search-text">
       <h3>Didn't find what you are<br>looking for?</h3>
     </div>
-    <div class="footer-search-form">
-      <input type="text" placeholder="Search tesa.com" aria-label="Footer search" />
-      <button aria-label="Search">
+    <form class="footer-search-form" action="search.html" method="get" role="search">
+      <input type="text" name="q" placeholder="Search deontechnology.co.in" aria-label="Footer search" />
+      <button type="submit" aria-label="Search">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
-    </div>
+    </form>
     <div class="footer-search-image">
       <!-- decorative illustration placeholder — no text label -->
       <svg width="200" height="160" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1119,7 +1138,7 @@
         <!-- DEON brand logo -->
         <img class="footer-logo" src="brand_assets/Deon_Logo.png" alt="DEON — It's Power-Strong" />
         <div class="footer-tagline">Holding the<br>world together</div>
-        <a href="#" class="footer-contact-link">Contact us</a>
+        <a href="contact.html" class="footer-contact-link">Contact us</a>
         <div class="footer-social">
           <a href="#" class="social-link" aria-label="LinkedIn">in</a>
           <a href="#" class="social-link" aria-label="YouTube">▶</a>
@@ -1129,30 +1148,28 @@
       <div class="footer-col">
         <h4>Headquarter</h4>
         <ul>
-          <li><a href="#">tesa Headquarters</a></li>
+          <li><a href="#">DEON Headquarters</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Plants</h4>
         <ul>
-          <li><a href="#">tesa Plant Concagno</a></li>
-          <li><a href="#">tesa Plant Suzhou</a></li>
-          <li><a href="#">Where tesafilm® is made</a></li>
-          <li><a href="#">tesa Plant Sparta</a></li>
-          <li><a href="#">tesa Plant Hamburg</a></li>
-          <li><a href="#">tesa site Haiphong</a></li>
+          <li><a href="#">DEON Plant — Unit I</a></li>
+          <li><a href="#">DEON Plant — Unit II</a></li>
+          <li><a href="#">DEON Converting Centre</a></li>
+          <li><a href="#">DEON R&amp;D Centre</a></li>
+          <li><a href="#">DEON Logistics Hub</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Regions</h4>
         <ul>
-          <li><a href="#">Hamburg, Europe</a></li>
-          <li><a href="#">Shanghai, China</a></li>
-          <li><a href="#">Singapore, Asia Pacific</a></li>
-          <li><a href="#">Grand Rapids, North America</a></li>
-          <li><a href="#">Curitiba, South America</a></li>
-          <li><a href="#">Sao Paulo, South America</a></li>
-          <li><a href="#">Istanbul, Turkey</a></li>
+          <li><a href="#">India — Headquarters</a></li>
+          <li><a href="#">Middle East</a></li>
+          <li><a href="#">South East Asia</a></li>
+          <li><a href="#">Europe</a></li>
+          <li><a href="#">Africa</a></li>
+          <li><a href="#">North America</a></li>
         </ul>
       </div>
     </div>
@@ -1165,7 +1182,7 @@
         <a href="#">Conditions of use</a>
         <a href="#">Terms &amp; Conditions</a>
       </div>
-      <span>&#169;tesa SE &mdash; A Beiersdorf Company</span>
+      <span>&#169; DEON Technology</span>
     </div>
   </footer>
 
@@ -1188,7 +1205,7 @@
               <li><a href="#" data-drill="markets"><span>Markets</span><span class="ctx-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.5L7.5 7L2 12.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
               <li><a href="#"><span>Applications</span><span class="ctx-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.5L7.5 7L2 12.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
               <li><a href="#"><span>Products</span><span class="ctx-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.5L7.5 7L2 12.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-              <li><a href="#"><span>Contact us</span></a></li>
+              <li><a href="contact.html"><span>Contact us</span></a></li>
             </ul>
           </div>
 
@@ -1199,10 +1216,10 @@
             <li><a href="#" data-drill="markets"><span>Markets</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
             <li><a href="#"><span>Applications</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
             <li><a href="#"><span>Products</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#"><span>Contact us</span></a></li>
+            <li><a href="contact.html"><span>Contact us</span></a></li>
             <li><a href="#"><span>Sustainability</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
             <li><a href="#"><span>Press &amp; Insights</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#"><span>About tesa</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+            <li><a href="#"><span>About DEON</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
             <li><a href="#"><span>Career</span><span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
           </ul>
 
@@ -1219,15 +1236,15 @@
         </div>
         <div class="nav-panel-scroll">
           <ul class="nav-sub-list">
-            <li><a href="index.html"><span>Overview</span></a></li>
-            <li><a href="index.html"><span>Packaging &amp; Logistics</span></a></li>
-            <li><a href="#" data-drill="market-electrical"><span>Electrical &amp; Insulation</span><span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#" data-drill="market-automotive"><span>Automotive &amp; Transportation</span><span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#" data-drill="market-electronics"><span>Electronics</span><span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#" data-drill="market-appliance"><span>Appliance Manufacturing</span><span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#" data-drill="market-metal"><span>Metal Processing &amp; HVAC</span><span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#" data-drill="market-construction"><span>Construction &amp; Building Components</span><span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-            <li><a href="#" data-drill="market-renewable"><span>Renewable Energy</span><span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+            <li><a href="market.html"><span>All markets</span></a></li>
+            <li><a href="market.html?m=packaging"><span>Packaging &amp; Logistics</span></a></li>
+            <li><a href="market.html?m=electrical"><span>Electrical &amp; Insulation</span></a></li>
+            <li><a href="market.html?m=automotive"><span>Automotive &amp; Transportation</span></a></li>
+            <li><a href="electronics.html"><span>Electronics</span></a></li>
+            <li><a href="market.html?m=appliance"><span>Appliance Manufacturing</span></a></li>
+            <li><a href="market.html?m=hvac-metal"><span>Metal Processing &amp; HVAC</span></a></li>
+            <li><a href="market.html?m=construction"><span>Construction &amp; Building Components</span></a></li>
+            <li><a href="market.html?m=renewable"><span>Renewable Energy</span></a></li>
           </ul>
         </div>
       </div>
