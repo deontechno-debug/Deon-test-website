@@ -22,7 +22,7 @@
       tagline: "Insulation and assembly solutions for electrical equipment",
       segments: ["cable-harnessing", "transformer-insulation", "motor-winding", "electrical-assembly"], status: "planned" },
     { id: "packaging", name: "Packaging & Logistics", slug: "packaging", page: "#",
-      tagline: "Secure, efficient and sustainable packaging solutions",
+      tagline: "Carton sealing, strapping and tamper protection for logistics",
       segments: ["carton-sealing", "palletising", "tamper-evidence"], status: "planned" },
     { id: "appliance", name: "Appliance Manufacturing", slug: "appliance", page: "#",
       tagline: "Bonding, sealing and insulation for durable appliances",
@@ -35,7 +35,48 @@
       segments: ["facade-mounting", "sealing-glazing", "site-protection"], status: "planned" },
     { id: "renewable", name: "Renewable Energy", slug: "renewable", page: "#",
       tagline: "Bonding and protection for solar and energy storage",
-      segments: ["pv-module-assembly", "battery-storage", "wind-components"], status: "planned" }
+      segments: ["pv-module-assembly", "battery-storage", "wind-components"], status: "planned" },
+
+    // Partner markets — SINGLE PAGE, no segments. special:true routes the
+    // chrome/explorer to skip segment children; sections[] drives the page body.
+    { id: "converter-partners", name: "Industrial Converter Partners", slug: "converter-partners",
+      page: "converter-partners.html", status: "live", special: true,
+      tagline: "Jumbo and log roll supply for industrial tape converters",
+      intro: "DEON coats and supplies adhesive tapes in jumbo and log roll formats for converters who slit, die-cut and finish to their own programs. We sit upstream as your coating and base-material partner — with consistent batch-to-batch quality, flexible roll formats and the technical support to qualify new constructions.",
+      segments: [],
+      sections: [
+        { id: "overview", title: "A coating partner for industrial converters",
+          body: "As a manufacturer and coater, DEON supplies adhesive tapes in bulk formats engineered for downstream conversion. Converters rely on us for the base material — coated to specification, wound to tolerance and delivered to a predictable schedule — so they can focus on slitting, die-cutting, printing and finishing. We support both standard constructions and custom-coated programs, backed by the application engineering needed to qualify new products on your lines. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "jumbo-roll-supply", title: "Jumbo roll supply",
+          body: "Full-width jumbo rolls coated to your specification and wound on standard cores, ready for slitting. Consistent adhesive coat weight, backing gauge and unwind tension across batches keep your slitting and die-cutting lines running with minimal re-qualification. Available across the DEON adhesive and backing portfolio. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "log-roll-supply", title: "Log roll supply",
+          body: "Pre-slit log rolls in defined widths and lengths for converters who want to skip the first slitting pass. We hold tight width and diameter tolerances and label every roll for traceability, so you receive a press-ready input that drops straight into your finishing operations. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "custom-width-programs", title: "Custom width programs",
+          body: "Standing slit-to-width programs tailored to your recurring formats. Agree the widths, cores and pack quantities once, and DEON schedules repeat production against your forecast — reducing lead time, minimising trim waste and giving you a reliable, repeatable supply of exactly the formats your customers order. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "printed-cores", title: "Printed cores & branding",
+          body: "Cores printed with your brand, product codes, batch data or barcodes so the rolls you ship carry your identity from the moment they leave our line. Printed and colour-coded cores also help your operators and customers identify constructions quickly on the shop floor. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "technical-support", title: "Technical support",
+          body: "Our application engineers help converters select base constructions, troubleshoot adhesion or converting issues and qualify new tapes for end-use. From coat-weight adjustments to backing changes and sample runs, we work alongside your team to get a construction right before it scales. [Placeholder copy — DEON narrative to be added.]" }
+      ] },
+    { id: "oem-partners", name: "OEM & Private Label Partners", slug: "oem-partners",
+      page: "oem-partners.html", status: "live", special: true,
+      tagline: "Private-label manufacturing and custom product development",
+      intro: "DEON manufactures adhesive tapes under your brand. From private-label production of proven constructions to ground-up custom product development, we act as your behind-the-scenes manufacturing partner — handling coating, converting, packaging and branding so you can bring tape products to market under your own name.",
+      segments: [],
+      sections: [
+        { id: "overview", title: "Your manufacturing partner, your brand",
+          body: "OEM and private-label customers come to DEON for manufacturing depth without the capital outlay. We produce adhesive tapes to your specification, package and brand them as your own, and scale production as your demand grows. Whether you are a distributor building a house range or an OEM integrating tape into a finished product, DEON provides the coating, converting and finishing — under your identity. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "private-label-manufacturing", title: "Private label manufacturing",
+          body: "Proven DEON constructions produced and packaged under your brand. Choose from the existing portfolio, specify your branding and packaging, and we manufacture to your forecast with consistent quality and full batch traceability. A fast route to a credible own-brand tape range without developing products from scratch. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "custom-product-development", title: "Custom product development",
+          body: "When an existing tape will not do, our R&D and application engineers develop new constructions to your performance targets — selecting adhesives, backings and coat weights, then validating against your test criteria. You get a differentiated product, owned by your brand, built on DEON's coating and converting capability. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "packaging-branding", title: "Packaging & branding",
+          body: "Finished goods packaged exactly as your market expects — printed cores, branded liners, custom labels, retail or industrial cartons and shelf-ready presentation. We tailor the format to your channel so products arrive ready to sell under your name. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "printed-cores", title: "Printed cores & finishing",
+          body: "Cores and finishing details printed with your brand, product codes and batch information for traceability and on-shelf identity. Colour-coding and custom core sizes are available to match your existing range and help end users identify products at a glance. [Placeholder copy — DEON narrative to be added.]" },
+        { id: "manufacturing-scale-up", title: "Manufacturing scale-up",
+          body: "Start with pilot quantities to validate the market, then scale into full production on the same lines and specification — no re-qualification, no surprises. DEON's capacity and supply reliability let your own-brand programs grow from launch volumes to high-volume manufacturing on a predictable schedule. [Placeholder copy — DEON narrative to be added.]" }
+      ] }
   ];
 
   // Segments belong to a market and group applications.
@@ -284,26 +325,238 @@
     { id: "deon-64210", name: "DEON® 64210", familyId: "emi-shielding-tapes", t: 130, adhesive: "conductive acrylic", backing: "tin-plated copper", desc: "130µm single-sided grounding tape" },
     { id: "deon-69402", name: "DEON® 69402", familyId: "foam-sealing-tapes", t: 800, adhesive: "specialty", backing: "none", desc: "800µm thick double-sided foam mounting tape" },
     { id: "deon-58901", name: "DEON® 58901", familyId: "thin-double-sided-pet-tapes", t: 25, adhesive: "tackified acrylic", backing: "PET", desc: "25µm thin double-sided film tape" },
-    { id: "deon-60355", name: "DEON® 60355", familyId: "thermally-conductive-tapes", t: 350, adhesive: "acrylic", backing: "aluminium foil", desc: "350µm thermally conductive aluminium tape" }
+    { id: "deon-60355", name: "DEON® 60355", familyId: "thermally-conductive-tapes", t: 350, adhesive: "acrylic", backing: "aluminium foil", desc: "350µm thermally conductive aluminium tape" },
+
+    // Placeholder SKUs extending the non-electronics families so every market's
+    // product finder is populated. [Replace with real DEON product data.]
+    { id: "deon-pvc-15", name: "DEON® PVC 15", familyId: "pvc-electrical-tapes", t: 150, adhesive: "rubber", backing: "PVC", desc: "150µm general-purpose PVC insulation tape" },
+    { id: "deon-pvc-19", name: "DEON® PVC 19", familyId: "pvc-electrical-tapes", t: 190, adhesive: "rubber", backing: "PVC", desc: "190µm heavy-duty PVC harness tape" },
+    { id: "deon-pvc-13", name: "DEON® PVC 13", familyId: "pvc-electrical-tapes", t: 130, adhesive: "rubber", backing: "PVC", desc: "130µm thin flexible PVC tape" },
+    { id: "deon-cht-205", name: "DEON® CHT 205", familyId: "cloth-harness-tapes", t: 205, adhesive: "acrylic", backing: "PET fleece", desc: "205µm abrasion-protection fleece harness tape" },
+    { id: "deon-cht-260", name: "DEON® CHT 260", familyId: "cloth-harness-tapes", t: 260, adhesive: "rubber", backing: "PET fleece", desc: "260µm noise-damping fleece harness tape" },
+    { id: "deon-cht-310", name: "DEON® CHT 310", familyId: "cloth-harness-tapes", t: 310, adhesive: "rubber", backing: "cotton cloth", desc: "310µm high-abrasion cloth harness tape" },
+    { id: "deon-pet-25b", name: "DEON® PET 25", familyId: "polyester-tapes", t: 25, adhesive: "acrylic", backing: "PET", desc: "25µm thin polyester insulation tape" },
+    { id: "deon-pet-50b", name: "DEON® PET 50", familyId: "polyester-tapes", t: 50, adhesive: "silicone", backing: "PET", desc: "50µm high-temperature polyester tape" },
+    { id: "deon-pet-75b", name: "DEON® PET 75", familyId: "polyester-tapes", t: 75, adhesive: "acrylic", backing: "PET", desc: "75µm polyester layer-insulation tape" },
+    { id: "deon-bopp-40", name: "DEON® BOPP 40", familyId: "bopp-packaging-tapes", t: 40, adhesive: "hotmelt", backing: "BOPP", desc: "40µm general-purpose carton-sealing tape" },
+    { id: "deon-bopp-48", name: "DEON® BOPP 48", familyId: "bopp-packaging-tapes", t: 48, adhesive: "acrylic", backing: "BOPP", desc: "48µm low-noise acrylic packaging tape" },
+    { id: "deon-bopp-55", name: "DEON® BOPP 55", familyId: "bopp-packaging-tapes", t: 55, adhesive: "hotmelt", backing: "BOPP", desc: "55µm heavy-duty carton-sealing tape" },
+    { id: "deon-fil-150", name: "DEON® FIL 150", familyId: "filament-strapping-tapes", t: 150, adhesive: "rubber", backing: "PET filament", desc: "150µm mono-filament strapping tape" },
+    { id: "deon-fil-180", name: "DEON® FIL 180", familyId: "filament-strapping-tapes", t: 180, adhesive: "synthetic rubber", backing: "glass filament", desc: "180µm bi-directional glass-filament tape" },
+    { id: "deon-sec-60", name: "DEON® SEC 60", familyId: "specialty-industrial-tapes", t: 60, adhesive: "acrylic", backing: "void PET", desc: "60µm tamper-evident security tape" },
+    { id: "deon-spl-120", name: "DEON® SPL 120", familyId: "specialty-industrial-tapes", t: 120, adhesive: "specialty", backing: "PET", desc: "120µm specialty converted industrial tape" },
+    { id: "deon-msk-130", name: "DEON® MSK 130", familyId: "masking-tapes", t: 130, adhesive: "rubber", backing: "crepe paper", desc: "130µm general-purpose masking tape" },
+    { id: "deon-msk-pi", name: "DEON® MSK PI", familyId: "masking-tapes", t: 60, adhesive: "silicone", backing: "polyimide", desc: "60µm high-temperature polyimide masking tape" },
+    { id: "deon-msk-150", name: "DEON® MSK 150", familyId: "masking-tapes", t: 150, adhesive: "rubber", backing: "crepe paper", desc: "150µm sharp-line paint masking tape" },
+    { id: "deon-foil-50", name: "DEON® FOIL 50", familyId: "foil-tapes", t: 50, adhesive: "acrylic", backing: "aluminium foil", desc: "50µm aluminium foil sealing tape" },
+    { id: "deon-foil-80", name: "DEON® FOIL 80", familyId: "foil-tapes", t: 80, adhesive: "acrylic", backing: "aluminium foil", desc: "80µm reinforced foil duct tape" },
+    { id: "deon-spf-50", name: "DEON® SPF 50", familyId: "surface-protection-films", t: 50, adhesive: "acrylic", backing: "PE", desc: "50µm low-tack surface protection film" },
+    { id: "deon-spf-70", name: "DEON® SPF 70", familyId: "surface-protection-films", t: 70, adhesive: "acrylic", backing: "PE", desc: "70µm medium-tack protection film" },
+    { id: "deon-spf-30", name: "DEON® SPF 30", familyId: "surface-protection-films", t: 30, adhesive: "acrylic", backing: "PE", desc: "30µm ultra-thin protection film" },
+    { id: "deon-ins-25", name: "DEON® INS 25", familyId: "electrical-insulation-tapes", t: 25, adhesive: "acrylic", backing: "PET", desc: "25µm thin dielectric insulation tape" },
+    { id: "deon-ins-50", name: "DEON® INS 50", familyId: "electrical-insulation-tapes", t: 50, adhesive: "acrylic", backing: "polyimide", desc: "50µm high-voltage polyimide insulation tape" },
+    { id: "deon-fr-90", name: "DEON® FR 90", familyId: "flame-retardant-tapes", t: 90, adhesive: "acrylic", backing: "PET FR", desc: "90µm UL 94 V-0 flame-retardant tape" },
+    { id: "deon-fr-150", name: "DEON® FR 150", familyId: "flame-retardant-tapes", t: 150, adhesive: "acrylic", backing: "PET FR", desc: "150µm thick flame-retardant insulation tape" },
+    { id: "deon-acf-500", name: "DEON® ACF 500", familyId: "acoustic-foam-tapes", t: 500, adhesive: "acrylic", backing: "PU foam", desc: "500µm acoustic sealing foam tape" },
+    { id: "deon-acf-800", name: "DEON® ACF 800", familyId: "acoustic-foam-tapes", t: 800, adhesive: "acrylic", backing: "PU foam", desc: "800µm thick acoustic damping foam tape" }
   ];
 
-  // Resources attach across the graph (markets + applications).
+  // Resources attach across the graph (markets + applications). category ∈ Knowledge
+  // categories (DEON_ARCH.knowledge) so the Knowledge Center can group them by section.
+  // [Content is placeholder; the category taxonomy + relations are production.]
   var RESOURCES = [
-    { id: "res-pcb-guide", title: "PCB assembly tape selection guide", type: "Selection guide", format: "PDF", size: "3.1 MB", url: "#",
+    // ── Application Guides ──
+    { id: "res-pcb-guide", title: "PCB assembly tape selection guide", type: "Selection guide", category: "Application Guides", format: "PDF", size: "3.1 MB", url: "#",
       markets: ["electronics"], applications: ["component-fixation", "solder-masking", "heat-sink-bonding", "emi-shielding"] },
-    { id: "res-display-brochure", title: "Display bonding & sealing brochure", type: "Brochure", format: "PDF", size: "2.4 MB", url: "#",
-      markets: ["electronics"], applications: ["display-frame-bonding", "optical-lamination", "gasketing-sealing"] },
-    { id: "res-battery-guide", title: "Battery assembly solutions guide", type: "Solutions guide", format: "PDF", size: "4.0 MB", url: "#",
+    { id: "res-battery-guide", title: "Battery assembly solutions guide", type: "Solutions guide", category: "Application Guides", format: "PDF", size: "4.0 MB", url: "#",
       markets: ["electronics", "automotive"], applications: ["cell-insulation", "busbar-insulation", "cell-fixation", "heat-sink-bonding"] },
-    { id: "res-consumer-overview", title: "Consumer device assembly overview", type: "Overview", format: "PDF", size: "1.9 MB", url: "#",
-      markets: ["electronics"], applications: ["housing-cosmetic-bonding", "speaker-module-mounting", "rework-fixation", "surface-protection"] },
-    { id: "res-industrial-guide", title: "DEON industrial tape selection guide", type: "Selection guide", format: "PDF", size: "5.2 MB", url: "#",
+    { id: "res-display-brochure", title: "Display bonding & sealing guide", type: "Application guide", category: "Application Guides", format: "PDF", size: "2.4 MB", url: "#",
+      markets: ["electronics"], applications: ["display-frame-bonding", "optical-lamination", "gasketing-sealing"] },
+    { id: "res-harness-guide", title: "Wire harnessing & cable wrapping guide", type: "Application guide", category: "Application Guides", format: "PDF", size: "2.8 MB", url: "#",
+      markets: ["automotive", "electrical"], applications: ["wire-harness-wrapping"] },
+
+    // ── Product Catalogues ──
+    { id: "res-master-catalogue", title: "DEON master product catalogue", type: "Catalogue", category: "Product Catalogues", format: "PDF", size: "12.6 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-electronics-catalogue", title: "Electronics tapes catalogue", type: "Catalogue", category: "Product Catalogues", format: "PDF", size: "6.2 MB", url: "#",
+      markets: ["electronics"], applications: [] },
+    { id: "res-electrical-catalogue", title: "Electrical & insulation tapes catalogue", type: "Catalogue", category: "Product Catalogues", format: "PDF", size: "5.8 MB", url: "#",
+      markets: ["electrical"], applications: [] },
+    { id: "res-packaging-catalogue", title: "Packaging & strapping tapes catalogue", type: "Catalogue", category: "Product Catalogues", format: "PDF", size: "4.1 MB", url: "#",
+      markets: ["packaging"], applications: [] },
+
+    // ── Technical Datasheets ──
+    { id: "res-ds-double-sided", title: "Double-sided tapes — technical datasheets", type: "Datasheet", category: "Technical Datasheets", format: "PDF", size: "3.4 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-ds-electrical", title: "Electrical insulation tapes — technical datasheets", type: "Datasheet", category: "Technical Datasheets", format: "PDF", size: "2.9 MB", url: "#",
+      markets: ["electrical", "electronics"], applications: [] },
+    { id: "res-ds-foil", title: "Aluminium foil & EMI tapes — technical datasheets", type: "Datasheet", category: "Technical Datasheets", format: "PDF", size: "2.2 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-ds-surface", title: "Surface protection films — technical datasheets", type: "Datasheet", category: "Technical Datasheets", format: "PDF", size: "1.8 MB", url: "#",
+      markets: ["metal", "building"], applications: ["surface-protection"] },
+
+    // ── Certifications & Compliance ──
+    { id: "res-cert-iso9001", title: "ISO 9001:2015 quality certificate", type: "Certificate", category: "Certifications & Compliance", format: "PDF", size: "0.6 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-cert-iso14001", title: "ISO 14001 environmental certificate", type: "Certificate", category: "Certifications & Compliance", format: "PDF", size: "0.6 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-cert-rohs-reach", title: "RoHS & REACH compliance statement", type: "Compliance", category: "Certifications & Compliance", format: "PDF", size: "0.9 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-cert-ul", title: "UL 510 / UL 94 flame-rating documentation", type: "Compliance", category: "Certifications & Compliance", format: "PDF", size: "1.1 MB", url: "#",
+      markets: ["electrical", "electronics"], applications: [] },
+
+    // ── Industry Guides ──
+    { id: "res-industrial-guide", title: "DEON industrial tape selection guide", type: "Selection guide", category: "Industry Guides", format: "PDF", size: "5.2 MB", url: "#",
       markets: ["electronics", "automotive", "electrical", "packaging", "appliance", "hvac-metal", "construction", "renewable"],
-      applications: ["wire-harness-wrapping", "paint-masking", "carton-sealing-app", "panel-mounting"] }
+      applications: ["wire-harness-wrapping", "paint-masking", "carton-sealing-app", "panel-mounting"] },
+    { id: "res-ev-guide", title: "Tapes for EV battery & e-mobility", type: "Industry guide", category: "Industry Guides", format: "PDF", size: "3.7 MB", url: "#",
+      markets: ["automotive", "renewable"], applications: ["cell-insulation", "cell-fixation"] },
+    { id: "res-renewable-guide", title: "Bonding & protection for renewable energy", type: "Industry guide", category: "Industry Guides", format: "PDF", size: "3.0 MB", url: "#",
+      markets: ["renewable"], applications: [] },
+
+    // ── Videos & Tutorials ──
+    { id: "res-vid-application", title: "How to apply double-sided mounting tape", type: "Video", category: "Videos & Tutorials", format: "Video", size: "4 min", url: "#",
+      markets: [], applications: [] },
+    { id: "res-vid-converting", title: "Inside DEON converting — from master roll to part", type: "Video", category: "Videos & Tutorials", format: "Video", size: "6 min", url: "#",
+      markets: [], applications: [] },
+    { id: "res-vid-surface", title: "Surface preparation for reliable bonding", type: "Tutorial", category: "Videos & Tutorials", format: "Video", size: "5 min", url: "#",
+      markets: [], applications: [] },
+
+    // ── Case Studies ──
+    { id: "res-case-display", title: "Case study: thin-bezel display bonding at scale", type: "Case study", category: "Case Studies", format: "PDF", size: "1.7 MB", url: "#",
+      markets: ["electronics"], applications: ["display-frame-bonding"] },
+    { id: "res-case-harness", title: "Case study: noise-damped automotive wire harnesses", type: "Case study", category: "Case Studies", format: "PDF", size: "1.5 MB", url: "#",
+      markets: ["automotive"], applications: ["wire-harness-wrapping"] },
+    { id: "res-case-battery", title: "Case study: residue-free rework in consumer devices", type: "Case study", category: "Case Studies", format: "PDF", size: "1.6 MB", url: "#",
+      markets: ["electronics"], applications: ["rework-fixation"] },
+
+    // ── White Papers ──
+    { id: "res-wp-bonding", title: "White paper: bonded assembly vs. mechanical fastening", type: "White paper", category: "White Papers", format: "PDF", size: "2.1 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-wp-thermal", title: "White paper: thermal management with conductive tapes", type: "White paper", category: "White Papers", format: "PDF", size: "2.3 MB", url: "#",
+      markets: ["electronics", "automotive"], applications: ["heat-sink-bonding"] },
+    { id: "res-wp-sustainability", title: "White paper: bio-based & recyclable adhesive systems", type: "White paper", category: "White Papers", format: "PDF", size: "1.9 MB", url: "#",
+      markets: [], applications: [] },
+
+    // ── Downloads (general assets) ──
+    { id: "res-consumer-overview", title: "Consumer device assembly overview", type: "Overview", category: "Downloads", format: "PDF", size: "1.9 MB", url: "#",
+      markets: ["electronics"], applications: ["housing-cosmetic-bonding", "speaker-module-mounting", "rework-fixation", "surface-protection"] },
+    { id: "res-company-brochure", title: "DEON company brochure", type: "Brochure", category: "Downloads", format: "PDF", size: "3.3 MB", url: "#",
+      markets: [], applications: [] },
+    { id: "res-converter-program", title: "Converter & private-label programme overview", type: "Overview", category: "Downloads", format: "PDF", size: "2.0 MB", url: "#",
+      markets: [], applications: [] }
+  ];
+
+  // Press & Insights items. category ∈ Press categories (DEON_ARCH.press):
+  // Industry Insights, Application Stories, Product Updates, Company News, Events & Exhibitions.
+  var INSIGHTS = [
+    { id: "ins-fasteners-to-tape", title: "Where adhesive tapes are replacing mechanical fasteners",
+      category: "Industry Insights", date: "2026-05-28", url: "#",
+      excerpt: "Lightweighting and bonded-assembly trends are reshaping how manufacturers join parts. [Placeholder copy.]",
+      markets: ["automotive", "electronics"], applications: ["panel-mounting"] },
+    { id: "ins-lse-plastics", title: "Bonding to low-surface-energy plastics on the line",
+      category: "Industry Insights", date: "2026-04-12", url: "#",
+      excerpt: "Why LSE substrates defeat ordinary adhesives — and how to specify around them. [Placeholder copy.]",
+      markets: ["electronics", "appliance"], applications: [] },
+    { id: "ins-thermal-management", title: "Thermal management in compact electronics",
+      category: "Industry Insights", date: "2026-03-03", url: "#",
+      excerpt: "Heat-spreading and heat-sink bonding strategies for dense assemblies. [Placeholder copy.]",
+      markets: ["electronics"], applications: ["heat-sink-bonding"] },
+
+    { id: "ins-ev-battery-story", title: "Inside an EV battery pack: insulation that earns its place",
+      category: "Application Stories", date: "2026-05-09", url: "#",
+      excerpt: "How cell insulation and busbar protection come together on a high-volume line. [Placeholder copy.]",
+      markets: ["automotive", "electronics"], applications: ["cell-insulation", "busbar-insulation"] },
+    { id: "ins-display-bonding-story", title: "Sealing a display module without a single screw",
+      category: "Application Stories", date: "2026-02-20", url: "#",
+      excerpt: "A look at frame bonding and gasketing for slim consumer displays. [Placeholder copy.]",
+      markets: ["electronics"], applications: ["display-frame-bonding", "gasketing-sealing"] },
+
+    { id: "ins-fr-launch", title: "New flame-retardant constructions for EV applications",
+      category: "Product Updates", date: "2026-06-01", url: "#",
+      excerpt: "Expanded UL 94 V-0 range for battery and power-electronics assembly. [Placeholder copy.]",
+      markets: ["automotive", "electronics", "renewable"], applications: [] },
+    { id: "ins-spf-range", title: "Expanded surface-protection film range",
+      category: "Product Updates", date: "2026-04-25", url: "#",
+      excerpt: "Three new tack levels for masking, transit and in-process protection. [Placeholder copy.]",
+      markets: ["metal", "electronics"], applications: ["surface-protection"] },
+
+    { id: "ins-capacity", title: "DEON expands converting capacity",
+      category: "Company News", date: "2026-05-15", url: "#",
+      excerpt: "New slitting and die-cutting lines shorten lead times for custom formats. [Placeholder copy.]",
+      markets: [], applications: [] },
+    { id: "ins-sustainability", title: "DEON joins industry sustainability initiative",
+      category: "Company News", date: "2026-03-18", url: "#",
+      excerpt: "Commitment to lower-impact backings and solvent-free adhesive systems. [Placeholder copy.]",
+      markets: [], applications: [] },
+
+    { id: "ins-productronica", title: "Meet DEON at productronica 2026",
+      category: "Events & Exhibitions", date: "2026-06-04", url: "#",
+      excerpt: "Live converting demos and application engineering at booth A1-220. [Placeholder copy.]",
+      markets: ["electronics"], applications: [] },
+    { id: "ins-battery-show", title: "DEON at The Battery Show",
+      category: "Events & Exhibitions", date: "2026-05-02", url: "#",
+      excerpt: "Cell insulation and pack-assembly tapes on show for battery makers. [Placeholder copy.]",
+      markets: ["automotive", "renewable"], applications: ["cell-insulation"] }
+  ];
+
+  // Core manufacturing technologies. `category` matches a Manufacturing &
+  // Technology topic (window.DEON_ARCH.manufacturing). Surfaced on
+  // manufacturing-technology.html and reusable by segment/application pages.
+  var TECHNOLOGIES = [
+    // -- Adhesive Technologies --
+    { id: "tech-acrylic", name: "Acrylic (solvent & water-based) PSA", category: "Adhesive Technologies",
+      summary: "General-purpose to high-performance acrylic pressure-sensitive adhesives with excellent UV, ageing and chemical resistance. Cross-linked formulations hold shear under sustained load and operate continuously to roughly 150 °C.",
+      markets: ["electronics", "automotive", "electrical", "construction", "renewable"], applications: ["surface-protection", "panel-mounting", "cell-insulation"] },
+    { id: "tech-modified-acrylic", name: "Modified & high-tack acrylic", category: "Adhesive Technologies",
+      summary: "Tackified acrylic chemistries for fast initial grab on low-surface-energy (LSE) plastics and powder-coated metals, balancing quick stick with long-term holding power.",
+      markets: ["automotive", "appliance", "construction"], applications: ["housing-cosmetic-bonding", "panel-mounting"] },
+    { id: "tech-rubber", name: "Rubber / synthetic-rubber hot-melt PSA", category: "Adhesive Technologies",
+      summary: "Hot-melt and natural-rubber adhesives engineered for aggressive instant tack and economical high-volume bonding — the workhorse for carton sealing, masking and bundling.",
+      markets: ["packaging", "hvac-metal"], applications: ["carton-sealing-app", "paint-masking"] },
+    { id: "tech-silicone", name: "Silicone PSA", category: "Adhesive Technologies",
+      summary: "Silicone adhesives for extreme-temperature service (−50 °C to 260 °C+), bonding to silicone and PTFE surfaces where acrylics and rubbers fail. Specified for polyimide masking and high-heat insulation.",
+      markets: ["electronics", "electrical"], applications: ["solder-masking", "busbar-insulation"] },
+    { id: "tech-structural-acrylic-foam", name: "Acrylic-foam structural bonding", category: "Adhesive Technologies",
+      summary: "Viscoelastic acrylic-foam cores that bond rigid and flexible substrates while absorbing dynamic, thermal and impact stress — a permanent, gasket-forming alternative to rivets and welds.",
+      markets: ["automotive", "construction", "renewable"], applications: ["display-frame-bonding", "panel-mounting"] },
+    { id: "tech-thermally-conductive", name: "Thermally conductive adhesives", category: "Adhesive Technologies",
+      summary: "Filled adhesive systems that bond and transfer heat at once, channeling thermal load from components to heat sinks and housings without mechanical fasteners.",
+      markets: ["electronics", "automotive"], applications: ["heat-sink-bonding", "cell-fixation"] },
+    { id: "tech-electrically-functional", name: "Electrically conductive & EMI adhesives", category: "Adhesive Technologies",
+      summary: "Conductive and EMI-shielding adhesive constructions that ground, shield and bond in a single step for sensitive electronic assemblies.",
+      markets: ["electronics"], applications: ["emi-shielding"] },
+
+    // -- Backing Materials --
+    { id: "tech-pet-backing", name: "Polyester (PET) film backing", category: "Backing Materials",
+      summary: "Dimensionally stable, high-tensile PET films from 12 µm upward — the dielectric backbone of insulation, splicing and die-cut electronic parts, with controlled shrinkage through reflow.",
+      markets: ["electronics", "electrical"], applications: ["cell-insulation", "busbar-insulation"] },
+    { id: "tech-polyimide-backing", name: "Polyimide (PI) film backing", category: "Backing Materials",
+      summary: "Amber polyimide films rated for continuous 260 °C service with excellent dielectric strength — specified for solder masking, wave-solder and high-voltage insulation.",
+      markets: ["electronics"], applications: ["solder-masking", "busbar-insulation"] },
+    { id: "tech-pvc-backing", name: "PVC film backing", category: "Backing Materials",
+      summary: "Flame-retardant, abrasion-resistant plasticised PVC with the conformability and stretch that electrical and harness wrapping demands.",
+      markets: ["electrical", "automotive"], applications: ["wire-harness-wrapping"] },
+    { id: "tech-foam-backing", name: "PE / PU / acrylic foam backing", category: "Backing Materials",
+      summary: "Closed- and open-cell foams that seal against dust, moisture and noise while compensating for surface irregularities and tolerance gaps.",
+      markets: ["electronics", "automotive", "appliance", "construction"], applications: ["gasketing-sealing", "display-frame-bonding"] },
+    { id: "tech-cloth-backing", name: "Woven & non-woven cloth backing", category: "Backing Materials",
+      summary: "PET and polyester-fleece cloth backings tuned for abrasion, noise damping and hand-tearability — the standard for automotive wire-harness wrapping.",
+      markets: ["automotive", "electrical"], applications: ["wire-harness-wrapping"] },
+    { id: "tech-foil-backing", name: "Aluminium & metal foil backing", category: "Backing Materials",
+      summary: "Soft-temper aluminium and metallised foils for heat reflection, EMI/RFI shielding, vapour barriers and HVAC duct sealing.",
+      markets: ["hvac-metal", "construction", "electronics"], applications: ["emi-shielding", "panel-mounting"] },
+    { id: "tech-paper-backing", name: "Crepe & flat-paper backing", category: "Backing Materials",
+      summary: "Saturated crepe and flat papers engineered for clean, sharp-line masking and residue-free removal across paint, powder-coat and bake cycles.",
+      markets: ["automotive", "hvac-metal"], applications: ["paint-masking"] },
+    { id: "tech-pe-pp-film-backing", name: "PE / PP protection-film backing", category: "Backing Materials",
+      summary: "Polyethylene and polypropylene films with controlled low-tack adhesion for temporary surface protection that peels cleanly after fabrication and transit.",
+      markets: ["hvac-metal", "construction", "renewable"], applications: ["surface-protection"] }
   ];
 
   window.DEON_CATALOG = {
     markets: MARKETS, segments: SEGMENTS, applications: APPLICATIONS,
-    productFamilies: PRODUCT_FAMILIES, products: PRODUCTS, resources: RESOURCES
+    productFamilies: PRODUCT_FAMILIES, products: PRODUCTS, resources: RESOURCES,
+    insights: INSIGHTS, technologies: TECHNOLOGIES
   };
 })();

@@ -1,92 +1,70 @@
-/* Application page renderer — renders ANY application from the catalog
-   via ?app=<id>. Connects the application to its markets, segments,
-   product families, related applications, resources, and contact. */
+/* Application page renderer — electronics vocabulary (hero + white card,
+   market-section bands, feature-list challenges, segment-grid families/related,
+   tag-row markets, download-grid resources, cta-strip helpdesk). */
 (function () {
   'use strict';
   var D = window.DEON;
-  var ARROW = '<svg width="16" height="10" viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var BG = ['3a4a6a','394970','445586','4f6090','2f3f5f','47588a','13284a','0e2a44'];
+  var ARROW = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="display:inline-block;vertical-align:middle"><path d="M3 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var DLICON='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>';
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
   function qs(k){return new URLSearchParams(location.search).get(k);}
+  function hero(crumb,h1,intro,bg){return (crumb?'<div class="context-bar">'+crumb+'</div>':'')+'<div class="hero"><div class="hero-media lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/1600x600/'+bg+'/8ea0c8?text=" alt="'+esc(h1)+'" /></div><div class="hero-card"><h1>'+esc(h1)+'</h1><p>'+esc(intro)+'</p></div></div>';}
+  function segCard(href,bg,title,caption,cta){return '<a class="segment-card" href="'+esc(href)+'"><div class="segment-card-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/440x330/'+bg+'/9eb0d8?text=" alt="'+esc(title)+'" /></div><div class="segment-card-body"><div class="segment-card-title">'+esc(title)+'</div><div class="segment-card-caption">'+esc(caption)+'</div><span class="segment-card-link">'+esc(cta||'Read more')+' '+ARROW+'</span></div></a>';}
+  function sect(cls,inner){return '<section class="market-section'+(cls?' '+cls:'')+'">'+inner+'</section>';}
+  function dlCard(href,title,sub){return '<a href="'+esc(href)+'" class="download-card"><img class="download-thumb" src="https://placehold.co/264x184/dfe4ec/8ea0c8?text=" alt="" /><div class="download-meta"><div class="download-title">'+esc(title)+'</div><div class="download-sub">'+esc(sub)+'</div><span class="download-action">Download '+DLICON+'</span></div></a>';}
 
-  function card(href, kicker, title, desc, cta){
-    return '<a class="ent-card" href="'+esc(href)+'">'+
-      (kicker?'<span class="kicker">'+esc(kicker)+'</span>':'')+
-      '<span class="t">'+esc(title)+'</span>'+
-      (desc?'<span class="d">'+esc(desc)+'</span>':'')+
-      '<span class="more">'+esc(cta||'View')+' '+ARROW+'</span></a>';
-  }
-  function section(cls, inner){return '<section class="section'+(cls?' '+cls:'')+'"><div class="container">'+inner+'</div></section>';}
-
-  function renderNotFound(root){
-    var apps = D.raw.applications;
-    document.title = 'Applications | DEON';
-    root.innerHTML =
-      '<section class="page-hero"><div class="container">'+
-        '<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="current">Applications</span></nav>'+
-        '<div class="eyebrow">Application Library</div><h1>Applications</h1>'+
-        '<p class="lead">Browse DEON\'s adhesive applications. Each application connects the manufacturing challenge to the product families and resources that solve it.</p>'+
-      '</div></section>'+
-      section('', '<div class="card-grid">'+apps.map(function(a){
-        return card(D.url.application(a.id), (D.marketsForApplication(a.id)[0]||{}).name||'Application', a.name, a.summary, 'Explore');
-      }).join('')+'</div>')+
-      '<section class="cta-band"><div class="container"><div><h2>Have an application in mind?</h2><p>Tell DEON about your bonding, sealing or insulation challenge.</p></div><a class="btn" href="contact.html">Get technical advice</a></div></section>';
+  function renderIndex(root){
+    document.title='Applications | DEON';
+    var apps=D.raw.applications;
+    root.innerHTML=hero(D.trail.hub('Applications'),'Applications','DEON adhesive applications across industrial markets. Each connects a manufacturing challenge to the product families and resources that solve it.','2f3f5f')+
+      sect('', '<div class="market-eyebrow">Application library</div><h2>Browse applications</h2><div class="segment-grid">'+
+        apps.map(function(a,i){return segCard(D.url.application(a.id),BG[i%BG.length],a.name,a.summary,'Explore');}).join('')+'</div>');
   }
 
   function render(){
-    var root = document.getElementById('deon-main');
-    var id = qs('app');
-    var a = id && D.application(id);
-    if (!a) { renderNotFound(root); return; }
+    var root=document.getElementById('deon-main');
+    var id=qs('app'); var a=id&&D.application(id);
+    if(!a){ renderIndex(root); return; }
+    document.title=a.name+' | DEON Applications';
+    var markets=D.marketsForApplication(a.id), segs=D.segmentsForApplication(a.id);
+    var families=D.productFamiliesForApplication(a.id), related=D.relatedApplications(a.id,3), resources=D.resourcesForApplication(a.id);
+    var m0=markets[0], s0=segs[0];
 
-    document.title = a.name + ' | DEON Applications';
-    var markets = D.marketsForApplication(a.id);
-    var segs = D.segmentsForApplication(a.id);
-    var families = D.productFamiliesForApplication(a.id);
-    var related = D.relatedApplications(a.id, 3);
-    var resources = D.resourcesForApplication(a.id);
-    var m0 = markets[0], s0 = segs[0];
+    var out = hero(D.trail.application(a.id), a.name, a.summary, '3a4a6a');
 
-    var crumb = '<nav class="breadcrumb"><a href="index.html">Home</a>'+
-      (m0?'<span class="sep">›</span><a href="'+esc(D.url.market(m0.id))+'">'+esc(m0.name)+'</a>':'')+
-      (s0?'<span class="sep">›</span><span>'+esc(s0.name)+'</span>':'')+
-      '<span class="sep">›</span><span class="current">'+esc(a.name)+'</span></nav>';
+    // Challenges — feature-layout (electronics Features pattern)
+    if(a.challenges&&a.challenges.length){
+      out += sect('', '<div class="feature-layout"><div><div class="market-eyebrow">Application</div><h2>Engineering challenges</h2>'+
+        '<div class="market-intro"><p>What makes '+esc(a.name.toLowerCase())+' demanding — and where DEON tapes earn their place on the line. [Placeholder copy.]</p></div></div>'+
+        '<ul class="feature-list">'+a.challenges.map(function(c){return '<li>'+esc(c)+'</li>';}).join('')+'</ul></div>');
+    }
+    // Recommended product families
+    if(families.length){
+      out += sect('is-grey', '<div class="market-eyebrow">Product families</div><h2>Recommended DEON product families</h2>'+
+        '<div class="segment-grid">'+families.map(function(f,i){return segCard(D.url.productFamily(f.id),BG[i%BG.length],f.name,f.note,'View family');}).join('')+'</div>');
+    }
+    // Used across markets — tags
+    if(markets.length){
+      out += sect('', '<div class="market-eyebrow">Markets</div><h2>Used across these markets</h2>'+
+        '<div class="market-intro"><p>The same application, reused wherever the challenge appears.</p></div>'+
+        '<div class="tag-row">'+markets.map(function(m){return '<a class="tag" href="'+esc(D.url.market(m.id))+'">'+esc(m.name)+'</a>';}).join('')+'</div>');
+    }
+    // Related applications
+    if(related.length){
+      out += sect('is-grey', '<div class="market-eyebrow">Related</div><h2>Related applications</h2>'+
+        '<div class="segment-grid">'+related.map(function(r,i){return segCard(D.url.application(r.id),BG[i%BG.length],r.name,r.summary,'Explore');}).join('')+'</div>');
+    }
+    // Resources
+    if(resources.length){
+      out += sect('', '<div class="market-eyebrow">Downloads</div><h2>Resources</h2>'+
+        '<div class="download-grid">'+resources.map(function(r){return dlCard(r.url||'#',r.title,r.format+' · '+r.size);}).join('')+'</div>');
+    }
+    // Helpdesk
+    out += '<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/3a4a6a/8ea0c8?text=" alt="DEON application engineering support" /></div><div class="cta-body"><h2>Solving '+esc(a.name.toLowerCase())+'?</h2><p>Talk to a DEON application engineer for samples, datasheets and on-site support. [Placeholder copy.]</p><a href="contact.html?topic='+encodeURIComponent(a.slug)+'" class="cta-btn">Get in touch</a></div></div>';
 
-    var hero = '<section class="page-hero"><div class="container">'+crumb+
-      '<div class="eyebrow">Application</div><h1>'+esc(a.name)+'</h1>'+
-      '<p class="lead">'+esc(a.summary)+'</p>'+
-      '<div class="hero-cta"><a class="btn" href="contact.html?topic='+encodeURIComponent(a.slug)+'">Request technical consultation</a>'+
-      '<a class="btn-outline" href="products.html">Browse products</a></div>'+
-      '</div></section>';
-
-    var challenges = (a.challenges&&a.challenges.length)? section('',
-      '<div class="block-head"><h2>Engineering challenges</h2></div><ul class="tick-list">'+
-      a.challenges.map(function(c){return '<li>'+esc(c)+'</li>';}).join('')+'</ul>') : '';
-
-    var fams = families.length? section('section--grey',
-      '<div class="block-head"><h2>Recommended product families</h2></div><div class="card-grid">'+
-      families.map(function(f){return card(D.url.productFamily(f.id),'Product family',f.name,f.note,'View family');}).join('')+'</div>') : '';
-
-    var mk = markets.length? section('',
-      '<div class="block-head"><h2>Used across these markets</h2><p class="block-sub" style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-mid)">The same application reused wherever the challenge appears.</p></div>'+
-      '<div class="chip-row">'+markets.map(function(m){return '<a class="chip" href="'+esc(D.url.market(m.id))+'">'+esc(m.name)+'</a>';}).join('')+'</div>') : '';
-
-    var rel = related.length? section('section--grey',
-      '<div class="block-head"><h2>Related applications</h2></div><div class="card-grid">'+
-      related.map(function(r){return card(D.url.application(r.id),'Application',r.name,r.summary,'Explore');}).join('')+'</div>') : '';
-
-    var res = resources.length? section('',
-      '<div class="block-head"><h2>Resources</h2></div><ul class="res-list">'+
-      resources.map(function(r){return '<li class="res-item"><span class="res-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>'+
-        '<span class="res-meta"><a href="'+esc(r.url||'#')+'"><span class="res-title">'+esc(r.title)+'</span></a><span class="res-sub">'+esc(r.type)+' · '+esc(r.format)+' · '+esc(r.size)+'</span></span>'+
-        '<a class="btn-outline" href="'+esc(r.url||'#')+'" style="padding:.5rem 1rem">Download</a></li>';}).join('')+'</ul>') : '';
-
-    var cta = '<section class="cta-band"><div class="container"><div><h2>Solving '+esc(a.name.toLowerCase())+' for your line?</h2>'+
-      '<p>Talk to a DEON application engineer for samples, datasheets and on-site support.</p></div>'+
-      '<a class="btn" href="contact.html?topic='+encodeURIComponent(a.slug)+'">Get in touch</a></div></section>';
-
-    root.innerHTML = hero + challenges + fams + mk + rel + res + cta;
+    root.innerHTML=out;
   }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',render);
   else render();
 })();

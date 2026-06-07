@@ -1,0 +1,72 @@
+/* ============================================================
+   DEON NAVIGATION ARCHITECTURE  (window.DEON_ARCH)
+   Machine-readable mirror of DEON_SITE_ARCHITECTURE.md — the
+   authoritative, FROZEN IA. Navigation (sidebar drill-down, mega
+   menu, breadcrumb hubs) is generated from this. Do not flatten.
+   ============================================================ */
+(function () {
+  'use strict';
+  function slug(s){return String(s).toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+  // Build segment descriptors {id, name} namespaced by market so ids are unique.
+  function segs(marketId, names){ return names.map(function(n){ return { id: marketId + '-' + slug(n), name: n }; }); }
+
+  // Level-1 sections (frozen order). panel = sidebar drill key; href = landing page.
+  var LEVEL1 = [
+    { label: 'Markets', panel: 'markets', href: 'market.html' },
+    { label: 'Applications', panel: 'applications', href: 'applications.html' },
+    { label: 'Products', panel: 'products', href: 'products.html' },
+    { label: 'Knowledge Center', panel: 'knowledge', href: 'knowledge-center.html' },
+    { label: 'Press & Insights', panel: 'press', href: 'press.html' },
+    { label: 'About DEON', panel: 'about', href: 'about.html' },
+    { label: 'Careers', href: 'careers.html' },
+    { label: 'Contact', href: 'contact.html' }
+  ];
+
+  // 12 markets. `special:true` = single-page market (no child segment pages).
+  var MARKETS = [
+    { id: 'packaging',   name: 'Packaging & Logistics',          segments: segs('packaging',   ['Carton Sealing','Bundling','Protective Packaging']) },
+    { id: 'electrical',  name: 'Electrical',                     segments: segs('electrical',  ['Electrical Installation','Cable Harnessing','Transformers','Motors & Generators','Switchgear','Energy Storage']) },
+    { id: 'electronics', name: 'Electronics',                    segments: segs('electronics', ['PCB Assembly','Displays','Battery Packs','Consumer Electronics']) },
+    { id: 'automotive',  name: 'Automotive',                     segments: segs('automotive',  ['Wire Harnessing','Interior Components','EV Battery Systems']) },
+    { id: 'transportation', name: 'Transportation',              segments: segs('transportation', ['Aerospace','Railway','Marine','Commercial Vehicles','Recreational Vehicles']) },
+    { id: 'appliance',   name: 'Appliance Manufacturing',        segments: segs('appliance',   ['Refrigeration Appliances','Washing Appliances','Climate Control Appliances']) },
+    { id: 'hvacr',       name: 'HVACR',                          segments: segs('hvacr',       ['HVACR Systems']) },
+    { id: 'metal',       name: 'Metal Manufacturing',            segments: segs('metal',       ['Surface Protection','Fabrication & Processing']) },
+    { id: 'building',    name: 'Building Components',             segments: segs('building',    ['Facade Systems','Doors & Windows','Insulation Systems','Interior Components']) },
+    { id: 'renewable',   name: 'Renewable Energy',               segments: segs('renewable',   ['Solar Modules','Energy Storage','Power Electronics','EV Infrastructure']) },
+    { id: 'converter-partners', name: 'Industrial Converter Partners', special: true, segments: [] },
+    { id: 'oem-partners',       name: 'OEM & Private Label Partners',  special: true, segments: [] }
+  ];
+
+  // First-class applications (cross-market). Full set; ids are slugs.
+  var APPLICATIONS = ['Electrical Insulation','Repair & Maintenance','Wire Splicing','Cable Repair','Terminal Protection',
+    'Wire Bundling','Wire Protection','Harness Wrapping','Wire Harnessing','Cable Management','Coil Wrapping','Phase Insulation',
+    'Layer Insulation','Slot Insulation','Coil Protection','Cell Insulation','Pack Assembly','Component Fixation','Component Mounting',
+    'Component Protection','Component Assembly','Masking','Mounting','Bonding','Thermal Management','Duct Sealing','Carton Sealing',
+    'Bundling','Temporary Fixation','Transit Protection','Surface Protection','Part Holding','Component Stabilization','Identification','Protection']
+    .map(function (n) { return { id: slug(n), name: n }; });
+
+  // 12 product families. slug = catalog family id.
+  var PRODUCT_FAMILIES = ['Electrical Tapes','Packaging Tapes','Double-Sided Tapes','Foam Tapes','PET Tapes','Cloth Tapes',
+    'Foil Tapes','MOPP Tapes','Filament Tapes','Masking Tapes','Holding Tapes','Protective Tapes']
+    .map(function (n) { return { name: n, slug: slug(n) }; });
+
+  var KNOWLEDGE = ['Product Catalogues','Technical Datasheets','Certifications & Compliance','Application Guides','Industry Guides',
+    'Videos & Tutorials','FAQs','Case Studies','White Papers','Downloads']
+    .map(function (n) { return { name: n, href: 'knowledge-center.html#' + slug(n) }; });
+
+  var PRESS = ['Industry Insights','Application Stories','Product Updates','Company News','Events & Exhibitions']
+    .map(function (n) { return { name: n, href: 'press.html#' + slug(n) }; });
+
+  var ABOUT = ['Company Overview','Our Story','Leadership','Manufacturing & Technology','Quality & Certifications','Locations']
+    .map(function (n) { return { name: n, href: (n === 'Manufacturing & Technology' ? 'manufacturing-technology.html' : 'about.html#' + slug(n)) }; });
+
+  var MANUFACTURING = ['Adhesive Technologies','Backing Materials','Manufacturing Capabilities','Testing & Validation',
+    'Custom Product Development','R&D & Innovation','Sustainability & Compliance']
+    .map(function (n) { return { name: n, href: 'manufacturing-technology.html#' + slug(n) }; });
+
+  window.DEON_ARCH = {
+    level1: LEVEL1, markets: MARKETS, applications: APPLICATIONS, productFamilies: PRODUCT_FAMILIES,
+    knowledge: KNOWLEDGE, press: PRESS, about: ABOUT, manufacturing: MANUFACTURING, slug: slug
+  };
+})();
