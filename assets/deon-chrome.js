@@ -197,6 +197,24 @@
         if (a.getAttribute('data-section') === sec) a.classList.add('is-active-section');
       });
     }
+
+    // Scroll-progress: the DEON accent line reveals BLUE through RED, left→right,
+    // as the page scrolls. Sets --scroll-progress (0→1) on <html>; the nav::after
+    // blue layer reads it via scaleX. rAF-throttled + passive — compositor-only,
+    // no layout reads beyond scroll metrics, no lag, no easing.
+    var docEl = document.documentElement;
+    var spTicking = false;
+    function setScrollProgress(){
+      spTicking = false;
+      var max = docEl.scrollHeight - window.innerHeight;
+      var p = max > 0 ? window.scrollY / max : 0;
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      docEl.style.setProperty('--scroll-progress', p.toFixed(4));
+    }
+    function onScrollProgress(){ if(!spTicking){ spTicking = true; requestAnimationFrame(setScrollProgress); } }
+    window.addEventListener('scroll', onScrollProgress, { passive: true });
+    window.addEventListener('resize', onScrollProgress, { passive: true });
+    setScrollProgress();
   }
 
   // Map a page template → its IA section id (matches the top-nav data-section).
