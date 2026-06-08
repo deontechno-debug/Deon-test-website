@@ -204,12 +204,13 @@
     // no layout reads beyond scroll metrics, no lag, no easing.
     var docEl = document.documentElement;
     var spTicking = false;
+    var SP_MIN = 0.05;   // blue already present at load, at the hamburger side
     function setScrollProgress(){
       spTicking = false;
       var max = docEl.scrollHeight - window.innerHeight;
       var p = max > 0 ? window.scrollY / max : 0;
       p = p < 0 ? 0 : (p > 1 ? 1 : p);
-      docEl.style.setProperty('--scroll-progress', p.toFixed(4));
+      docEl.style.setProperty('--nav-fill', ((SP_MIN + (1 - SP_MIN) * p) * 100).toFixed(2) + '%');
     }
     function onScrollProgress(){ if(!spTicking){ spTicking = true; requestAnimationFrame(setScrollProgress); } }
     window.addEventListener('scroll', onScrollProgress, { passive: true });
