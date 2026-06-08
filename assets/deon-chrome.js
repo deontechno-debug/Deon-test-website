@@ -14,9 +14,9 @@
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
   var CTX_ARROW = '<span class="ctx-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M2 1.5L7.5 7L2 12.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-  var PRIM_ARROW = '<span class="prim-arrow"><svg width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 8H21M12 1L21 8L12 15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-  var SUB_ARROW = '<span class="sub-arrow"><svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M1.5 1.5L7 7.5L1.5 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-  var BACK = '<svg width="28" height="16" viewBox="0 0 28 16" fill="none"><path d="M27 8H2M9 1L2 8L9 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var PRIM_ARROW = '<span class="prim-arrow"><svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M1.25 1L6 6L1.25 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  var SUB_ARROW = '<span class="sub-arrow"><svg width="6.5" height="11" viewBox="0 0 7 12" fill="none"><path d="M1.25 1L6 6L1.25 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  var BACK = '<svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M7 1.5L1.5 7.5L7 13.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   // ---------- HEADER ----------
   function headerHTML(){
@@ -64,7 +64,7 @@
         '<div class="footer-brand"><img class="footer-logo" src="brand_assets/Deon_Logo.png" alt="DEON — It\'s Power-Strong" /><div class="footer-tagline">Holding the<br>world together</div><a href="contact.html" class="footer-contact-link">Contact us</a><div class="footer-social"><a href="#" class="social-link" aria-label="LinkedIn">in</a><a href="#" class="social-link" aria-label="YouTube">▶</a></div></div>' +
         '<div class="footer-divider"></div>' +
         '<div class="footer-col"><h4>Markets</h4><ul>' + marketCol + '</ul></div>' +
-        '<div class="footer-col"><h4>Explore</h4><ul><li><a href="applications.html">Applications</a></li><li><a href="products.html">Products</a></li><li><a href="knowledge-center.html">Resources</a></li><li><a href="press.html">Press &amp; Insights</a></li><li><a href="about.html">About Us</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact us</a></li></ul></div>' +
+        '<div class="footer-col"><h4>Explore</h4><ul><li><a href="applications.html">Applications</a></li><li><a href="products.html">Products</a></li><li><a href="knowledge-center.html">Resources</a></li><li><a href="press.html">Press &amp; Insights</a></li><li><a href="about.html">About DEON</a></li><li><a href="careers.html">Career</a></li><li><a href="contact.html">Contact us</a></li></ul></div>' +
         '<div class="footer-col"><h4>Regions</h4><ul><li><a href="#">India — Headquarters</a></li><li><a href="#">Middle East</a></li><li><a href="#">South East Asia</a></li><li><a href="#">Europe</a></li><li><a href="#">Africa</a></li><li><a href="#">North America</a></li></ul></div>' +
       '</div>' +
       '<div class="footer-bottom"><div class="footer-legal-links"><a href="#">Imprint</a><a href="#">Privacy Statement</a><a href="#">Accessibility Statement</a><a href="#">Cookie Settings</a><a href="#">Terms &amp; Conditions</a></div><span>&#169; DEON Technology</span></div>' +
@@ -84,30 +84,35 @@
   }
 
   function sidebarHTML(){
-    // main — a single authoritative nav list (no duplicated "context" quick-links;
-    // the Industry context is already shown by the section tabs, and every node
-    // below is the canonical drill/overview entry for its section).
+    // main — an "Industry" context block (orientation) above the primary nav list.
+    var ctx = '<div class="nav-sidebar-context"><div class="nav-sidebar-context-heading">Industry</div><ul>' +
+      '<li><a href="#" data-drill="markets"><span>Markets</span>'+CTX_ARROW+'</a></li>' +
+      '<li><a href="#" data-drill="applications"><span>Applications</span>'+CTX_ARROW+'</a></li>' +
+      '<li><a href="#" data-drill="products"><span>Products</span>'+CTX_ARROW+'</a></li>' +
+      '<li><a href="contact.html"><span>Contact us</span></a></li></ul></div>';
     var primary = '<ul class="nav-sidebar-primary">' + ARCH.level1.map(function(it){
       return it.panel
         ? '<li><a href="#" data-drill="'+it.panel+'"><span>'+esc(it.label)+'</span>'+PRIM_ARROW+'</a></li>'
         : '<li><a href="'+esc(it.href)+'"><span>'+esc(it.label)+'</span></a></li>';
     }).join('') + '</ul>';
-    var main = '<div class="nav-panel is-current" data-panel="main"><div class="nav-sidebar-body">' + primary + '</div></div>';
+    var main = '<div class="nav-panel is-current" data-panel="main"><div class="nav-sidebar-body">' + ctx + '<div class="nav-sidebar-divider"></div>' + primary + '</div></div>';
 
     var panels = [];
     // markets → market list (drill into each; special single-page markets link straight to their page)
     panels.push(panel('markets', 'Markets', 'market.html',
+      subLink('Overview', 'market.html') +
       ARCH.markets.map(function(m){ return m.special ? subLink(m.name, D.url.market(m.id)) : subLink(m.name, null, 'market-'+m.id); }).join(''),
       'Back to menu'));
     // each non-special market → Overview + segment pages
     ARCH.markets.forEach(function(m){
       if (m.special) return;
       var href = D.url.market(m.id);
-      var items = m.segments.map(function(s){ return subLink(s.name, D.url.segment(s.id)); }).join('');
+      var items = subLink('Overview', href) + m.segments.map(function(s){ return subLink(s.name, D.url.segment(s.id)); }).join('');
       panels.push(panel('market-'+m.id, m.name, href, items, 'Back to Markets'));
     });
     // applications → grouped (progressive disclosure: group → applications)
     panels.push(panel('applications', 'Applications', 'applications.html',
+      subLink('Overview', 'applications.html') +
       ARCH.applicationGroups.map(function(g){ return subLink(g.name, null, 'appgroup-'+g.slug); }).join(''), 'Back to menu'));
     ARCH.applicationGroups.forEach(function(g){
       panels.push(panel('appgroup-'+g.slug, g.name, 'applications.html',
@@ -115,6 +120,7 @@
     });
     // products → families → products (drill into a family to reveal its products)
     panels.push(panel('products', 'Products', 'products.html',
+      subLink('Overview', 'products.html') +
       ARCH.productFamilies.map(function(f){
         var prods = D.productsForFamily(f.slug);
         return prods.length ? subLink(f.name, null, 'family-'+f.slug) : subLink(f.name, D.url.productFamily(f.slug));
@@ -123,16 +129,20 @@
       var prods = D.productsForFamily(f.slug);
       if(!prods.length) return;
       panels.push(panel('family-'+f.slug, f.name, D.url.productFamily(f.slug),
+        subLink('Overview', D.url.productFamily(f.slug)) +
         prods.map(function(p){ return subLink(p.name, D.url.product(p.id)); }).join(''), 'Back to Products'));
     });
     // resources (Knowledge Center section — "Resources" is the nav label)
     panels.push(panel('knowledge', 'Resources', 'knowledge-center.html',
+      subLink('Overview', 'knowledge-center.html') +
       ARCH.knowledge.map(function(r){ return subLink(r.name, r.href); }).join(''), 'Back to menu'));
     // press & insights
     panels.push(panel('press', 'Press & Insights', 'press.html',
+      subLink('Overview', 'press.html') +
       ARCH.press.map(function(r){ return subLink(r.name, r.href); }).join(''), 'Back to menu'));
     // about deon
-    panels.push(panel('about', 'About Us', 'about.html',
+    panels.push(panel('about', 'About DEON', 'about.html',
+      subLink('Overview', 'about.html') +
       ARCH.about.map(function(r){ return subLink(r.name, r.href); }).join(''), 'Back to menu'));
 
     return '<div class="nav-overlay" id="navOverlay"></div>' +

@@ -23,8 +23,8 @@
     { label: 'Products', panel: 'products', href: 'products.html', top: 3 },
     { label: 'Resources', panel: 'knowledge', href: 'knowledge-center.html', top: 5 },
     { label: 'Press & Insights', panel: 'press', href: 'press.html', top: 4 },
-    { label: 'About Us', panel: 'about', href: 'about.html' },
-    { label: 'Careers', href: 'careers.html' },
+    { label: 'About DEON', panel: 'about', href: 'about.html' },
+    { label: 'Career', href: 'careers.html' },
     { label: 'Contact us', href: 'contact.html', top: 6 }
   ];
 

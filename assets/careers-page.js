@@ -54,12 +54,12 @@
 
   function render(){
     var root = document.getElementById('deon-main');
-    document.title = 'Careers | DEON';
+    document.title = 'Career | DEON';
 
-    var out = '<div class="context-bar">'+D.trail.hub('Careers')+'</div>';
+    var out = '<div class="context-bar">'+D.trail.hub('Career')+'</div>';
 
     // HERO
-    out += '<div class="hero"><div class="hero-media lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/1600x600/3a4a6a/8ea0c8?text=" alt="Careers at DEON" /></div>'+
+    out += '<div class="hero"><div class="hero-media lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/1600x600/3a4a6a/8ea0c8?text=" alt="Career at DEON" /></div>'+
       '<div class="hero-card"><h1>Build a career in industrial adhesives</h1>'+
       '<p>DEON manufactures and converts adhesive tapes for industry — and we are always looking for engineers, chemists, operators and commercial talent who want to make precision products at scale.</p></div></div>';
 
