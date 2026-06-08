@@ -123,17 +123,20 @@
       align-items: center;
     }
     .nav-left { display: flex; align-items: center; }
-    /* DEON brand line + scroll progress = TWO separate solid layers.
+    /* Boundary-driven scroll model — two solid layers + a travelling joint.
        Layer 1 (::before) — the brand line: solid RED, FULL viewport width
        (left:0 → right:0), full-bleed at every zoom, never clipped.
-       Layer 2 (::after) — the scroll progress: solid BLUE, clipped to the
-       functional header region only (logo-region left → utility-region start,
-       measured by wire() into --prog-left / --prog-width). Blue sits ON TOP of
-       the red base and grows left→right with --nav-fill (0.05→1), so blue
-       replaces red INSIDE the region only; outside the region the red shows
-       through unchanged. No gradient, transparency, fade, or glow. Because the
-       red is a full-width base, no white can appear and the two layers share
-       one rasterised line — no seam. */
+       Layer 2 (::after) — the BLUE material plus a constant-width WHITE
+       separation gap (its right border). Blue originates at the logo-side
+       boundary and grows right as you scroll; the full-bleed red shows wherever
+       blue/gap don't cover — a contracting red band on the search side that
+       merges into the full-bleed remainder. So inside the functional header
+       region the line reads **Blue → white joint → Red**, and the joint travels
+       horizontally as the primary scroll indicator. The gap is a solid 5px white
+       border: fixed width, no fade/blur/glow/pulse, no independent animation.
+       wire() sets --prog-left (region start) and --blue-w (blue body width) so
+       the joint never passes the search boundary — a small red sliver always
+       remains. No gradient, no transparency. */
     nav:not(.crumb)::before,
     nav:not(.crumb)::after {
       content: '';
@@ -145,9 +148,10 @@
       left: 0; right: 0;
       background: var(--red);
     }
-    nav:not(.crumb)::after {             /* Layer 2 — blue progress, region-clipped */
+    nav:not(.crumb)::after {             /* Layer 2 — blue material + travelling white joint */
       left: var(--prog-left, 0px);
-      width: calc(var(--prog-width, 0px) * var(--nav-fill, 0.05));
+      width: calc(var(--blue-w, 24px) + 5px);   /* blue body + the 5px white gap */
+      border-right: 5px solid var(--white);      /* the constant-width separation joint */
       background: var(--blue);
     }
     .nav-hamburger {

@@ -198,33 +198,36 @@
       });
     }
 
-    // Scroll progress (Layer 2) — separate from the full-bleed red brand line
-    // (Layer 1). The blue overlay is clipped to the FUNCTIONAL header region:
-    // logo-region left edge → utility-region (search/language) start. wire()
-    // measures that region into --prog-left/--prog-width (only on init+resize —
-    // it does NOT change on scroll), and updates --nav-fill (0.05→1) per scroll
-    // frame (rAF + passive). The blue ::after is `left:--prog-left;
-    // width:--prog-width * --nav-fill`, so it grows left→right and can never
-    // exceed the utility boundary.
+    // Scroll progress (Layer 2 — blue material + travelling white joint) is
+    // anchored to the header CONTENT FRAME, not to any UI element: the travel
+    // zone is the symmetric --gutter column [gutter, viewportWidth - gutter], so
+    // left margin === right margin at every width/zoom and the motion stays
+    // centred regardless of logo/nav/utility changes. wire() reads the gutter
+    // from .nav-inner's own padding (the exact offset the header lays out to) on
+    // init+resize, and updates --blue-w (blue body width) per scroll frame. The
+    // blue ::after is `left:--prog-left; width:--blue-w + 5px white gap`, so the
+    // joint travels but never passes the right frame boundary (a small red
+    // sliver always remains beyond it; the red brand line stays full viewport).
     var docEl = document.documentElement;
     var navEl = document.querySelector('nav:not(.crumb)');
-    var regL = navEl && navEl.querySelector('.nav-left');
-    var regR = navEl && navEl.querySelector('.nav-right');
-    var spTicking = false;
-    var SP_MIN = 0.05;   // small blue segment always present at the logo-side boundary
+    var navInner = navEl && navEl.querySelector('.nav-inner');
+    var spTicking = false, regionW = 0;
+    var GAP = 5, RED_MIN = 10, BLUE_MIN = 24;   // white joint width · red sliver kept at max · blue at load
     function measureRegion(){
-      if (!regL || !regR) return;
-      var l = regL.getBoundingClientRect().left;
-      var r = regR.getBoundingClientRect().left;
-      docEl.style.setProperty('--prog-left', Math.round(l) + 'px');
-      docEl.style.setProperty('--prog-width', Math.max(0, Math.round(r - l)) + 'px');
+      if (!navInner) return;
+      var gutter = parseFloat(getComputedStyle(navInner).paddingLeft) || 0;  // = var(--gutter)
+      regionW = Math.max(0, window.innerWidth - 2 * gutter);                  // symmetric content frame
+      docEl.style.setProperty('--prog-left', Math.round(gutter) + 'px');
     }
     function setNavFill(){
       spTicking = false;
       var max = docEl.scrollHeight - window.innerHeight;
       var p = max > 0 ? window.scrollY / max : 0;
       p = p < 0 ? 0 : (p > 1 ? 1 : p);
-      docEl.style.setProperty('--nav-fill', (SP_MIN + (1 - SP_MIN) * p).toFixed(4));
+      // blue body grows BLUE_MIN → (region − gap − red sliver); +GAP white joint
+      // + RED_MIN red sliver keep the joint inside the right frame boundary.
+      var travel = Math.max(0, regionW - GAP - RED_MIN - BLUE_MIN);
+      docEl.style.setProperty('--blue-w', (BLUE_MIN + p * travel).toFixed(1) + 'px');
     }
     function onScroll(){ if(!spTicking){ spTicking = true; requestAnimationFrame(setNavFill); } }
     window.addEventListener('scroll', onScroll, { passive: true });
