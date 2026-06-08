@@ -36,7 +36,7 @@
     }).join('');
     return '' +
     '<div class="top-bar" id="topBar"><span>This page is also available in a language that may suit you better: &nbsp;🇮🇳 India &nbsp;<a href="#">English</a></span><button class="top-bar-close" id="topBarClose">Close &times;</button></div>' +
-    '<div class="section-tabs"><a href="index.html" class="section-tab">&#8962;</a><a href="#" class="section-tab">Home &amp; Office</a><a href="index.html" class="section-tab active">Industry</a></div>' +
+    '<div class="section-tabs"><a href="index.html" class="section-tab">&#8962;</a><a href="#" class="section-tab">Home &amp; Office</a><a href="index.html" class="section-tab active">Tapes</a></div>' +
     '<nav>' +
       '<div class="nav-inner">' +
         '<div class="nav-left">' +
@@ -84,8 +84,8 @@
   }
 
   function sidebarHTML(){
-    // main — an "Industry" context block (orientation) above the primary nav list.
-    var ctx = '<div class="nav-sidebar-context"><div class="nav-sidebar-context-heading">Industry</div><ul>' +
+    // main — the "Tapes" root-node context block (orientation) above the primary nav list.
+    var ctx = '<div class="nav-sidebar-context"><div class="nav-sidebar-context-heading">Tapes</div><ul>' +
       '<li><a href="#" data-drill="markets"><span>Markets</span>'+CTX_ARROW+'</a></li>' +
       '<li><a href="#" data-drill="applications"><span>Applications</span>'+CTX_ARROW+'</a></li>' +
       '<li><a href="#" data-drill="products"><span>Products</span>'+CTX_ARROW+'</a></li>' +
