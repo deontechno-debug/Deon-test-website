@@ -10,16 +10,22 @@
   // Build segment descriptors {id, name} namespaced by market so ids are unique.
   function segs(marketId, names){ return names.map(function(n){ return { id: marketId + '-' + slug(n), name: n }; }); }
 
-  // Level-1 sections (frozen order). panel = sidebar drill key; href = landing page.
+  // Level-1 sections. The SIDE panel is the master tree (all items below, in
+  // this array order). `top:<n>` marks items shown in the slim top nav and sets
+  // their left-to-right order there (so the top nav can order independently of
+  // the side tree). Exploratory top items (those with a `panel`) OPEN that side
+  // panel; items without a panel navigate directly — one behaviour model.
+  // "Resources" is the navigation label for the Knowledge Center section
+  // (panel/href unchanged — only the label differs).
   var LEVEL1 = [
-    { label: 'Markets', panel: 'markets', href: 'market.html' },
-    { label: 'Applications', panel: 'applications', href: 'applications.html' },
-    { label: 'Products', panel: 'products', href: 'products.html' },
-    { label: 'Knowledge Center', panel: 'knowledge', href: 'knowledge-center.html' },
-    { label: 'Press & Insights', panel: 'press', href: 'press.html' },
-    { label: 'About DEON', panel: 'about', href: 'about.html' },
+    { label: 'Markets', panel: 'markets', href: 'market.html', top: 1 },
+    { label: 'Applications', panel: 'applications', href: 'applications.html', top: 2 },
+    { label: 'Products', panel: 'products', href: 'products.html', top: 3 },
+    { label: 'Resources', panel: 'knowledge', href: 'knowledge-center.html', top: 5 },
+    { label: 'Press & Insights', panel: 'press', href: 'press.html', top: 4 },
+    { label: 'About Us', panel: 'about', href: 'about.html' },
     { label: 'Careers', href: 'careers.html' },
-    { label: 'Contact', href: 'contact.html' }
+    { label: 'Contact us', href: 'contact.html', top: 6 }
   ];
 
   // 12 markets. `special:true` = single-page market (no child segment pages).
@@ -46,6 +52,21 @@
     'Bundling','Temporary Fixation','Transit Protection','Surface Protection','Part Holding','Component Stabilization','Identification','Protection']
     .map(function (n) { return { id: slug(n), name: n }; });
 
+  // Application GROUPS — progressive-disclosure layer for navigation only
+  // (Applications → group → application). The applications and their pages are
+  // unchanged; every first-class application is assigned to exactly one group.
+  var APPLICATION_GROUPS = [
+    { name: 'Insulation',         apps: ['Electrical Insulation','Phase Insulation','Layer Insulation','Slot Insulation','Cell Insulation'] },
+    { name: 'Protection',         apps: ['Terminal Protection','Wire Protection','Coil Protection','Component Protection','Surface Protection','Transit Protection','Protection','Cable Repair','Repair & Maintenance','Identification'] },
+    { name: 'Bundling',           apps: ['Wire Bundling','Bundling','Harness Wrapping','Wire Harnessing','Cable Management','Coil Wrapping'] },
+    { name: 'Assembly',           apps: ['Pack Assembly','Component Assembly','Component Stabilization'] },
+    { name: 'Bonding',            apps: ['Bonding','Wire Splicing'] },
+    { name: 'Mounting',           apps: ['Component Mounting','Mounting','Component Fixation','Temporary Fixation','Part Holding'] },
+    { name: 'Masking',            apps: ['Masking'] },
+    { name: 'Packaging',          apps: ['Carton Sealing','Duct Sealing'] },
+    { name: 'Thermal Management', apps: ['Thermal Management'] }
+  ].map(function (g) { return { name: g.name, slug: slug(g.name), apps: g.apps.map(function (n) { return { id: slug(n), name: n }; }) }; });
+
   // 12 product families. slug = catalog family id.
   var PRODUCT_FAMILIES = ['Electrical Tapes','Packaging Tapes','Double-Sided Tapes','Foam Tapes','PET Tapes','Cloth Tapes',
     'Foil Tapes','MOPP Tapes','Filament Tapes','Masking Tapes','Holding Tapes','Protective Tapes']
@@ -66,7 +87,7 @@
     .map(function (n) { return { name: n, href: 'manufacturing-technology.html#' + slug(n) }; });
 
   window.DEON_ARCH = {
-    level1: LEVEL1, markets: MARKETS, applications: APPLICATIONS, productFamilies: PRODUCT_FAMILIES,
-    knowledge: KNOWLEDGE, press: PRESS, about: ABOUT, manufacturing: MANUFACTURING, slug: slug
+    level1: LEVEL1, markets: MARKETS, applications: APPLICATIONS, applicationGroups: APPLICATION_GROUPS,
+    productFamilies: PRODUCT_FAMILIES, knowledge: KNOWLEDGE, press: PRESS, about: ABOUT, manufacturing: MANUFACTURING, slug: slug
   };
 })();
