@@ -14,21 +14,27 @@
   function segCard(href,bg,title,caption,cta){return '<a class="segment-card" href="'+esc(href)+'"><div class="segment-card-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/440x330/'+bg+'/9eb0d8?text=" alt="'+esc(title)+'" /></div><div class="segment-card-body"><div class="segment-card-title">'+esc(title)+'</div><div class="segment-card-caption">'+esc(caption)+'</div><span class="segment-card-link">'+esc(cta||'Read more')+' '+ARROW+'</span></div></a>';}
   function sect(cls,inner){return '<section class="market-section'+(cls?' '+cls:'')+'">'+inner+'</section>';}
   function finder(el,products,hrefFn){ if(window.ProductFinder&&el) window.ProductFinder.mount(el, pmap(products,hrefFn)); }
+  var DLICON='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>';
+  function dlItem(r){return '<a href="'+esc(r.url||'#')+'" class="download-card"><img class="download-thumb" src="https://placehold.co/264x184/dfe4ec/8ea0c8?text=" alt="" /><div class="download-meta"><div class="download-title">'+esc(r.title)+'</div><div class="download-sub">'+esc([r.category,r.format,r.size].filter(Boolean).join(" · "))+'</div><span class="download-action">View '+DLICON+'</span></div></a>';}
 
   function renderFamily(root,f){
     document.title=f.name+' | DEON Products';
     var apps=D.applicationsForFamily(f.id);
     var markets=uniqBy([].concat.apply([],apps.map(function(a){return D.marketsForApplication(a.id);})));
     var products=D.productsForFamily(f.id);
-    var benefits=['Engineered for '+f.note.toLowerCase()+'.','Consistent, repeatable performance in series production.','Available die-cut and converted to your geometry.','Backed by DEON application engineering and support.'];
+    var techs=uniqBy([].concat.apply([],apps.map(function(a){return D.technologiesForApplication(a.id);})));
+    var resources=uniqBy([].concat.apply([],apps.map(function(a){return D.resourcesForApplication(a.id);}))).slice(0,6);
+    var benefits=(f.benefits&&f.benefits.length)?f.benefits:['Engineered for '+f.note.toLowerCase()+'.','Consistent, repeatable performance in series production.','Available die-cut and converted to your geometry.','Backed by DEON application engineering and support.'];
 
     var out=hero(D.trail.productFamily(f.id),f.name,f.note+'.','445586');
     out+=sect('', '<div class="feature-layout"><div><div class="market-eyebrow">Product family</div><h2>About '+esc(f.name)+'</h2>'+
-      '<div class="market-intro"><p>DEON '+esc(f.name)+' are '+esc(f.note.toLowerCase())+'. The family spans a range of thicknesses and constructions to match your substrate, process and performance needs. [Placeholder overview.]</p></div></div>'+
+      '<div class="market-intro"><p>'+esc(f.overview||('DEON '+f.name+' are '+f.note.toLowerCase()+'. The family spans a range of thicknesses and constructions to match your substrate, process and performance needs.'))+'</p></div></div>'+
       '<ul class="feature-list">'+benefits.map(function(b){return '<li>'+esc(b)+'</li>';}).join('')+'</ul></div>');
     if(markets.length) out+=sect('is-grey', '<div class="market-eyebrow">Markets</div><h2>Where it\'s used</h2><div class="tag-row">'+markets.map(function(m){return '<a class="tag" href="'+esc(D.url.market(m.id))+'">'+esc(m.name)+'</a>';}).join('')+'</div>');
     if(apps.length) out+=sect('', '<div class="market-eyebrow">Applications</div><h2>Applications</h2><div class="segment-grid">'+apps.map(function(a,i){return segCard(D.url.application(a.id),BG[i%BG.length],a.name,a.summary,'Explore');}).join('')+'</div>');
     out+=sect('is-grey', '<div class="market-eyebrow">Product range</div><h2>Products in this family</h2>'+(products.length?'<div data-family-finder></div>':'<div class="market-intro"><p>Detailed product data for this family is being added.</p></div>'));
+    if(techs.length) out+=sect('', '<div class="market-eyebrow">Technologies &amp; materials</div><h2>Related technologies</h2><div class="segment-grid">'+techs.map(function(t,i){return segCard("manufacturing-technology.html#"+esc(t.id),BG[i%BG.length],t.name,t.summary,"Learn more");}).join('')+'</div>');
+    if(resources.length) out+=sect('is-grey', '<div class="market-eyebrow">Downloads</div><h2>Downloads &amp; datasheets</h2><div class="download-grid">'+resources.map(dlItem).join('')+'</div>');
     out+='<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/445586/8ea0c8?text=" alt="DEON product support" /></div><div class="cta-body"><h2>Need '+esc(f.name.toLowerCase())+'?</h2><p>Request samples, datasheets or a tailored recommendation from DEON. [Placeholder copy.]</p><a href="contact.html?family='+encodeURIComponent(f.id)+'" class="cta-btn">Request a sample</a></div></div>';
     root.innerHTML=out;
     if(products.length) finder(root.querySelector('[data-family-finder]'), products);

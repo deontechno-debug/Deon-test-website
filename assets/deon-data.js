@@ -149,7 +149,7 @@
     markets: { label: 'Markets', href: 'market.html' },
     products: { label: 'Products', href: 'products.html' },
     applications: { label: 'Applications', href: 'applications.html' },
-    resources: { label: 'Resources', href: 'resources.html' }
+    knowledge: { label: 'Knowledge Center', href: 'knowledge-center.html' }
   };
   // Trail builders — derive the hierarchy from the catalog so links are automatic.
   DEON.trail = {
