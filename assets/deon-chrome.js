@@ -198,35 +198,31 @@
       });
     }
 
-    // Scroll progress (Layer 2 — blue material + travelling white joint) is
-    // anchored to the FUNCTIONAL HEADER FRAME: the travel band runs from the
-    // visual start of the DEON logo to its MIRROR on the utility side, i.e.
-    // [logoLeft, viewportWidth - logoLeft]. Symmetric (left margin === right
-    // margin = logoLeft) and centred at every width/zoom, independent of the
-    // gutter/content frame. wire() reads the logo's left edge on init+resize and
-    // updates --blue-w (blue body width) per scroll frame. The band reads
-    // BLUE → GAP → RED (red base ::before, blue+5px-white-gap overlay ::after);
-    // the joint never passes the mirrored boundary (a small red remainder stays).
+    // Scroll progress = full-width BLUE and RED materials split by a travelling
+    // white GAP. Blue/red always run edge-to-edge; ONLY the gap's travel is
+    // constrained to the symmetric brand frame [logoStart, viewportWidth -
+    // logoStart] (logoStart = the visual start of the DEON logo). wire() reads
+    // logoStart on init+resize and sets --gap-left (the gap's left x) per scroll
+    // frame: at load the gap sits at logoStart; at max it reaches the mirrored
+    // right boundary, leaving a full-width red remainder. The blue ::after runs
+    // from the viewport-left to the gap (width = --gap-left + 5px white border);
+    // the red ::before is full viewport width behind it.
     var docEl = document.documentElement;
     var navEl = document.querySelector('nav:not(.crumb)');
     var navLogo = navEl && navEl.querySelector('.nav-logo');
-    var spTicking = false, regionW = 0;
-    var GAP = 5, RED_MIN = 10, BLUE_MIN = 24;   // white joint width · red remainder at max · blue at load
+    var spTicking = false, logoStart = 0, travel = 0;
+    var GAP = 5;   // constant white separation gap
     function measureRegion(){
       if (!navLogo) return;
-      var d = navLogo.getBoundingClientRect().left;          // visual start of the DEON logo
-      regionW = Math.max(0, window.innerWidth - 2 * d);       // band [d, vw-d], mirrored/symmetric
-      docEl.style.setProperty('--prog-left', Math.round(d) + 'px');
+      logoStart = navLogo.getBoundingClientRect().left;                 // visual start of the DEON logo
+      travel = Math.max(0, window.innerWidth - 2 * logoStart - GAP);    // gap rides [logoStart, vw-logoStart-GAP]
     }
     function setNavFill(){
       spTicking = false;
       var max = docEl.scrollHeight - window.innerHeight;
       var p = max > 0 ? window.scrollY / max : 0;
       p = p < 0 ? 0 : (p > 1 ? 1 : p);
-      // blue body grows BLUE_MIN → (region − gap − red sliver); +GAP white joint
-      // + RED_MIN red sliver keep the joint inside the right frame boundary.
-      var travel = Math.max(0, regionW - GAP - RED_MIN - BLUE_MIN);
-      docEl.style.setProperty('--blue-w', (BLUE_MIN + p * travel).toFixed(1) + 'px');
+      docEl.style.setProperty('--gap-left', (logoStart + p * travel).toFixed(1) + 'px');
     }
     function onScroll(){ if(!spTicking){ spTicking = true; requestAnimationFrame(setNavFill); } }
     window.addEventListener('scroll', onScroll, { passive: true });

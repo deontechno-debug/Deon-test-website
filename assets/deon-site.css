@@ -123,18 +123,19 @@
       align-items: center;
     }
     .nav-left { display: flex; align-items: center; }
-    /* Boundary-driven scroll model — anchored to the FUNCTIONAL HEADER FRAME.
-       The travel band runs from the visual start of the DEON logo to its mirror
-       on the utility side: [--prog-left, viewportWidth − --prog-left], where
-       --prog-left = the logo's left edge (NOT the viewport/gutter/content-frame
-       edge). Symmetric: left margin === right margin = --prog-left.
-       Exactly ONE transition, reading **BLUE → GAP → RED** (never RED→BLUE→RED,
-       never multiple blues/gaps): the band has a RED base (::before) overlaid
-       from the left by the BLUE material + a constant 5px WHITE separation gap
-       (::after's right border). The gap is the travelling indicator; blue/red
-       are the materials. The margins carry no line (a full-bleed red would put
-       red left of the blue → forbidden). Solid colours only — no gradient,
-       transparency, fade, blur, glow, or pulse. */
+    /* Scroll progress = full-width BLUE and RED materials split by a travelling
+       white GAP. The viewport always reads **[full-width BLUE] → [white GAP] →
+       [full-width RED]**: one blue region (everything left of the gap, to the
+       viewport edge), one 5px white gap, one red region (everything right of the
+       gap, to the viewport edge). ONLY the gap's travel is constrained — to the
+       symmetric brand frame [logoStart, viewportWidth − logoStart] (logoStart =
+       the visual start of the DEON logo). ::before = RED, FULL viewport width
+       (the base). ::after = BLUE from the viewport-left to the gap, with the gap
+       as its 5px white right border; the red base shows beyond it. wire() sets
+       --gap-left (the gap's left x) so the gap rides within the frame: at load it
+       sits at logoStart; at max it reaches the mirrored right boundary, leaving a
+       full-width red remainder to the edge. The materials are NOT constrained —
+       only the gap. Solid colours only (no gradient/transparency/fade/glow). */
     nav:not(.crumb)::before,
     nav:not(.crumb)::after {
       content: '';
@@ -142,14 +143,14 @@
       bottom: 0;
       height: 3px;
     }
-    nav:not(.crumb)::before {            /* RED material — band [logo-start → mirror] */
-      left: var(--prog-left, 0px); right: var(--prog-left, 0px);
+    nav:not(.crumb)::before {            /* RED material — full viewport width (base) */
+      left: 0; right: 0;
       background: var(--red);
     }
-    nav:not(.crumb)::after {             /* Layer 2 — blue material + travelling white joint */
-      left: var(--prog-left, 0px);
-      width: calc(var(--blue-w, 24px) + 5px);   /* blue body + the 5px white gap */
-      border-right: 5px solid var(--white);      /* the constant-width separation joint */
+    nav:not(.crumb)::after {             /* BLUE material (from viewport-left) + travelling white gap */
+      left: 0;
+      width: calc(var(--gap-left, 0px) + 5px);   /* blue from 0 to the gap + the 5px white gap */
+      border-right: 5px solid var(--white);       /* the travelling separation gap */
       background: var(--blue);
     }
     .nav-hamburger {
