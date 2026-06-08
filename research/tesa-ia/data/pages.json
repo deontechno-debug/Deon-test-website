@@ -1,0 +1,3396 @@
+[
+  {
+    "path": "/en/industry",
+    "depth": 2,
+    "parent": "/en",
+    "status": 200,
+    "title": "tesa® adhesive solutions for industrial markets",
+    "h1": "tesa® adhesive solutions for industrial markets",
+    "modules": [
+      "static-activation-stage",
+      "card-slider",
+      "highlight-teasers",
+      "contact-teaser",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "card-slider",
+      "highlight-teasers",
+      "contact-teaser",
+      "page-teasers"
+    ],
+    "h2": [
+      "Select your market",
+      "Benefits of partnering with us",
+      "Discover more"
+    ],
+    "ctas": [
+      "Find out more",
+      "Learn more",
+      "Find your contact",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/automotive",
+      "/en/industry/markets/electronics",
+      "/en/industry/markets/paper-print",
+      "/en/industry/markets/distribution-partners",
+      "/en/industry/markets/industrial-converter-partners/industrial-converting-partners-tape-technology",
+      "/en/industry/markets/appliances",
+      "/en/industry/markets/building-industry",
+      "/en/industry/markets/appliances/copiers-printers",
+      "/en/industry/markets/health-markets",
+      "/en/industry/markets/metal-industry",
+      "/en/industry/markets/smart-cards",
+      "/en/industry/markets/transportation-industry",
+      "/en/industry/markets/food-industry",
+      "/en/industry/application-solution-center",
+      "/en/about-tesa/sustainability/products-and-packaging",
+      "/en/about-tesa/product-and-technology-development",
+      "/en/about-tesa/locations-subsidiaries",
+      "/en/industry/contact-us-industry",
+      "/en/about-tesa/press-insights/stories/introducing-tesa-flamextinct.html",
+      "/en/about-tesa/press-insights/stories/patch-instead-of-plug-porsche.html",
+      "/en/about-tesa/press-insights/stories/contributing-to-sustainability-tesa-60412-recycled-pet-packaging-tape.html",
+      "/en/industry/products/double-sided-tapes/team-4965-assortment"
+    ]
+  },
+  {
+    "path": "/en/industry/application-solution-center",
+    "depth": 3,
+    "parent": "/en/industry",
+    "status": 200,
+    "title": "Customer Solution Center - tesa",
+    "h1": "Customer Solution Center",
+    "modules": [
+      "static-activation-stage",
+      "insertation",
+      "image-gallery",
+      "infotext-image",
+      "paragraph-2022"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "insertation",
+      "image-gallery",
+      "insertation",
+      "infotext-image",
+      "infotext-image",
+      "infotext-image",
+      "infotext-image",
+      "infotext-image",
+      "paragraph-2022"
+    ],
+    "h2": [
+      "First-Class Tape Support: We Strive to Enhance Your Products and Optimize Your Production Processes.",
+      "The Customer Solution Center Offers These Services:",
+      "Product Recommendation",
+      "Certification",
+      "On-site Support",
+      "Training",
+      "Application Process Engineering",
+      "Interested in Tape Support? Reach Out to Our Tape Experts!"
+    ],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": []
+  },
+  {
+    "path": "/en/industry/applications",
+    "depth": 3,
+    "parent": "/en/industry",
+    "status": 200,
+    "title": "Applications - tesa",
+    "h1": "Adhesives applications for industry",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "headline-module",
+      "page-teasers",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "headline-module",
+      "page-teasers",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser"
+    ],
+    "h2": [
+      "Find the right adhesive tape based on your application",
+      "Find the right adhesive tape for your industrial application"
+    ],
+    "ctas": [
+      "Contact",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/applications",
+      "/en/industry/applications/insulation",
+      "/en/industry/applications/marking",
+      "/en/industry/applications/mounting",
+      "/en/industry/applications/protection",
+      "/en/industry/products",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/contact-us-industry",
+    "depth": 3,
+    "parent": "/en/industry",
+    "status": 200,
+    "title": "Contact us - tesa",
+    "h1": "Get in touch with us",
+    "modules": [
+      "headline-module",
+      "inline-form",
+      "insertation-location",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "headline-module",
+      "inline-form",
+      "headline-module",
+      "insertation-location",
+      "headline-module",
+      "page-teasers"
+    ],
+    "h2": [
+      "Our direct contact information",
+      "You might also be interested in"
+    ],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/",
+      "/en/about-tesa/locations-subsidiaries/tesa-se-headquarters.html",
+      "/en/industry/products/products-finder",
+      "/en/about-tesa/sustainability",
+      "/en/about-tesa/press-insights"
+    ]
+  },
+  {
+    "path": "/en/industry/markets",
+    "depth": 3,
+    "parent": "/en/industry",
+    "status": 200,
+    "title": "tesa® adhesive solutions for industrial markets",
+    "h1": "tesa® adhesive solutions for industrial markets",
+    "modules": [
+      "static-activation-stage",
+      "card-slider",
+      "highlight-teasers",
+      "contact-teaser",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "card-slider",
+      "highlight-teasers",
+      "contact-teaser",
+      "page-teasers"
+    ],
+    "h2": [
+      "Select your market",
+      "Benefits of partnering with us",
+      "Discover more"
+    ],
+    "ctas": [
+      "Find out more",
+      "Learn more",
+      "Find your contact",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/automotive",
+      "/en/industry/markets/electronics",
+      "/en/industry/markets/paper-print",
+      "/en/industry/markets/distribution-partners",
+      "/en/industry/markets/industrial-converter-partners/industrial-converting-partners-tape-technology",
+      "/en/industry/markets/appliances",
+      "/en/industry/markets/building-industry",
+      "/en/industry/markets/appliances/copiers-printers",
+      "/en/industry/markets/health-markets",
+      "/en/industry/markets/metal-industry",
+      "/en/industry/markets/smart-cards",
+      "/en/industry/markets/transportation-industry",
+      "/en/industry/markets/food-industry",
+      "/en/industry/application-solution-center",
+      "/en/about-tesa/sustainability/products-and-packaging",
+      "/en/about-tesa/product-and-technology-development",
+      "/en/about-tesa/locations-subsidiaries",
+      "/en/industry/contact-us-industry",
+      "/en/about-tesa/press-insights/stories/introducing-tesa-flamextinct.html",
+      "/en/about-tesa/press-insights/stories/patch-instead-of-plug-porsche.html",
+      "/en/about-tesa/press-insights/stories/contributing-to-sustainability-tesa-60412-recycled-pet-packaging-tape.html",
+      "/en/industry/products/double-sided-tapes/team-4965-assortment"
+    ]
+  },
+  {
+    "path": "/en/industry/products",
+    "depth": 3,
+    "parent": "/en/industry",
+    "status": 200,
+    "title": "Industrial adhesives for trusted quality & performance | tesa®",
+    "h1": "Industrial adhesive products",
+    "modules": [
+      "static-stage",
+      "headline-module",
+      "page-teasers",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "headline-module",
+      "page-teasers",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser"
+    ],
+    "h2": [
+      "Your partner for industrial adhesives",
+      "Find the right adhesive tape type for your application",
+      "Product overview"
+    ],
+    "ctas": [
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/products/anti-slip-tapes",
+      "/en/industry/products/cloth-tapes",
+      "/en/industry/products/conductive-tape",
+      "/en/industry/products/double-sided-tapes",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/bonding",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Reliable bonding adhesive tapes for industrial use | tesa®",
+    "h1": "Bonding adhesive tapes for industrial use",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "h2": [
+      "Typical bonding tape applications in manufacturing",
+      "Overview of our bonding adhesive tapes",
+      "Bonding adhesives: FAQs"
+    ],
+    "ctas": [
+      "Contact",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/applications/bonding",
+      "/en/industry/products/foam-tapes",
+      "/en/industry/products/structural-adhesives",
+      "/en/industry/products/foam-tapes/acrylic-foam-tapes",
+      "/en/industry/products/cloth-tapes",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/bundling",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Bundling tapes with strength, flexibility, and reliability | tesa®",
+    "h1": "Bundling tapes: strong, flexible holding power you can rely on",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "faq",
+      "downloads"
+    ],
+    "h2": [
+      "Find the right bundling tape solution",
+      "Reliable bundling and palletizing of goods",
+      "FAQs about bundling tapes",
+      "We are happy to help"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us",
+      "Get in touch",
+      "FIND OUT MORE"
+    ],
+    "downloads": [
+      "Designed to Protect PDF 1.6 MB",
+      "Filament Tapes for Safety and Security PDF 1.1 MB",
+      "Our Cloth Tape Assortment PDF 3.3 MB",
+      "tesa Wire Harnessing Bunding and Protection PDF 5 MB"
+    ],
+    "downloadCount": 4,
+    "links": [
+      "/en/industry/applications/bundling",
+      "/en/industry/contact-us-industry",
+      "/en/industry/markets/wire-harnessing/basic-bundling",
+      "/en/files/download/11887266,1,medium-11813278.pdf",
+      "/en/files/download/11887265,1,medium-11813276.pdf",
+      "/en/files/download/11887274,2,medium-11831645.pdf",
+      "/en/files/download/11887278,2,2023-tesa-se-wire-harnessing-bunding-and-protection-product-folder.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/debonding-on-demand",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Debonding on demand - tesa",
+    "h1": "Debonding on Demand",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "headline-module",
+      "media-opener",
+      "tip-steps",
+      "inline-form",
+      "downloads",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "headline-module",
+      "media-opener",
+      "headline-module",
+      "tip-steps",
+      "headline-module",
+      "headline-module",
+      "inline-form",
+      "downloads",
+      "page-teasers"
+    ],
+    "h2": [
+      "Introducing tesa's Debonding on Demand technologies",
+      "Benefits at a glance",
+      "Technology overview",
+      "From idea to implementation - let's go together!",
+      "You might also be interested in"
+    ],
+    "ctas": [
+      "Contact",
+      "Download"
+    ],
+    "downloads": [
+      "All information in an overview flyer 2-pager for tesa's Debonding on Demand technologies PDF 225.2 kB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/applications/debonding-on-demand",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/12445609,0,tesa-xbu-dod-campaign-flyer-catalogue-online.pdf",
+      "/en/about-tesa/press-insights/press/adhesive-solution-of-the-future-tesa-wins-mmk-award-of-excellence-2025-with-debonding-on-demand-technology.html",
+      "/en/about-tesa/press-insights/stories/debonding-on-demand.html",
+      "/en/about-tesa/press-insights/stories/debonding-on-demand-technology-boosting-circular-economy.html"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/insulation",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "High-performance adhesive insulation tapes for industry | tesa®",
+    "h1": "Insulation tapes for industry applications",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "insertation",
+      "marg-t--component",
+      "contact-teaser",
+      "downloads"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "insertation",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "downloads"
+    ],
+    "h2": [
+      "Rely on our electrical insulation tapes",
+      "Choose our adhesive tapes for versatile thermal insulation",
+      "Our range of insulation tapes"
+    ],
+    "ctas": [
+      "Contact us",
+      "Downloads",
+      "Get in touch"
+    ],
+    "downloads": [
+      "tesa-Aluminum-Foil-Tape-Overview PDF 305 kB",
+      "tesa-606x4-aluminum-pet-tapes PDF 316.3 kB"
+    ],
+    "downloadCount": 2,
+    "links": [
+      "/en/industry/applications/insulation",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/996527,2,tesa-aluminum-foil-tape-overview.pdf",
+      "/en/files/download/11135767,2,tesa-606x4-aluminum-pet-tapes.pdf"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/marking",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Durable adhesive marking & warning tapes for industry | tesa®",
+    "h1": "Marking & warning tapes for safer industrial environments",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "h2": [
+      "Getting the best from adhesive marking tapes",
+      "Marking and warning tapes: useful for various industries",
+      "Overview of marking and warning tapes",
+      "Marking tapes: FAQ"
+    ],
+    "ctas": [
+      "Contact",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/applications/marking",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/masking",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Get it covered with our range of masking tapes | tesa®",
+    "h1": "You’ve got it covered with our masking tapes",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "table",
+      "tip-steps",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "paragraph-2022",
+      "table",
+      "paragraph-2022",
+      "tip-steps",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "h2": [
+      "Uncover the right masking tape for your application",
+      "Our guide to choosing the right masking tape",
+      "What masking tape should you use?",
+      "Frequently asked questions about masking tapes",
+      "Give us a call if you need support finding the right masking tape"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact",
+      "Get in touch"
+    ],
+    "downloads": [
+      "Masking assortment folder PDF 3.1 MB",
+      "Masking tape solutions folder PDF 2.1 MB",
+      "High temperature masking tapes folder PDF 988.7 kB",
+      "Sandblasting tape solutions folder PDF 1 MB",
+      "Automotive masking tapes PDF 6.4 MB",
+      "Powder coating folder PDF 894.7 kB",
+      "Color coded masking tapes PDF 1.6 MB"
+    ],
+    "downloadCount": 7,
+    "links": [
+      "/en/industry/applications/masking",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/12366346,1,medium-11844128.pdf",
+      "/en/files/download/12366347,1,medium-11844129.pdf",
+      "/en/files/download/12366348,1,medium-11844130.pdf",
+      "/en/files/download/12222067,1,medium-11844126.pdf",
+      "/en/files/download/12366345,1,medium-11844127.pdf",
+      "/en/files/download/11937439,9,powder-coating-folder-update-2025-online.pdf",
+      "/en/files/download/12366353,0,color-coded-masking-tape-6701-sales-leaflet-a4-landscape.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/mounting",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Mounting tape for industrial applications | tesa®",
+    "h1": "Mounting tape: Double-sided tape solutions for every industry",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "image-text-stacked",
+      "l-teaser",
+      "marg-t--component",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "l-teaser",
+      "paragraph-2022",
+      "marg-t--component"
+    ],
+    "h2": [
+      "What types of mounting tape are available?",
+      "Key features of our mounting tapes",
+      "Typical mounting tape applications",
+      "How we’re helping SBF GmbH efficiently secure their lighting modules with our fire-compliant mounting tape",
+      "Industrial mounting tape solutions",
+      "Need help finding the right mounting tape for your application?"
+    ],
+    "ctas": [
+      "Contact us"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/applications/mounting",
+      "/en/industry/products/filmic-tapes",
+      "/en/industry/products/high-performance-bonding-tape",
+      "/en/industry/markets/industrial-converter-partners/industrial-converting-partners-tape-technology/acrylic-core-tapes-for-converters",
+      "/en/industry/products/foam-tapes",
+      "/en/industry/products/structural-adhesives",
+      "/en/about-tesa/press-insights/stories/design-beyond-the-bond.html",
+      "/en/about-tesa/press-insights/stories/choosing-the-strongest-removable-mounting-tape-for-your-industrial-application.html",
+      "/en/industry/products/transfer-tapes",
+      "/en/about-tesa/press-insights/stories/cloth-tape-vs-duct-tape-your-101-guide.html",
+      "/en/industry/products/cloth-tapes",
+      "/en/industry/products/tissue-tapes",
+      "/en/industry/markets/transportation-industry",
+      "/en/industry/markets/building-industry/furniture",
+      "/en/industry/markets/automotive",
+      "/en/industry/markets/electronics",
+      "/en/industry/markets/paper-print/tape-applications/plate-mounting-tapes-flexographic-printing",
+      "/en/industry/markets/building-industry/interior-fit-out",
+      "/en/about-tesa/press-insights/stories/certified-fire-protection-in-railway-vehicles.html",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/packaging",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Packaging - tesa",
+    "h1": "Contributing to sustainability – our packaging tape assortment",
+    "modules": [
+      "static-activation-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "table",
+      "page-teasers",
+      "downloads",
+      "contact-teaser",
+      "highlight-teasers"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "table",
+      "page-teasers",
+      "paragraph-2022",
+      "tip-steps",
+      "table",
+      "page-teasers",
+      "paragraph-2022",
+      "tip-steps",
+      "table",
+      "page-teasers"
+    ],
+    "h2": [
+      "Meeting a highly dynamic market",
+      "Your packaging tape partner",
+      "Paper packaging tapes",
+      "Filmic packaging tapes",
+      "Industrial hand dispenser for packaging tape",
+      "Want to know more about our Sustainability Agenda?"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact Us",
+      "Get in touch",
+      "Learn more here!"
+    ],
+    "downloads": [
+      "Contributing to sustainability - our packaging tape assortment PDF 2.6 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/applications/packaging",
+      "/en/about-tesa/sustainability",
+      "/en/industry/tesa-60408-bio-based-paper-packaging-tape.html",
+      "/en/industry/tesa-4713.html",
+      "/en/industry/tesa-60013.html",
+      "/en/industry/tesa-4513-superior-paper-packaging-tape.html",
+      "/en/industry/tesa-4313-pv10.html",
+      "/en/about-tesa/press-insights/stories/eurocircuits-embraces-sustainability-and-branding-with-tesa-4713.html",
+      "/en/about-tesa/press-insights/stories/how-tesa-4713-packaging-tape-helped-sellpy-meet-its-sustainability-goals.html",
+      "/en/industry/tesa-60416.html",
+      "/en/industry/tesa-60418.html",
+      "/en/industry/applications/packaging/filmic-tapes",
+      "/en/industry/tesa-6300-hand-dispenser-economy.html",
+      "/en/industry/tesapack-6400-hand-dispenser-comfort.html",
+      "/en/industry/tesa-56402.html",
+      "/en/industry/products/tape-dispenser",
+      "/en/files/download/10183807,12,contributing-to-sustainability-our-packaging-tape-assortment.pdf",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/protection",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Reliable, durable protection tapes for industry | tesa®",
+    "h1": "Protection tapes for industry",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "h2": [
+      "Protection tapes for industrial adhesive applications",
+      "Overview of industrial protection tapes",
+      "Protection tapes: FAQ"
+    ],
+    "ctas": [
+      "Contact",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/applications/protection",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/repairing",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Repairing - tesa",
+    "h1": "Our adhesive tape solutions for maintenance and repair",
+    "modules": [
+      "static-activation-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "marg-t--component",
+      "highlight-teasers",
+      "downloads",
+      "quicklinks",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "marg-t--component",
+      "paragraph-2022",
+      "marg-t--component",
+      "paragraph-2022",
+      "marg-t--component",
+      "paragraph-2022",
+      "marg-t--component",
+      "highlight-teasers",
+      "downloads",
+      "quicklinks",
+      "paragraph-2022"
+    ],
+    "h2": [
+      "Filmic repair tapes",
+      "Duct and gaffer tapes",
+      "Cloth tapes",
+      "Aluminum tapes",
+      "Keep up with our news on our repair and maintenance tape range",
+      "Get in touch"
+    ],
+    "ctas": [
+      "Downloads",
+      "CONTACT US"
+    ],
+    "downloads": [
+      "tesa® Aluminum Foil Tape Folder tesa® Aluminum Foil Tape Folder PDF 305 kB",
+      "tesa® 4646 Greenhouse Repairing Tape tesa® 4646 Greenhouse Repairing Tape PDF 491.6 kB",
+      "tesa® Cloth Tape Assortment Folder tesa® Cloth Tape Assortment Folder PDF 3.3 MB",
+      "tesa® Advertisement and Entertainment Tape Solutions Folder tesa® Advertisement and Entertainment Tape Solutions Folder PDF 9.9 MB",
+      "tesa® 4648 Silage Patching Tape Flyer tesa® 4648 Silage Patching Tape Flyer PDF 381.6 kB",
+      "tesa® 606x4 Aluminum PET Tapes Flyer tesa® 606x4 Aluminum PET Tapes Flyer PDF 316.3 kB",
+      "tesa® Anti-Slip Safety Tapes Flyer tesa® Anti-Slip Safety Tapes Flyer PDF 678.7 kB",
+      "tesa® Sandblasting tape solutions flyer tesa® Sandblasting tape solutions flyer PDF 1 MB"
+    ],
+    "downloadCount": 8,
+    "links": [
+      "/en/industry/applications/repairing",
+      "/en/industry/tesa-4646.html",
+      "/en/industry/tesa-4648.html",
+      "/en/industry/tesa-54411.html",
+      "/en/industry/nopi-4051-pv1-pvc-duct-tape.html",
+      "/en/industry/tesa-4258-pv1-premium-grade-pvc-duct-tape.html",
+      "/en/industry/tesa-4611.html",
+      "/en/industry/tesa-4613-utility-duct-tape.html",
+      "/en/industry/tesa-4615-pcr-duct-tape.html",
+      "/en/industry/tesa-4621.html",
+      "/en/industry/tesa-4662.html",
+      "/en/industry/tesa-4671.html",
+      "/en/industry/tesa-4687.html",
+      "/en/industry/tesa-4688.html",
+      "/en/industry/tesa-53799.html",
+      "/en/industry/tesa-60462-pcr-duct-tape.html",
+      "/en/industry/tesa-4541.html",
+      "/en/industry/tesa-4549.html",
+      "/en/industry/tesa-4651.html",
+      "/en/industry/tesa-4657.html",
+      "/en/industry/tesa-4660.html",
+      "/en/industry/tesa-4661.html",
+      "/en/industry/tesa-4818.html",
+      "/en/industry/tesa-4137.html",
+      "/en/industry/tesa-4386.html",
+      "/en/industry/tesa-50525-pv1.html",
+      "/en/industry/tesa-50565.html",
+      "/en/industry/tesa-50575.html",
+      "/en/industry/tesa-50577.html",
+      "/en/industry/tesa-51495-pv2.html",
+      "/en/industry/tesa-60614.html",
+      "/en/industry/tesa-60630.html",
+      "/en/industry/tesa-60632.html",
+      "/en/industry/tesa-60634.html",
+      "/en/industry/tesa-60644.html",
+      "/en/industry/tesa-60650.html",
+      "/en/industry/tesa-60652.html",
+      "/en/industry/tesa-60654.html",
+      "/en/industry/tesa-60670.html",
+      "/en/industry/tesa-60672.html",
+      "/en/industry/markets/appliances",
+      "/en/files/download/996527,2,tesa-aluminum-foil-tape-overview.pdf",
+      "/en/files/download/8657848,5,tesa-4646-greenhouse-repairing-tape.pdf",
+      "/en/files/download/10805936,4,tesa-cloth-tape-assortment-folder-final-web.pdf",
+      "/en/files/download/10717175,3,tesa-ad-event-entertainment-folder-final-web.pdf",
+      "/en/files/download/10712469,6,tesa-4648-silage-patching-tape-flyer-final.pdf",
+      "/en/files/download/11135767,2,tesa-606x4-aluminum-pet-tapes.pdf",
+      "/en/files/download/11582483,2,tesa-anti-slip-safety-tapes-flyer-2.pdf",
+      "/en/files/download/10886567,3,tesa-sandblasting-tape-solutions-web-folder.pdf",
+      "/en/about-tesa/press-insights/stories/protecting-feed-stocks-with-tesa-4648-repairing-tape-for-silage-films.html",
+      "/en/about-tesa/press-insights/stories/improving-safety-with-tesa-60960-anti-scratch-floor-marking-tape.html",
+      "/en/about-tesa/press-insights/stories/new-tesa-4646-greenhouse-repairing-tape-launched.html",
+      "/en/about-tesa/press-insights/stories/anti-slip-assortment-extension-the-new-tesa-60954-and-60955.html",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/sealing",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Reliable sealing tapes for industry use | tesa®",
+    "h1": "Sealing tapes for high-performance adhesion",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "sugru-paragraph",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "sugru-paragraph",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers"
+    ],
+    "h2": [
+      "Tapes for industrial sealing applications",
+      "Sealing tapes for a more innovative and sustainable world",
+      "Overview of sealing tapes",
+      "Grow your business with our partner programm"
+    ],
+    "ctas": [
+      "Contact",
+      "Get in touch",
+      "Find out more"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/applications/sealing",
+      "/en/industry/tesa-60408-bio-based-paper-packaging-tape.html",
+      "/en/industry/contact-us-industry",
+      "/en/industry/markets/distribution-partners/tesa-alliance-partner-program"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/shielding-tapes",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Protect electronics with our innovative shielding tapes | tesa®",
+    "h1": "Our advanced shielding tapes protect vital electrical equipment",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "image-text-stacked",
+      "faq",
+      "downloads",
+      "inline-form",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "h2": [
+      "Find your ideal shielding tape",
+      "Why you should be concerned about EMI / RFI",
+      "Shielding tapes delivering solutions to protect your devices",
+      "Frequently asked questions regarding shielding tapes",
+      "Get in touch now"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us",
+      "Get in touch"
+    ],
+    "downloads": [
+      "tesa® solutions for the electronics industry Assortment Folder PDF 10.6 MB",
+      "tesa® electrically conductive tape assortment for converters PDF 649.6 kB"
+    ],
+    "downloadCount": 2,
+    "links": [
+      "/en/industry/applications/shielding-tapes",
+      "/en/industry/tesa-60272.html",
+      "/en/industry/tesa-60274.html",
+      "/en/industry/tesa-60860.html",
+      "/en/industry/tesa-60388.html",
+      "/en/industry/tesa-60213.html",
+      "/en/industry/tesa-60386.html",
+      "/en/industry/tesa-60214.html",
+      "/en/industry/tesa-60231.html",
+      "/en/industry/tesa-60215.html",
+      "/en/industry/tesa-60217.html",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/48683,46,electronics-assortment-2024.pdf",
+      "/en/files/download/10813456,2,tesa-ect-assortment-for-converters-feb2023.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/thermal-management",
+    "depth": 4,
+    "parent": "/en/industry/applications",
+    "status": 200,
+    "title": "Thermal tapes for efficient heat dissipation | tesa®",
+    "h1": "Advanced thermal tape solutions for today’s manufacturing challenges",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "paragraph-2022",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "h2": [
+      "Heat dissipation solutions that are tested and approved",
+      "No sweat – easily discover the right thermal tape with our product finder",
+      "Practical industrial applications for our thermal tapes",
+      "FAQs about thermal tapes",
+      "Get in touch today and partner with us"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us",
+      "Get in touch"
+    ],
+    "downloads": [
+      "tesa® Thermal interface material product range PDF 2.3 MB",
+      "tesa® 6074x - Thermal management tapes PDF 3.2 MB",
+      "tesa Solutions for the Electronics Industry Assortment Folder PDF 10.6 MB"
+    ],
+    "downloadCount": 3,
+    "links": [
+      "/en/industry/applications/thermal-management",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/9874264,11,tesa-product-range-thermal-interface-material-final.pdf",
+      "/en/files/download/12214586,1,tesa-electronics-6074x-thermal-management-tapes-2-pager.pdf",
+      "/en/files/download/48683,46,electronics-assortment-2024.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/appliances",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Appliances - tesa",
+    "h1": "Together towards future-proof appliances",
+    "modules": [
+      "static-stage",
+      "headline-module",
+      "image-with-caption",
+      "highlight-teasers",
+      "image-article-teasers",
+      "inline-form",
+      "downloads"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "headline-module",
+      "image-with-caption",
+      "highlight-teasers",
+      "headline-module",
+      "image-article-teasers",
+      "headline-module",
+      "inline-form",
+      "downloads"
+    ],
+    "h2": [
+      "For every appliance",
+      "Your goals are our goals",
+      "Get in touch",
+      "Let's go together"
+    ],
+    "ctas": [],
+    "downloads": [
+      "Adhesive tape solutions for the appliance industry Folder – Appliance Industry PDF 1 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/about-tesa/press-insights/stories/rethinking-transport-securing-with-paper-based-strapping-tape.html",
+      "/en/industry/markets/appliances/innovation",
+      "/en/industry/markets/appliances/collaboration",
+      "/en/industry/markets/appliances/sustainability",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/49099,23,tesa-appliances-industry-folder.pdf"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/automotive",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Advanced automotive adhesives: revolutionizing car design and assembly | tesa®",
+    "h1": "Innovative automotive adhesives: driving the future",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "highlight-teasers",
+      "marg-t--component",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "highlight-teasers",
+      "highlight-teasers",
+      "highlight-teasers",
+      "highlight-teasers",
+      "highlight-teasers",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form"
+    ],
+    "h2": [
+      "Key application areas in the automotive industry",
+      "Our portfolio of automotive adhesive solutions",
+      "Reach out to learn more"
+    ],
+    "ctas": [
+      "Contact"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/automotive",
+      "/en/industry/markets/automotive/ev-battery",
+      "/en/industry/markets/automotive/interior",
+      "/en/industry/markets/automotive/exterior",
+      "/en/industry/markets/automotive/car-body",
+      "/en/industry/markets/wire-harnessing",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/battery-energy-storage-systems",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "High-performance tape products for battery energy storage solutions | tesa®",
+    "h1": "Battery energy storage solutions – powering progress through advanced tape technology",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "faq",
+      "contact-teaser"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "faq",
+      "contact-teaser"
+    ],
+    "h2": [
+      "Your reliable tape partner for battery energy storage solutions",
+      "Our tape solutions for battery energy storage systems",
+      "Innovating together – collaborative product innovations for better battery storage technologies",
+      "Get in touch",
+      "FAQs"
+    ],
+    "ctas": [
+      "Contact us",
+      "Downloads",
+      "Get in touch"
+    ],
+    "downloads": [
+      "tesa® Battery energy storage systems PDF 909.1 kB",
+      "tesa® Battery Splicing Folder PDF 675.4 kB"
+    ],
+    "downloadCount": 2,
+    "links": [
+      "/en/industry/markets/battery-energy-storage-systems",
+      "/en/industry/tesa-58352.html",
+      "/en/industry/tesa-61024-cell-wrapping.html",
+      "/en/industry/tesa-4428.html",
+      "/en/industry/tesa-58337.html",
+      "/en/industry/tesa-58316.html",
+      "/en/industry/tesa-58323.html",
+      "/en/industry/tesa-8853-3.html",
+      "/en/industry/tesa-acxplus-76730-box-seal.html",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/12168344,3,te24-1147-bu-energy-ess-folder-250415-v12-1.pdf",
+      "/en/files/download/12335296,2,tesa-itc-battery-splicing-folder.pdf",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/building-industry",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Adhesive tapes for building components | tesa®",
+    "h1": "Building adhesive tapes: The backbone of construction",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "marg-t--component",
+      "inline-form",
+      "faq",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "faq",
+      "headline-module"
+    ],
+    "h2": [
+      "Choose adhesive tapes for your building component applications",
+      "Applications for building adhesive tapes",
+      "Choosing the right building adhesive tape for your project",
+      "Contact us now",
+      "Frequently asked questions about building adhesive tapes"
+    ],
+    "ctas": [
+      "Contact"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/building-industry",
+      "/en/industry/markets/building-industry/interior-wall-cladding",
+      "/en/industry/markets/building-industry/adhesive-flooring-solutions",
+      "/en/industry/markets/building-industry/mirror-mounting-solutions",
+      "/en/industry/markets/building-industry/furniture",
+      "/en/industry/markets/building-industry/trims-profiles",
+      "/en/industry/markets/building-industry/doors",
+      "/en/industry/markets/building-industry/windows",
+      "/en/industry/markets/building-industry/air-and-water-proofing",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/distribution-partners",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Industrial distribution partners - tesa",
+    "h1": "Industrial Distribution Partners",
+    "modules": [
+      "static-stage",
+      "headline-module",
+      "highlight-teasers",
+      "article-gallery-growth",
+      "paragraph",
+      "blue-headline",
+      "contact-teaser"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "headline-module",
+      "highlight-teasers",
+      "article-gallery-growth",
+      "article-gallery-growth",
+      "paragraph",
+      "blue-headline",
+      "paragraph",
+      "article-gallery-growth",
+      "contact-teaser"
+    ],
+    "h2": [
+      "For experts. From experts.",
+      "Are you a Converter?",
+      "Benefits of partnering with tesa",
+      "Our extensive tape and adhesive solution assortment for distribution partners",
+      "Grow your business - Become a tesa® Alliance Partner",
+      "Hear what our partners say",
+      "Exclusive advantages for tesa® Alliance Partners",
+      "Download our tesa® Alliance Partner program brochure",
+      "Interested in becoming a tesa partner?"
+    ],
+    "ctas": [
+      "Get in touch"
+    ],
+    "downloads": [
+      "tesa-Partner-Program-Distributor-Brochure PDF - 748.6 kB tesa-Partner-Program-Distributor-Brochure Download"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/industrial-converter-partners",
+      "/en/industry/applications/packaging",
+      "/en/industry/applications/masking",
+      "/en/industry/applications/bundling",
+      "/en/industry/applications/repairing",
+      "/en/industry/lp/covid/safety-protection-tapes",
+      "/en/files/download/1155709,5,tesa-partner-program-distributor-brochure.pdf",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/electronics",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Innovative and Versatile Electronic Adhesives | tesa®",
+    "h1": "Electronic Adhesive Solutions: The Future of Consumer Electronics",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-map",
+      "marg-t--component",
+      "downloads",
+      "contact-teaser"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-map",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "downloads",
+      "contact-teaser"
+    ],
+    "h2": [
+      "Devices and Typical Applications of Electronic Adhesives",
+      "Key Features of Our Electronic Adhesives",
+      "Electronic Adhesives: Our Product Range",
+      "Electronics Helpdesk"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us",
+      "Get in touch"
+    ],
+    "downloads": [
+      "tesa Solutions for the Electronics Industry Assortment Folder PDF 10.6 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/electronics",
+      "/en/files/original/48683,46,electronics-assortment-2024.pdf",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/food-industry",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Reliable sealing for industrial food packaging | tesa®",
+    "h1": "State-of-the-art industrial food packaging: snack, pack, and go",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "downloads"
+    ],
+    "h2": [
+      "Prevention, protection, securing – food safety for a growing market",
+      "Discover our tape assortment for industrial food packaging",
+      "Get in touch now",
+      "Didn't find what you were looking for?"
+    ],
+    "ctas": [
+      "Contact",
+      "Downloads"
+    ],
+    "downloads": [
+      "Tape solutions for the food industry PDF 7.4 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/food-industry",
+      "/en/industry/tesa-6081.html",
+      "/en/industry/tesa-4917.html",
+      "/en/industry/tesa-6917.html",
+      "/en/industry/tesa-64621-industry.html",
+      "/en/industry/tesa-4204-pv0.html",
+      "/en/industry/tesa-4104-colored.html",
+      "/en/industry/tesapack-6400-hand-dispenser-comfort.html",
+      "/en/industry/tesa-4120-hand.html",
+      "/en/industry/tesa-4280-pv0.html",
+      "/en/industry/tesa-4313-pv0.html",
+      "/en/industry/tesa-4713.html",
+      "/en/industry/tesa-4089.html",
+      "/en/industry/tesa-4122.html",
+      "/en/industry/tesa-4124.html",
+      "/en/industry/tesa-6094.html",
+      "/en/industry/tesa-6256.html",
+      "/en/industry/tesa-6005.html",
+      "/en/industry/tesa-6075.html",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/11582542,2,medium-11520051.pdf"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/health-markets",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Reliable & precise solutions - innovative tapes for In-Vitro Diagnostics | tesa®",
+    "h1": "Tapes for In-Vitro Diagnostics",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "paragraph-2022",
+      "inline-form",
+      "headline-module"
+    ],
+    "h2": [
+      "Hydrophilic films for in-vitro diagnostics",
+      "Spacer tapes for in-vitro diagnostics",
+      "Get in touch with our tape experts"
+    ],
+    "ctas": [
+      "Contact",
+      "Contact Angle"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/health-markets",
+      "/en/industry/tesa-62580.html",
+      "/en/industry/tesa-62588.html",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/industrial-converter-partners",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Industrial converter partners - tesa",
+    "h1": "Adhesive solutions for customized applications",
+    "modules": [
+      "consumer-stage",
+      "headline-module",
+      "highlight-teasers",
+      "page-teasers",
+      "image-with-caption",
+      "contact-teaser",
+      "related-applications",
+      "l-teaser"
+    ],
+    "moduleSeq": [
+      "consumer-stage",
+      "headline-module",
+      "highlight-teasers",
+      "page-teasers",
+      "image-with-caption",
+      "contact-teaser",
+      "related-applications",
+      "l-teaser"
+    ],
+    "h2": [
+      "Developed for your end-markets",
+      "Meet a tesa Converter Partner",
+      "Any question?",
+      "Learn more about our trade offering and history",
+      "Our sustainability agenda"
+    ],
+    "ctas": [
+      "Explore",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/industrial-converter-partners/industrial-converting-partners-tape-technology",
+      "/en/industry/markets/automotive",
+      "/en/industry/markets/transportation-industry",
+      "/en/industry/markets/electronics",
+      "/en/industry/markets/appliances",
+      "/en/industry/contact-us-industry",
+      "/en/industry/markets/distribution-partners",
+      "/en/about-tesa/facts-figures/history",
+      "/en/about-tesa/sustainability/strategy"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/metal-industry",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Powerful adhesives for the metal industry | tesa®",
+    "h1": "Adhesives for the metal industry: strength every step of the way",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "headline-module"
+    ],
+    "h2": [
+      "Metal manufacturing and metalworking: the 5 main applications",
+      "Our range of adhesive tape arount metal",
+      "Contact our industry experts",
+      "Didn't find what you were looking for?"
+    ],
+    "ctas": [
+      "Contact",
+      "Downloads"
+    ],
+    "downloads": [
+      "Metal-manufacturing & metalworking Folder PDF 972.7 kB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/metal-industry",
+      "/en/industry/tesa-60462-pcr-duct-tape.html",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/960964,9,tesa-direct-folder-metal-market-final-190812-web.pdf"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/paper-print",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Print & paper - tesa",
+    "h1": "Print, paper, and allied web processing industries",
+    "modules": [
+      "static-stage",
+      "headline-module",
+      "area-teasers",
+      "highlight-teasers",
+      "page-teasers",
+      "image-with-caption"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "headline-module",
+      "area-teasers",
+      "area-teasers",
+      "highlight-teasers",
+      "page-teasers",
+      "image-with-caption"
+    ],
+    "h2": [
+      "Paper or film splicing, adhesive plate mounting sleeves, and flexographic plate mounting tapes are just a few examples from our complete range for web material production and processing.",
+      "Adhesive applications",
+      "Market segments",
+      "Latest news",
+      "News all around paper and splicing"
+    ],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/paper-print/tape-applications/plate-mounting-tapes-flexographic-printing",
+      "/en/industry/markets/paper-print/tape-applications/splicing-tapes",
+      "/en/industry/markets/paper-print/tape-applications/process-tapes-for-printing",
+      "/en/industry/markets/paper-print/tape-applications/process-tapes-for-paper-production",
+      "/en/industry/markets/paper-print/tape-applications/corrugator-design-tapes",
+      "/en/industry/markets/paper-print/tape-applications/process-tapes-for-liquid-packaging-board-production",
+      "/en/industry/markets/paper-print/market-segments/flexible-packaging-printing",
+      "/en/industry/markets/paper-print/market-segments/label-printing",
+      "/en/industry/markets/paper-print/market-segments/newspaper-magazine-printing",
+      "/en/industry/markets/paper-print/market-segments/paper-production",
+      "/en/industry/markets/paper-print/market-segments/corrugators",
+      "/en/industry/markets/paper-print/market-segments/liquid-packaging-board-production",
+      "/en/about-tesa/press-insights/stories/roberts-mart-high-quality-flexo-printing.html",
+      "/en/about-tesa/press-insights/stories/how-south-korean-food-brand-orion-protects-the-environment-with-their-good-packaging-project.html",
+      "/en/about-tesa/press-insights/stories/recyclable-package-opening.html",
+      "/en/about-tesa/press-insights/stories/how-to-easily-splice-with-tesa-easysplice.html",
+      "/en/about-tesa/press-insights/stories/here-s-how-you-can-easily-splice-high-slip-films.html"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/server-and-data-centre",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Comprehensive server tape solutions | tesa®",
+    "h1": "Innovative server tape solutions for data and server center",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-map",
+      "tip-steps",
+      "marg-t--component",
+      "downloads",
+      "faq",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-map",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "marg-t--component",
+      "downloads",
+      "faq",
+      "inline-form"
+    ],
+    "h2": [
+      "Optimize data center performance",
+      "Applications",
+      "Our advanced solutions for data and server systems",
+      "Discover our products",
+      "FAQs about server tape",
+      "Get in touch"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us"
+    ],
+    "downloads": [
+      "Tape solutions for server and data centre PDF 250.9 kB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/server-and-data-centre",
+      "/en/industry/tesa-60214.html",
+      "/en/industry/tesa-4965.html",
+      "/en/industry/tesa-4903.html",
+      "/en/industry/tesa-60416.html",
+      "/en/industry/tesa-6930-laser-label-8.html",
+      "/en/industry/tesa-75505-team-4965-transfer-50-m.html",
+      "/en/industry/tesa-4950-lse-filmic-mounting-tape.html",
+      "/en/industry/tesa-58358.html",
+      "/en/industry/lp/mounting/tesa-755xx-next-gen-transfer-tapes",
+      "/en/industry/tesa-50620.html",
+      "/en/industry/tesa-50625.html",
+      "/en/industry/tesa-60703.html",
+      "/en/industry/tesa-58326.html",
+      "/en/industry/tesa-58394.html",
+      "/en/industry/tesa-supersleeve-51026-pv6.html",
+      "/en/industry/tesa-sleeve-51608-pv9.html",
+      "/en/industry/tesa-4414.html",
+      "/en/industry/tesa-bodyguard-50530-pv3.html",
+      "/en/industry/tesa-50551-wheel-rim-protection.html",
+      "/en/files/download/12267169,2,tesa-itc-server-data-center-folder-online-catalogue-pdf.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/smart-cards",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Tape for specialty smart card and DI card applications | tesa®",
+    "h1": "Smart card tape",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "headline-module"
+    ],
+    "h2": [
+      "Discover the versatile uses of smart card adhesive tapes",
+      "Browse our portfolio of smart card tapes",
+      "Get in touch with us",
+      "Didn't find what you are looking for?"
+    ],
+    "ctas": [
+      "Contact",
+      "Downloads"
+    ],
+    "downloads": [
+      "Chip Bonding - For the Embedding of Modules in Smart Cards Folder PDF 885.1 kB",
+      "tesa® HAF 8414 - Simplify your dual interface chip bonding process Folder PDF 431.1 kB",
+      "Card Attachment - For the Temporary Bonding of Smart Cards Folder PDF 3.4 MB"
+    ],
+    "downloadCount": 3,
+    "links": [
+      "/en/industry/markets/smart-cards",
+      "/en/industry/tesa-haf-8414.html",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/138314,9,smart-cards-chipbonding-web-version.pdf",
+      "/en/files/download/9062903,4,tesa-haf-8414-flyer.pdf",
+      "/en/files/download/138324,9,smart-cards-card-attachment.pdf"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/solar-industry",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Adhesive for solar panels: sustainable energy production | tesa®",
+    "h1": "Solar panel adhesives: harness the power of the sun",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "highlight-teasers",
+      "marg-t--component",
+      "inline-form",
+      "downloads",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "paragraph-2022",
+      "highlight-teasers",
+      "highlight-teasers",
+      "highlight-teasers",
+      "paragraph-2022",
+      "marg-t--component",
+      "paragraph-2022",
+      "tip-steps"
+    ],
+    "h2": [
+      "Making solar panel production and installation easy",
+      "Explore our solutions for solar modules",
+      "Find the best adhesive tape for your solar panel application",
+      "Leveraging the power of solar panel adhesive tape",
+      "Let’s innovate together",
+      "We thought you might also be interested in the following pages:"
+    ],
+    "ctas": [
+      "Contact",
+      "Downloads",
+      "Learn more",
+      "Discover more"
+    ],
+    "downloads": [
+      "Adhesive solutions for solar module production Folder PDF 1.1 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/solar-industry",
+      "/en/industry/tesa-62510.html",
+      "/en/industry/tesa-60860.html",
+      "/en/industry/tesa-acxplus-7076.html",
+      "/en/industry/markets/solar-industry/wafer-based-solar-modules",
+      "/en/industry/markets/solar-industry/thin-film-solar-modules",
+      "/en/industry/markets/solar-industry/next-generation-solar-modules",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/49005,19,adhesive-solutions-for-solar-module-production-folder.pdf",
+      "/en/industry/markets/wind-energy",
+      "/en/industry/markets/electronics",
+      "/en/about-tesa/sustainability"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/transportation-industry",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Strong transportation tape solutions for the transportation industry | tesa®",
+    "h1": "Transportation tapes: mobility and beyond",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "divider",
+      "l-teaser",
+      "tip-steps",
+      "marg-t--component",
+      "inline-form",
+      "faq",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "divider",
+      "l-teaser",
+      "paragraph-2022",
+      "tip-steps",
+      "divider",
+      "l-teaser",
+      "paragraph-2022",
+      "tip-steps",
+      "divider",
+      "l-teaser",
+      "paragraph-2022"
+    ],
+    "h2": [
+      "Discover our range of transportation tapes",
+      "Get in touch now",
+      "Transportation tapes: frequently asked questions"
+    ],
+    "ctas": [
+      "Contact"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/markets/transportation-industry",
+      "/en/industry/markets/transportation-industry/railway",
+      "/en/industry/tesa-4831.html",
+      "/en/industry/tesa-4319.html",
+      "/en/industry/tesa-4657.html",
+      "/en/industry/tesa-bodyguard-50530-pv3.html",
+      "/en/industry/tesa-50565.html",
+      "/en/industry/tesa-54715-noise-blocker-standard.html",
+      "/en/industry/markets/transportation-industry/marine",
+      "/en/craftsmen/tesa-professional-60950.html",
+      "/en/craftsmen/tesa-professional-4368.html",
+      "/en/industry/tesaflex-4163.html",
+      "/en/industry/tesa-4848-pv0.html",
+      "/en/industry/markets/transportation-industry/trucks-trailers-and-rigid-bodies",
+      "/en/industry/products/foam-tapes/acrylic-foam-tapes",
+      "/en/industry/tesa-62508.html",
+      "/en/industry/tesa-4309-pv1.html",
+      "/en/industry/markets/transportation-industry/aviation",
+      "/en/industry/tesa-60606-pv1.html",
+      "/en/industry/tesa-acxplus-7808-black-line.html",
+      "/en/industry/applications/bundling",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/wind-energy",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "Windmill tape solutions for blade manufacturing | tesa",
+    "h1": "Innovative adhesive solutions for wind turbines",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "marg-t--component",
+      "inline-form",
+      "image-text-stacked",
+      "downloads",
+      "headline-module"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "marg-t--component",
+      "inline-form",
+      "paragraph-2022",
+      "image-text-stacked"
+    ],
+    "h2": [
+      "Casting molds for wind blades – optimize your process with our adhesive tapes.",
+      "Our comprehensive directory for wind turbine tape solutions",
+      "Get in touch",
+      "Efficient and reliable manufacturing processes",
+      "Didn't find what you were looking for?"
+    ],
+    "ctas": [
+      "Contact",
+      "Downloads"
+    ],
+    "downloads": [
+      "tesa_Wind_Brochure_web PDF 2.3 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/wind-energy",
+      "/en/industry/tesa-4309-pv1.html",
+      "/en/industry/tesa-50600-standard.html",
+      "/en/industry/tesa-professional-4368.html",
+      "/en/industry/tesa-4820.html",
+      "/en/industry/tesa-50650-conformable.html",
+      "/en/industry/tesa-51960.html",
+      "/en/industry/tesa-4970.html",
+      "/en/industry/tesa-4965.html",
+      "/en/industry/tesa-52994-pv-5.html",
+      "/en/industry/tesa-acxplus-7076.html",
+      "/en/industry/tesa-4342-precision-mask.html",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/11582418,2,tesa-wind-brochure-web.pdf"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/wire-harnessing",
+    "depth": 4,
+    "parent": "/en/industry/markets",
+    "status": 200,
+    "title": "High performance wire harnessing tape: strong & flexible | tesa®",
+    "h1": "Automotive wire harnessing tapes for secure bundling and protection",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "coordinator",
+      "tip-steps",
+      "marg-t--component",
+      "l-teaser",
+      "downloads",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "coordinator",
+      "tip-steps",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component"
+    ],
+    "h2": [
+      "Why choose tesa wire harnessing tapes?",
+      "Wire harnessing tape solutions for every application",
+      "Supporting the global growth in electric vehicles",
+      "Discover our wide assortment of wire harnessing tapes",
+      "Expert support – call us today"
+    ],
+    "ctas": [
+      "Download"
+    ],
+    "downloads": [
+      "Wire harnesing bundling and protection folder PDF 5 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/wire-harnessing",
+      "/en/industry/tesa-61623.html",
+      "/en/industry/markets/wire-harnessing/product-finder",
+      "/en/files/download/11887278,2,2023-tesa-se-wire-harnessing-bunding-and-protection-product-folder.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/paper-print/contact-us-print-paper-industry",
+    "depth": 4,
+    "parent": "/en/industry/paper-print",
+    "status": 200,
+    "title": "Contact us - tesa",
+    "h1": "Your request for us!",
+    "modules": [
+      "static-activation-stage",
+      "contact-form"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "contact-form"
+    ],
+    "h2": [
+      "Contact us"
+    ],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/products/aluminium-foil-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Aluminum foil tapes for sealing, shielding and insulation | tesa®",
+    "h1": "Versatile foil tapes for a range of industrial applications",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "paragraph-2022",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "h2": [
+      "Discover the features of our foil tapes",
+      "Find the right aluminum foil tape for your application",
+      "Foil tapes in industry – a solution for many applications",
+      "FAQs about foil tape",
+      "Working closely with you and supporting our customers"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us",
+      "Get in touch"
+    ],
+    "downloads": [
+      "tesa Aluminum foil tape PDF 305 kB",
+      "tesa Aluminium tapes solutions PDF 316.3 kB"
+    ],
+    "downloadCount": 2,
+    "links": [
+      "/en/industry/products/aluminium-foil-tapes",
+      "/en/industry/markets/transportation-industry/marine",
+      "/en/industry/markets/appliances",
+      "/en/industry/contact-us-industry",
+      "/en/industry/applications/sealing",
+      "/en/industry/applications/insulation",
+      "/en/industry/applications/repairing",
+      "/en/files/download/11955181,0,medium-11881458.pdf",
+      "/en/files/download/11955186,1,tesa-606x4-aluminum-pet-tapes.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/products/anti-slip-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Reliable anti-slip adhesive tapes for industrial use | tesa®",
+    "h1": "Anti-slip adhesive tape for industry",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component"
+    ],
+    "h2": [
+      "Key features of our industrial anti-slip tapes",
+      "Typical applications for anti-slip adhesive tape",
+      "Choosing the right anti-slip tape from the our assortment",
+      "Grow your business with our partner programm"
+    ],
+    "ctas": [
+      "Contact us",
+      "Get in touch",
+      "Find out more"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/products/anti-slip-tapes",
+      "/en/industry/contact-us-industry",
+      "/en/industry/markets/distribution-partners/tesa-alliance-partner-program",
+      "/en/industry/products/grip-tapes"
+    ]
+  },
+  {
+    "path": "/en/industry/products/cloth-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Adhesive cloth tapes for applications within industry | tesa®",
+    "h1": "Cloth tapes for diverse applications in industry",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "downloads",
+      "highlight-teasers"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "downloads",
+      "highlight-teasers"
+    ],
+    "h2": [
+      "Key features of our cloth tapes",
+      "Typical applications for cloth tapes",
+      "Cloth tapes for industry applications",
+      "Grow your business with our partner programm"
+    ],
+    "ctas": [
+      "Contact",
+      "Downloads",
+      "Get in touch with us",
+      "Find out more"
+    ],
+    "downloads": [
+      "Our cloth tape assortment PDF 3.3 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/products/cloth-tapes",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/10805936,4,tesa-cloth-tape-assortment-folder-final-web.pdf",
+      "/en/industry/markets/distribution-partners/tesa-alliance-partner-program"
+    ]
+  },
+  {
+    "path": "/en/industry/products/conductive-tape",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Quality conductive tape for industry applications | tesa®",
+    "h1": "Electrically conductive tapes for industry",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "highlight-teasers",
+      "marg-t--component",
+      "contact-teaser"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "highlight-teasers",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers"
+    ],
+    "h2": [
+      "Key features of our industrial conductive tapes",
+      "Typical industry applications for electrically conductive tape",
+      "Conductive tapes for industrial applications"
+    ],
+    "ctas": [
+      "Contact",
+      "Find out more!",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/products/conductive-tape",
+      "/en/industry/markets/industrial-converter-partners/industrial-converting-partners-tape-technology/thermal-interface-material-in-converting",
+      "/en/industry/contact-us-industry",
+      "/en/industry/markets/distribution-partners/tesa-alliance-partner-program"
+    ]
+  },
+  {
+    "path": "/en/industry/products/double-sided-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Double-sided adhesive tapes | tesa®",
+    "h1": "Double-sided tapes developed for your manufacturing needs",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "sugru-paragraph",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "sugru-paragraph",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "faq"
+    ],
+    "h2": [
+      "Features of double-sided tapes",
+      "Potential industrial applications for double-sided tapes",
+      "Overview of double-sided tapes",
+      "Double Sided Tapes: FAQ"
+    ],
+    "ctas": [
+      "Contact",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/products/double-sided-tapes",
+      "/en/industry/contact-us-industry"
+    ]
+  },
+  {
+    "path": "/en/industry/products/duct-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Multi-purpose, reliable duct tapes for industry | tesa®",
+    "h1": "Duct tapes: Versatile adhesive solutions for industry",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers",
+      "faq"
+    ],
+    "h2": [
+      "Key features of our industrial duct tapes",
+      "Typical applications for industrial duct tape",
+      "Duct tapes for industry solutions",
+      "Grow your business with our partner programm",
+      "Duct tape: FAQs"
+    ],
+    "ctas": [
+      "Contact",
+      "Get in touch",
+      "Find out more"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/products/duct-tapes",
+      "/en/industry/contact-us-industry",
+      "/en/industry/markets/distribution-partners/tesa-alliance-partner-program"
+    ]
+  },
+  {
+    "path": "/en/industry/products/filament-strapping-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Filament strapping tape for secure transport | tesa®",
+    "h1": "Filament strapping tape for secure bundling and transport",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "downloads",
+      "faq",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "marg-t--component",
+      "downloads",
+      "faq",
+      "inline-form"
+    ],
+    "h2": [
+      "Key features of filament strapping tape",
+      "Typical applications for filament strapping tape",
+      "Our filament strapping tape assortment",
+      "FAQs",
+      "Looking for the right filament strapping tape for your packaging or transport application?"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us"
+    ],
+    "downloads": [
+      "tesa filament tape solutions folder PDF 1.1 MB",
+      "tesa® standard filament tape flyer PDF 2 MB",
+      "tesa® 4559 cross filament tape flyer PDF 201 kB",
+      "tesa® premium filament tape flyer PDF 2.4 MB"
+    ],
+    "downloadCount": 4,
+    "links": [
+      "/en/industry/products/filament-strapping-tapes",
+      "/en/industry/applications/bundling",
+      "/en/industry/markets/transportation-industry",
+      "/en/industry/applications/packaging",
+      "/en/industry/tesa-53398.html",
+      "/en/industry/tesa-53315.html",
+      "/en/industry/tesa-4590.html",
+      "/en/industry/tesa-4578.html",
+      "/en/files/download/11887265,1,medium-11813276.pdf",
+      "/en/files/download/12572690,1,medium-12471504.pdf",
+      "/en/files/download/12572691,1,medium-12471505.pdf",
+      "/en/files/download/12572692,1,medium-12471506.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/products/filmic-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Adhesive filmic tapes for industry | tesa®",
+    "h1": "Filmic tape solutions for industrial applications",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "downloads",
+      "faq",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "marg-t--component",
+      "paragraph-2022",
+      "downloads",
+      "faq",
+      "inline-form"
+    ],
+    "h2": [
+      "Why choose filmic tapes",
+      "Typical applications for industrial filmic tape",
+      "Explore our filmic tapes",
+      "FAQ",
+      "Get in touch with us now"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us"
+    ],
+    "downloads": [
+      "tesa converter assortment folder 2025 PDF 9 MB",
+      "tesa packaging market folder 2024 PDF 2.6 MB",
+      "tesa solutions for the electronics industry PDF 9.3 MB",
+      "tesa automotive electronics folder 2022 PDF 961.3 kB",
+      "tesa specialty tapes for film converting folder 2024 PDF 1.4 MB"
+    ],
+    "downloadCount": 5,
+    "links": [
+      "/en/industry/products/filmic-tapes",
+      "/en/industry/applications/bonding",
+      "/en/industry/applications/mounting",
+      "/en/industry/applications/packaging",
+      "/en/industry/applications/protection/surface-protection",
+      "/en/industry/applications/sealing",
+      "/en/industry/applications/protection",
+      "/en/industry/applications/insulation",
+      "/en/industry/tesa-4965.html",
+      "/en/about-tesa/sustainability/rethink-materials/product-sustainability",
+      "/en/files/download/11883774,3,tesa-converter-assortment-2024-final-online.pdf",
+      "/en/files/download/12339592,6,medium-11261520.pdf",
+      "/en/files/download/12224891,0,tesa-solutions-for-the-electronics-industry.pdf",
+      "/en/files/download/12339599,1,medium-12318109.pdf",
+      "/en/files/download/12339600,1,medium-12318110.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/products/flame-retardant",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Tame the blaze: Flame retardant tapes | tesa®",
+    "h1": "Banish the blaze with flame-retardant tapes",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "tip-steps",
+      "table",
+      "contact-teaser",
+      "image-text-stacked",
+      "faq",
+      "downloads",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "tip-steps",
+      "table",
+      "contact-teaser",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "image-text-stacked",
+      "faq",
+      "downloads",
+      "downloads"
+    ],
+    "h2": [
+      "Fire-resistant tapes that meet global standards",
+      "From automotive to construction: Flame-retardant tapes in action",
+      "FAQ about flame-retardant tapes",
+      "Discover our comprehensive fire-resistant solutions"
+    ],
+    "ctas": [
+      "Downloads",
+      "Contact us",
+      "Get in touch"
+    ],
+    "downloads": [
+      "Flame retardant folder PDF 5.6 MB",
+      "tesa® flameXtinct assortment flyer PDF 476 kB",
+      "tesa® flameXtinct 45020 carpet mounting flyer PDF 185 kB",
+      "tesa® 45051- UL94 PDF 54.2 kB",
+      "tesa® 45051 PDF 84.4 kB",
+      "tesa® 45063- UL94 PDF 496 kB",
+      "tesa® 45063 PDF 84.4 kB",
+      "tesa® 45065 - UL94 PDF 495 kB",
+      "tesa® 45065 PDF 84.5 kB",
+      "tesa® 58372 - Halogen PDF 818.8 kB",
+      "tesa® 58372 - UL94 VTMO PDF 443 kB",
+      "tesa® 58373 - Halogen PDF 314.9 kB"
+    ],
+    "downloadCount": 17,
+    "links": [
+      "/en/industry/products/flame-retardant",
+      "/en/industry/tesa-flamextinct-45001.html",
+      "/en/industry/tesa-58372.html",
+      "/en/industry/tesa-58375.html",
+      "/en/industry/tesa-58373.html",
+      "/en/industry/tesa-flamextinct-45051.html",
+      "/en/industry/45020-differential.html",
+      "/en/industry/tesa-flamextinct-45063.html",
+      "/en/industry/tesa-flamextinct-45065.html",
+      "/en/about-tesa/press-insights/stories/flame-retardant-carpet-laying.html",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/12001413,2,flame-retardant-folder.pdf",
+      "/en/files/download/9229530,7,tesa-flamextinct-assortment-flyer.pdf",
+      "/en/files/download/10997599,5,tesa-flamextinct-45020-carpet-mounting-flyer.pdf",
+      "/en/files/download/9503369,2,tesa-45051-ul94.pdf",
+      "/en/files/download/9503358,3,tesa-45051-flammability-fmvss-302.pdf",
+      "/en/files/download/9503371,2,tesa-45063-ul94.pdf",
+      "/en/files/download/9503359,3,tesa-45063-flammability-fmvss-302.pdf",
+      "/en/files/download/9503370,2,tesa-45065-ul94.pdf",
+      "/en/files/download/9503360,3,tesa-45065-flammability-fmvss-302.pdf",
+      "/en/files/download/9503361,5,tesa-58372-halogen.pdf",
+      "/en/files/download/9503362,7,tesa-58372-ul94-vtm0.pdf",
+      "/en/files/download/9503363,5,tesa-58373-halogen.pdf",
+      "/en/files/download/9503364,3,tesa-58373-ul94-vtm0.pdf",
+      "/en/files/download/9503365,3,tesa-58375-halogen.pdf",
+      "/en/files/download/9503366,3,tesa-58375-ul94-vtm0.pdf",
+      "/en/files/download/9503368,3,tesa-45001-ul94-hbf.pdf",
+      "/en/files/download/9503367,3,tesa-45001-far-test.pdf",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/products/foam-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Foam tapes for global industry applications | tesa®",
+    "h1": "Reliable foam tapes for industrial applications",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "sugru-paragraph",
+      "insertation",
+      "paragraph",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers",
+      "footnotes"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "sugru-paragraph",
+      "paragraph-2022",
+      "image-text-stacked",
+      "insertation",
+      "paragraph",
+      "marg-t--component",
+      "contact-teaser",
+      "highlight-teasers",
+      "footnotes"
+    ],
+    "h2": [
+      "Typical industry applications for single- and double-sided foam tapes",
+      "Advantages of our industrial foam tapes",
+      "The right foam tape for your industry"
+    ],
+    "ctas": [
+      "Contact us",
+      "Find out more!",
+      "Get in touch",
+      "Find out more"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/products/foam-tapes",
+      "/en/industry/markets/paper-print/tape-applications/plate-mounting-tapes-flexographic-printing/tesa-softprint-foam-tapes",
+      "/en/industry/products/foam-tapes/pe-foam-tape",
+      "/en/industry/products/foam-tapes/acrylic-foam-tapes",
+      "/en/industry/contact-us-industry",
+      "/en/industry/markets/distribution-partners/tesa-alliance-partner-program"
+    ]
+  },
+  {
+    "path": "/en/industry/products/grip-tapes",
+    "depth": 4,
+    "parent": "/en/industry/products",
+    "status": 200,
+    "title": "Adhesive grip tapes for industry | tesa®",
+    "h1": "Grip tapes developed for industry needs",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "image-gallery",
+      "marg-t--component",
+      "contact-teaser",
+      "downloads",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "image-gallery",
+      "paragraph-2022",
+      "marg-t--component",
+      "contact-teaser",
+      "downloads",
+      "faq"
+    ],
+    "h2": [
+      "Benefit from our experience in grip tape development",
+      "Getting the best from grip tape",
+      "Overview of grip tapes",
+      "Grip tapes for industry: FAQs"
+    ],
+    "ctas": [
+      "Contact us",
+      "Downloads",
+      "Get in touch"
+    ],
+    "downloads": [
+      "Roller wrapping for manufacturing and printing processes tesa® Printer's Friend PDF 415.7 kB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/products/grip-tapes",
+      "/en/industry/products/anti-slip-tapes",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/49294,18,roller-wrapping-tesa-printers-friend.pdf"
+    ]
+  },
+  {
+    "path": "/en/about-tesa/sustainability",
+    "depth": 3,
+    "parent": "/en/about-tesa",
+    "status": 200,
+    "title": "Sustainability - tesa",
+    "h1": "Not promises, proven progress.​",
+    "modules": [
+      "static-stage",
+      "headline-module",
+      "paragraph",
+      "card-slider",
+      "page-teasers",
+      "l-teaser",
+      "marg-t--component",
+      "static-activation-stage"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "headline-module",
+      "paragraph",
+      "headline-module",
+      "paragraph",
+      "card-slider",
+      "headline-module",
+      "page-teasers",
+      "l-teaser",
+      "headline-module",
+      "marg-t--component",
+      "static-activation-stage",
+      "static-activation-stage",
+      "static-activation-stage"
+    ],
+    "h2": [
+      "Together, we do more.​",
+      "Strategic action areas",
+      "Learn more about sustainability at tesa",
+      "Stories about what we do for a more sustainable future",
+      "When action meets ambition",
+      "Sustainable Rubber: From Plantation Challenges to Certified Solutions",
+      "How material innovation is accelerating",
+      "Integrating circular strategies at every step of our value chain",
+      "How RS Group and tesa engineered more sustainable sealing at scale",
+      "tesa donates 1.146 million euros to Save the Children"
+    ],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/about-tesa/sustainability/reduce-emissions",
+      "/en/about-tesa/sustainability/source-responsibly",
+      "/en/about-tesa/sustainability/rethink-materials",
+      "/en/about-tesa/sustainability/push-circularity",
+      "/en/about-tesa/sustainability/support-customers",
+      "/en/about-tesa/sustainability/strategy",
+      "/en/about-tesa/sustainability/products-and-packaging",
+      "/en/about-tesa/sustainability/sustainable-production",
+      "/en/about-tesa/sustainability/social-sustainability",
+      "/en/about-tesa/sustainability/resource-center",
+      "/en/about-tesa/press-insights/stories/when-action-meets-ambition.html",
+      "/en/about-tesa/press-insights/stories/sustainable-rubber-from-plantation-challenges-to-certified-solutions.html",
+      "/en/about-tesa/press-insights/stories/how-material-innovation-is-accelerating.html",
+      "/en/about-tesa/press-insights/stories/integrating-circular-strategies-at-every-step-of-our-value-chain.html",
+      "/en/about-tesa/press-insights/stories/how-rs-group-and-tesa-engineered-more-sustainable-sealing-at-scale.html",
+      "/en/about-tesa/press-insights/stories/tesa-donates-1-146-million-euros-to-save-the-children.html"
+    ]
+  },
+  {
+    "path": "/en/about-tesa/press-insights",
+    "depth": 3,
+    "parent": "/en/about-tesa",
+    "status": 200,
+    "title": "Press & Insights - tesa",
+    "h1": "Press & Insights",
+    "modules": [
+      "highlight-feed",
+      "insights-feed",
+      "area-teasers"
+    ],
+    "moduleSeq": [
+      "highlight-feed",
+      "insights-feed",
+      "area-teasers",
+      "insights-feed",
+      "area-teasers"
+    ],
+    "h2": [
+      "Integrating circular strategies at every step of our value chain",
+      "Press",
+      "Insights",
+      "Our tesa tape heroes",
+      "Most read"
+    ],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/about-tesa/press-insights/stories",
+      "/en/about-tesa/press-insights/stories/integrating-circular-strategies-at-every-step-of-our-value-chain.html",
+      "/en/about-tesa/press-insights/stories/cool-tapes-performance-across-extremes.html",
+      "/en/about-tesa/press-insights/stories/35-years-of-the-iconic-tesa-logo-design.html",
+      "/en/about-tesa/press-insights/stories/design-beyond-the-bond.html",
+      "/en/about-tesa/press-insights/press/for-90-years-in-a-main-role-tesafilm-celebrates-a-milestone-anniversary.html",
+      "/en/about-tesa/press-insights/press/marking-65-years-of-the-tesa-offenburg-plant-topping-out-ceremony-is-a-milestone-in-the-site-expansion.html",
+      "/en/about-tesa/press-insights/press/tesa-is-driving-measurable-progress-on-sustainability-advances-in-emissions-renewable-energy-and-materials.html",
+      "/en/about-tesa/press-insights/stories/driving-circular-packaging-through-strong-supplier-collaboration.html",
+      "/en/about-tesa/press-insights/stories/how-rs-group-and-tesa-engineered-more-sustainable-sealing-at-scale.html",
+      "/en/about-tesa/press-insights/stories/when-action-meets-ambition.html",
+      "/en/about-tesa/press-insights/stories/sustainable-rubber-from-plantation-challenges-to-certified-solutions.html",
+      "/en/about-tesa/press-insights/stories/how-material-innovation-is-accelerating.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-heroes-introduction.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-56622.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-haf.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-acxplus.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-4965.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-6957.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-60412.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-51948.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-66792.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-4336.html",
+      "/en/about-tesa/press-insights/stories/tesa-tape-hero-54332.html",
+      "/en/about-tesa/press-insights/stories/debonding-on-demand.html",
+      "/en/about-tesa/press-insights/stories/packaging-and-packaging-waste-regulation.html",
+      "/en/about-tesa/press-insights/stories/tesa-58656-structural-electrical-insulation-helps-to-increase-the-energy-density-of-batteries.html",
+      "/en/about-tesa/press-insights/stories/more-than-facts-and-figures.html",
+      "/en/about-tesa/press-insights/stories/backboard-splicing-tape-for-securing-mdf-furniture-panels.html",
+      "/en/about-tesa/press-insights/stories/addressing-sustainability-through-automated-tape-solutions.html",
+      "/en/about-tesa/press-insights/stories/more-sustainable-tear-tapes-tesa-51334-and-tesa-51344.html",
+      "/en/about-tesa/press-insights/stories/efficient-print-processes-start-with-secure-bonding-tesa-softprint-secure.html",
+      "/en/about-tesa/press-insights/stories/tesa-donates-1-146-million-euros-to-save-the-children.html",
+      "/en/about-tesa/press-insights/stories/quality-battery-connectivity-what-trends-are-emerging-in-the-automotive-market-in-2026.html",
+      "/en/about-tesa/press-insights/stories/125-years-of-innovation-tesa-holds-the-world-together.html",
+      "/en/about-tesa/press-insights/stories/on-the-road-to-success-tesa-makes-autos-mobile-since-90-years.html",
+      "/en/about-tesa/press-insights/stories/an-all-rounder-for-all-rounders.html",
+      "/en/about-tesa/press-insights/stories/building-the-future.html",
+      "/en/about-tesa/press-insights/stories/painting-a-bright-future.html",
+      "/en/about-tesa/press-insights/stories/the-sound-of-future-at-tesa.html"
+    ]
+  },
+  {
+    "path": "/en/about-tesa/career",
+    "depth": 3,
+    "parent": "/en/about-tesa",
+    "status": 200,
+    "title": "Career - tesa",
+    "h1": "A place for you",
+    "modules": [
+      "static-stage",
+      "quicklinks",
+      "job-list-filter",
+      "headline-module",
+      "paragraph",
+      "media-opener",
+      "page-teasers",
+      "area-teasers",
+      "faq"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "quicklinks",
+      "job-list-filter",
+      "headline-module",
+      "paragraph",
+      "headline-module",
+      "paragraph",
+      "headline-module",
+      "media-opener",
+      "headline-module",
+      "page-teasers",
+      "area-teasers",
+      "faq"
+    ],
+    "h2": [
+      "Looking for a world-changing job? Apply right here.",
+      "Our people values",
+      "Do you share our values? Then tesa is a place for you.",
+      "Meet our people",
+      "Discover more about us",
+      "Visit us in our plants in Europe, Asia and USA",
+      "Frequently asked questions around the application process"
+    ],
+    "ctas": [
+      "contacting"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/about-tesa/career/tesa-as-an-employer",
+      "/en/about-tesa/career/professionals",
+      "/en/about-tesa/career/graduates",
+      "/en/about-tesa/career/students",
+      "/en/about-tesa/sustainability",
+      "/en/about-tesa/locations-subsidiaries",
+      "/en/about-tesa",
+      "/en/about-tesa/product-and-technology-development",
+      "/en/about-tesa/locations-subsidiaries/tesa-plant-offenburg",
+      "/en/about-tesa/locations-subsidiaries/tesa-plant-sparta",
+      "/en/about-tesa/locations-subsidiaries/tesa-plant-suzhou",
+      "/en/about-tesa/locations-subsidiaries/tesa-plant-hamburg",
+      "/en/about-tesa/locations-subsidiaries/tesa-plant-concagno",
+      "/en/about-tesa/locations-subsidiaries/tesa-site-haiphong",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/application-solution-center",
+    "depth": 3,
+    "parent": "/en/industry",
+    "status": 200,
+    "title": "Customer Solution Center - tesa",
+    "h1": "Customer Solution Center",
+    "modules": [
+      "static-activation-stage",
+      "insertation",
+      "image-gallery",
+      "infotext-image",
+      "paragraph-2022"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "insertation",
+      "image-gallery",
+      "insertation",
+      "infotext-image",
+      "infotext-image",
+      "infotext-image",
+      "infotext-image",
+      "infotext-image",
+      "paragraph-2022"
+    ],
+    "h2": [
+      "First-Class Tape Support: We Strive to Enhance Your Products and Optimize Your Production Processes.",
+      "The Customer Solution Center Offers These Services:",
+      "Product Recommendation",
+      "Certification",
+      "On-site Support",
+      "Training",
+      "Application Process Engineering",
+      "Interested in Tape Support? Reach Out to Our Tape Experts!"
+    ],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": []
+  },
+  {
+    "path": "/en/industry/markets/appliances/collaboration",
+    "depth": 5,
+    "parent": "/en/industry/markets/appliances",
+    "status": 200,
+    "title": "Collaboration for appliances - tesa",
+    "h1": "Achieving more together",
+    "modules": [
+      "static-stage",
+      "headline-module",
+      "tip-steps",
+      "image-with-caption",
+      "image-text-stacked",
+      "paragraph-2022",
+      "blue-headline",
+      "inline-form",
+      "downloads",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "headline-module",
+      "tip-steps",
+      "image-with-caption",
+      "headline-module",
+      "image-text-stacked",
+      "paragraph-2022",
+      "blue-headline",
+      "inline-form",
+      "downloads",
+      "page-teasers"
+    ],
+    "h2": [
+      "Our offer when it comes to adhesive challenges",
+      "Take a look at how we work at our Customer Solution Centers",
+      "Understanding your requirements",
+      "Please get in touch with your specific request for a sales visit, a customer solution center project, or a tailored inhouse tech day.",
+      "Let's go together",
+      "Take a look at our other main focus topics for appliances:"
+    ],
+    "ctas": [
+      "Downloads"
+    ],
+    "downloads": [
+      "Adhesive tape solutions for the appliance industry Folder – Appliance Industry PDF 1 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/49099,23,tesa-appliances-industry-folder.pdf",
+      "/en/industry/markets/appliances/innovation",
+      "/en/industry/markets/appliances/sustainability"
+    ]
+  },
+  {
+    "path": "/en/industry/markets/appliances/commercial-appliances",
+    "depth": 5,
+    "parent": "/en/industry/markets/appliances",
+    "status": 200,
+    "title": "Commercial appliances - tesa",
+    "h1": "Adhesive solutions for commercial appliances",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "headline-module",
+      "paragraph",
+      "tip-steps",
+      "inline-form",
+      "blue-headline",
+      "marg-t--component",
+      "downloads",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "headline-module",
+      "paragraph",
+      "tip-steps",
+      "paragraph",
+      "tip-steps",
+      "paragraph",
+      "tip-steps",
+      "headline-module",
+      "inline-form",
+      "paragraph",
+      "blue-headline",
+      "marg-t--component"
+    ],
+    "h2": [
+      "Tape application areas for commercial appliances",
+      "Adhesive solutions for commercial appliances",
+      "Looking for something specific?"
+    ],
+    "ctas": [
+      "Downloads",
+      "Get in touch"
+    ],
+    "downloads": [
+      "Adhesive tape solutions for the appliance industry Folder – Appliance Industry PDF 1 MB"
+    ],
+    "downloadCount": 1,
+    "links": [
+      "/en/industry/markets/appliances/commercial-appliances",
+      "/en/about-tesa/legal-information/privacy-policy",
+      "/en/files/download/49099,23,tesa-appliances-industry-folder.pdf",
+      "/en/industry/markets/appliances/innovation",
+      "/en/industry/markets/appliances/collaboration",
+      "/en/industry/markets/appliances/sustainability"
+    ]
+  },
+  {
+    "path": "/en/industry/products/double-sided-tapes/team-4965-assortment",
+    "depth": 5,
+    "parent": "/en/industry/products/double-sided-tapes",
+    "status": 200,
+    "title": "Experience the next level of tesa® 4965 Original - tesa",
+    "h1": "Experience the next level of tesa® 4965 Original",
+    "modules": [
+      "static-activation-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "insertation",
+      "media-opener",
+      "paragraph",
+      "marg-t--component",
+      "downloads",
+      "page-teasers"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "insertation",
+      "media-opener",
+      "paragraph",
+      "marg-t--component",
+      "downloads",
+      "page-teasers"
+    ],
+    "h2": [
+      "Get the report for tesa® 4965 Original Next Gen",
+      "Explore all the benefits of the assortment",
+      "Learn more"
+    ],
+    "ctas": [
+      "Downloads"
+    ],
+    "downloads": [
+      "Team 4965 brochure Team 4965 brochure PDF 2.8 MB",
+      "Report for CO₂ calculations on tesa® 4965 Original Next Gen PDF 782.7 kB"
+    ],
+    "downloadCount": 2,
+    "links": [
+      "/en/industry/products/double-sided-tapes/team-4965-assortment",
+      "/en/files/download/6439178,4,experience-the-next-level-of-tesa-4965.pdf",
+      "/en/files/download/11582527,2,tesa-customer-facing-report-pcf-4965-original-next-gen.pdf",
+      "/en/industry/lp/mounting/4965",
+      "/en/about-tesa/press-insights/stories/certificates-demonstrate-the-quality-and-reliability-of-tesa-4965.html"
+    ]
+  },
+  {
+    "path": "/en/industry/products/foam-tapes/acrylic-foam-tapes",
+    "depth": 5,
+    "parent": "/en/industry/products/foam-tapes",
+    "status": 200,
+    "title": "Acrylic foam tapes that perform strongly | tesa®",
+    "h1": "Acrylic foam tapes that perform strongly",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "tip-steps",
+      "marg-t--component",
+      "contact-teaser",
+      "downloads",
+      "highlight-teasers"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "image-text-stacked",
+      "paragraph-2022",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "tip-steps",
+      "paragraph-2022",
+      "marg-t--component"
+    ],
+    "h2": [
+      "Acrylic foam tapes with strong performance",
+      "Key features of our acrylic foam tape series",
+      "Complete acrylic foam tape assortment for all application requirements",
+      "Grow your business with our partner programm"
+    ],
+    "ctas": [
+      "Contact",
+      "Downloads",
+      "Get in touch",
+      "Find out more"
+    ],
+    "downloads": [
+      "Complete package for high performance bonding tesa® ACXplus assortment brochure PDF 1,011.9 kB",
+      "Properties and performance characteristics tesa® ACXplus technical information sheet PDF 1.2 MB",
+      "tesa® ACXplus for the Automotive Industry Guide – Automotive Industry PDF 1.3 MB",
+      "tesa® ACXplus Multi Purpose for Industrial Distribution Flyer PDF 413.6 kB"
+    ],
+    "downloadCount": 4,
+    "links": [
+      "/en/industry/products/foam-tapes/acrylic-foam-tapes",
+      "/en/industry/contact-us-industry",
+      "/en/files/download/10263941,8,complete-package-for-high-performance-bonding.pdf",
+      "/en/files/download/9806599,14,tesa-acxplus-technical-information-sheet.pdf",
+      "/en/files/download/50085,30,automotive-tesa-acxplus-application-guide.pdf",
+      "/en/files/download/11136074,3,tesa-acxplus-for-industrial-distribution-web-folder.pdf",
+      "/en/industry/markets/distribution-partners/tesa-alliance-partner-program"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/insulation/damping-tapes",
+    "depth": 5,
+    "parent": "/en/industry/applications/insulation",
+    "status": 200,
+    "title": "Damping tapes: Noise control and vibration reduction | tesa®",
+    "h1": "Damping tapes: Quiet precision for noise and vibration control",
+    "modules": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "sugru-paragraph",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "tip-steps",
+      "faq",
+      "inline-form"
+    ],
+    "moduleSeq": [
+      "static-stage",
+      "anchor-page-navigation",
+      "paragraph-2022",
+      "paragraph-2022",
+      "sugru-paragraph",
+      "paragraph-2022",
+      "image-text-stacked",
+      "marg-t--component",
+      "contact-teaser",
+      "paragraph-2022",
+      "tip-steps",
+      "faq",
+      "inline-form"
+    ],
+    "h2": [
+      "Ensure quiet journeys in automotive and transportation",
+      "Wire harnessing that meets your standards",
+      "Optimize performance with our vibration reduction solutions",
+      "Keep the noise down with innovative damping tape",
+      "FAQs about damping tapes",
+      "Our enthusiasm is never dampened"
+    ],
+    "ctas": [
+      "Contact us",
+      "Get in touch"
+    ],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/applications/insulation/damping-tapes",
+      "/en/industry/markets/wire-harnessing",
+      "/en/industry/contact-us-industry",
+      "/en/industry/tesa-51207.html",
+      "/en/industry/tesa-50118-pv1-ultra-low-voc.html",
+      "/en/industry/tesa-54715-noise-blocker-standard.html",
+      "/en/about-tesa/legal-information/privacy-policy"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/marking/marking-identification-labels",
+    "depth": 5,
+    "parent": "/en/industry/applications/marking",
+    "status": 200,
+    "title": "Marking &amp; Identification Labels - tesa",
+    "h1": "Marking & Identification Labels",
+    "modules": [
+      "static-activation-stage",
+      "marg-t--component"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "marg-t--component"
+    ],
+    "h2": [],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/tesa-6930-laser-label-8.html",
+      "/en/industry/tesa-6930-laser-label-3.html",
+      "/en/industry/tesa-6930-laser-label-2.html",
+      "/en/industry/tesa-6930-laser-label-4.html",
+      "/en/industry/tesa-6940-rapid-laser-label-2.html",
+      "/en/industry/tesa-6947-laser-label.html",
+      "/en/industry/tesa-6947-laser-label-4.html",
+      "/en/industry/tesa-6947-laser-label-5.html"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/protection/surface-protection/indoor-usage",
+    "depth": 6,
+    "parent": "/en/industry/applications/protection/surface-protection",
+    "status": 200,
+    "title": "Indoor Usage - tesa",
+    "h1": "Indoor Usage",
+    "modules": [
+      "static-activation-stage",
+      "contact-person-teaser",
+      "marg-t--component"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "contact-person-teaser",
+      "marg-t--component"
+    ],
+    "h2": [],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/tesa-4287.html",
+      "/en/industry/tesa-4360.html",
+      "/en/industry/tesa-4414.html",
+      "/en/industry/tesa-4416.html",
+      "/en/industry/tesa-4848-pv1.html",
+      "/en/industry/tesa-4848-pv0.html",
+      "/en/industry/tesa-51134.html",
+      "/en/industry/tesa-51136-pv0.html",
+      "/en/industry/tesa-64284.html",
+      "/en/industry/tesa-64294-pv0.html",
+      "/en/industry/tesa-66514.html"
+    ]
+  },
+  {
+    "path": "/en/industry/applications/protection/surface-protection/outdoor-usage",
+    "depth": 6,
+    "parent": "/en/industry/applications/protection/surface-protection",
+    "status": 200,
+    "title": "Outdoor Usage - tesa",
+    "h1": "Outdoor Usage",
+    "modules": [
+      "static-activation-stage",
+      "contact-person-teaser",
+      "marg-t--component"
+    ],
+    "moduleSeq": [
+      "static-activation-stage",
+      "contact-person-teaser",
+      "marg-t--component"
+    ],
+    "h2": [],
+    "ctas": [],
+    "downloads": [],
+    "downloadCount": 0,
+    "links": [
+      "/en/industry/tesa-4414.html",
+      "/en/industry/tesa-bodyguard-50530-pv3.html",
+      "/en/industry/tesa-bodyguard-50530-pv7.html",
+      "/en/industry/tesa-bodyguard-50535-pv0.html",
+      "/en/industry/tesa-bodyguard-50535-pv7.html",
+      "/en/industry/tesa-bodyguard-50549-pv7.html",
+      "/en/industry/tesa-64250.html",
+      "/en/industry/tesa-4621.html"
+    ]
+  }
+]

@@ -1,0 +1,124 @@
+{
+  "top": [
+    {
+      "t": "Markets",
+      "href": "/en/industry/markets"
+    },
+    {
+      "t": "Applications",
+      "href": "/en/industry/applications"
+    },
+    {
+      "t": "Products",
+      "href": "/en/industry/products"
+    },
+    {
+      "t": "Sustainability",
+      "href": "/en/about-tesa/sustainability"
+    },
+    {
+      "t": "Press & Insights",
+      "href": "/en/about-tesa/press-insights"
+    },
+    {
+      "t": "Contact us",
+      "href": "/en/industry/contact-us-industry"
+    }
+  ],
+  "footer": [
+    {
+      "t": "Contact us",
+      "href": "/en/industry/contact-us-industry"
+    },
+    {
+      "t": "tesa Headquarters",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-headquarter"
+    },
+    {
+      "t": "tesa Plant Concagno",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-plant-concagno"
+    },
+    {
+      "t": "tesa Plant Suzhou",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-plant-suzhou"
+    },
+    {
+      "t": "Where tesafilm® is made",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-plant-offenburg"
+    },
+    {
+      "t": "tesa Plant Sparta",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-plant-sparta"
+    },
+    {
+      "t": "tesa Plant Hamburg",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-plant-hamburg"
+    },
+    {
+      "t": "tesa site Haiphong",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-site-haiphong"
+    },
+    {
+      "t": "Hamburg, Europe",
+      "href": "/en/about-tesa/locations-subsidiaries/europe-headquarters.html"
+    },
+    {
+      "t": "Shanghai, China",
+      "href": "/en/about-tesa/locations-subsidiaries/china-shanghai.html"
+    },
+    {
+      "t": "Singapore, Asia Pacific",
+      "href": "/en/about-tesa/locations-subsidiaries/singapore.html"
+    },
+    {
+      "t": "Grand Rapids, North America",
+      "href": "/en/about-tesa/locations-subsidiaries/usa-headquarters.html"
+    },
+    {
+      "t": "Curitiba, South America",
+      "href": "/en/about-tesa/locations-subsidiaries/brazil.html"
+    },
+    {
+      "t": "Sao Paulo, South America",
+      "href": "/en/about-tesa/locations-subsidiaries/tesa-brazil-lam.html"
+    },
+    {
+      "t": "Istanbul, Turkey",
+      "href": "/en/about-tesa/locations-subsidiaries/regional-headquarter-middle-east-tuerkiye-and-africa.html"
+    },
+    {
+      "t": "Imprint",
+      "href": "/en/about-tesa/legal-information/imprint"
+    },
+    {
+      "t": "Privacy Statement",
+      "href": "/en/about-tesa/legal-information/privacy-policy"
+    },
+    {
+      "t": "Accessibility Statement",
+      "href": "/en/about-tesa/legal-information/accessibility-statement"
+    },
+    {
+      "t": "Conditions of use",
+      "href": "/en/about-tesa/legal-information/conditions-of-use"
+    },
+    {
+      "t": "Terms & Conditions",
+      "href": "/en/about-tesa/legal-information/terms-conditions"
+    },
+    {
+      "t": "©tesa SE - A Beiersdorf Company",
+      "href": "/en"
+    }
+  ],
+  "sections": {
+    "industry": "/en/industry",
+    "markets": "/en/industry/markets",
+    "applications": "/en/industry/applications",
+    "products": "/en/industry/products",
+    "contact": "/en/industry/contact-us-industry",
+    "sustainability": "/en/about-tesa/sustainability",
+    "press": "/en/about-tesa/press-insights",
+    "careers": "/en/about-tesa/career"
+  }
+}
