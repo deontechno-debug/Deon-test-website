@@ -198,24 +198,38 @@
       });
     }
 
-    // Scroll-progress: the DEON accent line reveals BLUE through RED, left→right,
-    // as the page scrolls. Sets --scroll-progress (0→1) on <html>; the nav::after
-    // blue layer reads it via scaleX. rAF-throttled + passive — compositor-only,
-    // no layout reads beyond scroll metrics, no lag, no easing.
+    // Scroll progress (Layer 2) — separate from the full-bleed red brand line
+    // (Layer 1). The blue overlay is clipped to the FUNCTIONAL header region:
+    // logo-region left edge → utility-region (search/language) start. wire()
+    // measures that region into --prog-left/--prog-width (only on init+resize —
+    // it does NOT change on scroll), and updates --nav-fill (0.05→1) per scroll
+    // frame (rAF + passive). The blue ::after is `left:--prog-left;
+    // width:--prog-width * --nav-fill`, so it grows left→right and can never
+    // exceed the utility boundary.
     var docEl = document.documentElement;
+    var navEl = document.querySelector('nav:not(.crumb)');
+    var regL = navEl && navEl.querySelector('.nav-left');
+    var regR = navEl && navEl.querySelector('.nav-right');
     var spTicking = false;
-    var SP_MIN = 0.05;   // blue already present at load, at the hamburger side
-    function setScrollProgress(){
+    var SP_MIN = 0.05;   // small blue segment always present at the logo-side boundary
+    function measureRegion(){
+      if (!regL || !regR) return;
+      var l = regL.getBoundingClientRect().left;
+      var r = regR.getBoundingClientRect().left;
+      docEl.style.setProperty('--prog-left', Math.round(l) + 'px');
+      docEl.style.setProperty('--prog-width', Math.max(0, Math.round(r - l)) + 'px');
+    }
+    function setNavFill(){
       spTicking = false;
       var max = docEl.scrollHeight - window.innerHeight;
       var p = max > 0 ? window.scrollY / max : 0;
       p = p < 0 ? 0 : (p > 1 ? 1 : p);
-      docEl.style.setProperty('--nav-fill', ((SP_MIN + (1 - SP_MIN) * p) * 100).toFixed(2) + '%');
+      docEl.style.setProperty('--nav-fill', (SP_MIN + (1 - SP_MIN) * p).toFixed(4));
     }
-    function onScrollProgress(){ if(!spTicking){ spTicking = true; requestAnimationFrame(setScrollProgress); } }
-    window.addEventListener('scroll', onScrollProgress, { passive: true });
-    window.addEventListener('resize', onScrollProgress, { passive: true });
-    setScrollProgress();
+    function onScroll(){ if(!spTicking){ spTicking = true; requestAnimationFrame(setNavFill); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function(){ measureRegion(); setNavFill(); }, { passive: true });
+    measureRegion(); setNavFill();
   }
 
   // Map a page template → its IA section id (matches the top-nav data-section).

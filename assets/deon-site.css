@@ -123,28 +123,32 @@
       align-items: center;
     }
     .nav-left { display: flex; align-items: center; }
-    /* DEON brand accent line = navigation-frame progress indicator. ONE single
-       3px stripe — NOT a progress bar above a stripe. A single element whose
-       background is solid BLUE then solid RED with a HARD stop: blue directly
-       replaces red within the same stripe, so there is no second layer, no
-       seam/hairline, no gap. Bounded to the nav frame (hamburger-start → EN
-       selector), never the full viewport. Blue grows from the hamburger side as
-       the page scrolls (red recedes, always 100% filled); a small blue segment
-       (--sp-min) is always present at load. The transition carries a restrained
-       1px slightly-brighter-blue highlight — a subtle marker, no blur, no glow.
-       Red = brand foundation; blue = progress revealed through the page. */
+    /* DEON brand line + scroll progress = TWO separate solid layers.
+       Layer 1 (::before) — the brand line: solid RED, FULL viewport width
+       (left:0 → right:0), full-bleed at every zoom, never clipped.
+       Layer 2 (::after) — the scroll progress: solid BLUE, clipped to the
+       functional header region only (logo-region left → utility-region start,
+       measured by wire() into --prog-left / --prog-width). Blue sits ON TOP of
+       the red base and grows left→right with --nav-fill (0.05→1), so blue
+       replaces red INSIDE the region only; outside the region the red shows
+       through unchanged. No gradient, transparency, fade, or glow. Because the
+       red is a full-width base, no white can appear and the two layers share
+       one rasterised line — no seam. */
+    nav:not(.crumb)::before,
     nav:not(.crumb)::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: var(--gutter); right: var(--gutter);   /* tied to the nav frame */
       height: 3px;
-      /* --nav-fill (a percentage, e.g. 52.5%) is set by wire() each scroll
-         frame; defaults to 5% so a small blue segment is present at load. */
-      background: linear-gradient(90deg,
-        var(--blue) 0 calc(var(--nav-fill, 5%) - 1px),
-        #2387d2     calc(var(--nav-fill, 5%) - 1px) var(--nav-fill, 5%),
-        var(--red)  var(--nav-fill, 5%) 100%);
+    }
+    nav:not(.crumb)::before {            /* Layer 1 — full-bleed red brand line */
+      left: 0; right: 0;
+      background: var(--red);
+    }
+    nav:not(.crumb)::after {             /* Layer 2 — blue progress, region-clipped */
+      left: var(--prog-left, 0px);
+      width: calc(var(--prog-width, 0px) * var(--nav-fill, 0.05));
+      background: var(--blue);
     }
     .nav-hamburger {
       background: none; border: none; cursor: pointer;
