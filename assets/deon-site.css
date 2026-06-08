@@ -209,31 +209,23 @@
     /* margin-left = the single deliberate logo→nav gap; grouped with identity,
        not detached at viewport centre. */
     .nav-links { display: flex; list-style: none; gap: 0.4rem; margin-left: 3rem; }
+    /* Typography-only orientation — NO geometry (underline/border/box/pill/tab):
+       the red/blue brand line owns progress; the nav owns location, signalled by
+       weight + colour + opacity only. Default 500 @0.85 → hover blue @1 →
+       active(section) blue @1 weight 600. Only colour/opacity transition. */
     .nav-links li a {
-      position: relative;
       display: block;
       padding: 0 1.25rem;
       height: var(--nav-h);
-      line-height: calc(var(--nav-h) - 3px);
-      font-size: 18px; font-weight: 400;
+      line-height: var(--nav-h);
+      font-size: 18px; font-weight: 500;
       color: var(--navy);
-      border-bottom: 3px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
+      opacity: 0.85;
+      transition: color 0.18s ease, opacity 0.18s ease;
       white-space: nowrap;
     }
-    .nav-links li a:hover { color: var(--blue); border-bottom-color: var(--blue); }
-    /* Section-level "you are here": a persistent underline that survives across
-       every page in the section. Sits just above the brand accent stripe so it
-       never blends with the red/blue rail beneath. */
-    .nav-links li a.is-active-section { color: var(--navy); font-weight: 500; }
-    .nav-links li a.is-active-section::after {
-      content: '';
-      position: absolute;
-      left: 1.25rem; right: 1.25rem;
-      bottom: 6px; height: 3px;
-      background: var(--blue);
-      border-radius: 2px;
-    }
+    .nav-links li a:hover { color: var(--blue); opacity: 1; }
+    .nav-links li a.is-active-section { color: var(--blue); font-weight: 600; opacity: 1; }
     .nav-right {
       margin-left: auto;                       /* push utilities to the far right */
       display: flex; align-items: center; gap: 0.5rem;
