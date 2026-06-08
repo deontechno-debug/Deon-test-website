@@ -60,12 +60,12 @@
     var hasCh=s.challenges&&s.challenges.length, hasReq=s.requirements&&s.requirements.length;
     if(hasCh){
       out+=sect('is-grey', '<div class="feature-layout"><div><div class="market-eyebrow">Industry challenges</div><h2>What makes '+esc(nm)+' demanding</h2>'+
-        '<div class="market-intro"><p>The conditions a '+esc(nm)+' assembly must survive — and where DEON tapes earn their place on the line. [Placeholder copy.]</p></div></div>'+
+        '<div class="market-intro"><p>The conditions a '+esc(nm)+' assembly must survive — and where DEON tapes earn their place on the line.</p></div></div>'+
         '<ul class="feature-list">'+s.challenges.map(function(c){return '<li>'+esc(c)+'</li>';}).join('')+'</ul></div>');
     }
     if(hasReq){
       out+=sect(hasCh?'':'is-grey', '<div class="feature-layout"><div><div class="market-eyebrow">Requirements</div><h2>Performance requirements</h2>'+
-        '<div class="market-intro"><p>The properties a tape must deliver to qualify for '+esc(nm)+' production. [Placeholder copy.]</p></div></div>'+
+        '<div class="market-intro"><p>The properties a tape must deliver to qualify for '+esc(nm)+' production.</p></div></div>'+
         '<ul class="feature-list">'+s.requirements.map(function(r){return '<li>'+esc(r)+'</li>';}).join('')+'</ul></div>');
     }
 
@@ -102,7 +102,7 @@
     }
 
     // 9. CTA (ends with a cta-strip linking to contact.html)
-    out+='<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/'+heroBg+'/8ea0c8?text=" alt="DEON '+esc(nm)+' application engineering support" /></div><div class="cta-body"><h2>'+esc(s.name)+' helpdesk</h2><p>Have a bonding, sealing, insulation, masking or protection challenge in '+esc(nm)+'? A DEON application engineer can recommend the right tape, supply samples and test candidate solutions. [Placeholder copy.]</p><a href="contact.html?segment='+encodeURIComponent(s.id)+'" class="cta-btn">Get in touch</a></div></div>';
+    out+='<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/'+heroBg+'/8ea0c8?text=" alt="DEON '+esc(nm)+' application engineering support" /></div><div class="cta-body"><h2>'+esc(s.name)+' helpdesk</h2><p>Have a bonding, sealing, insulation, masking or protection challenge in '+esc(nm)+'? A DEON application engineer can recommend the right tape, supply samples and test candidate solutions.</p><a href="contact.html?segment='+encodeURIComponent(s.id)+'" class="cta-btn">Get in touch</a></div></div>';
 
     root.innerHTML=out;
   }

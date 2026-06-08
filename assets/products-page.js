@@ -35,7 +35,7 @@
     out+=sect('is-grey', '<div class="market-eyebrow">Product range</div><h2>Products in this family</h2>'+(products.length?'<div data-family-finder></div>':'<div class="market-intro"><p>Detailed product data for this family is being added.</p></div>'));
     if(techs.length) out+=sect('', '<div class="market-eyebrow">Technologies &amp; materials</div><h2>Related technologies</h2><div class="segment-grid">'+techs.map(function(t,i){return segCard("manufacturing-technology.html#"+esc(t.id),BG[i%BG.length],t.name,t.summary,"Learn more");}).join('')+'</div>');
     if(resources.length) out+=sect('is-grey', '<div class="market-eyebrow">Downloads</div><h2>Downloads &amp; datasheets</h2><div class="download-grid">'+resources.map(dlItem).join('')+'</div>');
-    out+='<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/445586/8ea0c8?text=" alt="DEON product support" /></div><div class="cta-body"><h2>Need '+esc(f.name.toLowerCase())+'?</h2><p>Request samples, datasheets or a tailored recommendation from DEON. [Placeholder copy.]</p><a href="contact.html?family='+encodeURIComponent(f.id)+'" class="cta-btn">Request a sample</a></div></div>';
+    out+='<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/445586/8ea0c8?text=" alt="DEON product support" /></div><div class="cta-body"><h2>Need '+esc(f.name.toLowerCase())+'?</h2><p>Request samples, datasheets or a tailored recommendation from DEON.</p><a href="contact.html?family='+encodeURIComponent(f.id)+'" class="cta-btn">Request a sample</a></div></div>';
     root.innerHTML=out;
     if(products.length) finder(root.querySelector('[data-family-finder]'), products);
   }
@@ -45,7 +45,7 @@
     var fams=D.raw.productFamilies, products=D.raw.products;
     var out=hero(D.trail.hub('Products'),'DEON product families','Industrial adhesive tape families and the full assortment — every product mapped to the applications and markets it serves.','2f3f5f');
     out+=sect('', '<div class="market-eyebrow">Products</div><h2>Product families</h2><div class="segment-grid">'+fams.map(function(f,i){return segCard(D.url.productFamily(f.id),BG[i%BG.length],f.name,f.note,'View family');}).join('')+'</div>');
-    out+=sect('is-grey', '<div class="market-eyebrow">Product assortment</div><h2>Full product assortment</h2><div class="market-intro"><p>Filter the complete DEON assortment by construction attributes to find the right solution. [Placeholder dataset — DEON product data to be added.]</p></div><div data-hub-finder></div>');
+    out+=sect('is-grey', '<div class="market-eyebrow">Product assortment</div><h2>Full product assortment</h2><div class="market-intro"><p>Filter the complete DEON assortment by construction attributes to find the right solution.</p></div><div data-hub-finder></div>');
     root.innerHTML=out;
     finder(root.querySelector('[data-hub-finder]'), products, function(p){return D.url.productFamily(p.familyId);});
   }

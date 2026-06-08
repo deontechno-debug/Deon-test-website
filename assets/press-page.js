@@ -39,7 +39,7 @@
     var out = '<div class="context-bar">'+D.trail.hub('Press & Insights')+'</div>'+
       '<div class="hero"><div class="hero-media lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/1600x600/394970/8ea0c8?text=" alt="DEON Press & Insights" /></div>'+
         '<div class="hero-card"><h1>Press &amp; Insights</h1>'+
-        '<p>Industry insights, application stories, product updates, company news and events from DEON. [Placeholder content.]</p></div></div>';
+        '<p>Industry insights, application stories, product updates, company news and events from DEON.</p></div></div>';
 
     var bi = 0;
     (ARCH.press || []).forEach(function (cat, i) {
@@ -50,14 +50,14 @@
       }).join('') + '</div>';
       out += sect(i % 2 ? 'is-grey' : '',
         '<div class="market-eyebrow">'+esc(cat.name)+'</div><h2>'+esc(cat.name)+'</h2>'+
-        '<div class="market-intro"><p>The latest '+esc(cat.name.toLowerCase())+' from across the DEON ecosystem. [Placeholder copy.]</p></div>'+
+        '<div class="market-intro"><p>The latest '+esc(cat.name.toLowerCase())+' from across the DEON ecosystem.</p></div>'+
         grid,
         ARCH.slug(cat.name));
     });
 
     out += '<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/394970/8ea0c8?text=" alt="DEON press contact" /></div>'+
       '<div class="cta-body"><h2>Press &amp; media enquiries</h2>'+
-      '<p>For interviews, assets or technical commentary, get in touch with the DEON team. [Placeholder copy.]</p>'+
+      '<p>For interviews, assets or technical commentary, get in touch with the DEON team.</p>'+
       '<a href="contact.html?topic=press" class="cta-btn">Contact us</a></div></div>';
 
     root.innerHTML = out;

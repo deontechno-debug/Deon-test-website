@@ -20,7 +20,7 @@
 
   // FAQs render as a flat accordion (no catalog entries — these are evergreen).
   var FAQS = [
-    ['Can I request free samples?', 'Yes. Use the contact form and select “Request a sample”. Our team will send relevant samples and datasheets for your application. [Placeholder copy.]'],
+    ['Can I request free samples?', 'Yes. Use the contact form and select “Request a sample”. Our team will send relevant samples and datasheets for your application.'],
     ['Do you provide technical datasheets?', 'Every product family has supporting datasheets and selection guides, available in the Technical Datasheets section above or via a technical consultation.'],
     ['Is DEON a manufacturer or a reseller?', 'DEON is a manufacturer, coater, converter and OEM / private-label partner — not a reseller. We produce and convert adhesive tapes for series production.'],
     ['Can DEON develop custom or converted tapes?', 'Yes. DEON manufactures and converts adhesive tapes to custom sizes, shapes, constructions and printed cores for OEM and private-label programmes.'],
@@ -52,7 +52,7 @@
           var terms = (r.title + ' ' + (r.type||'') + ' ' + cat.name).toLowerCase();
           return dlCard(r.url || '#', r.title, sub, terms);
         }).join('')+'</div>'
-      : '<div class="market-intro" data-kc-group="'+esc(id)+'"><p>Resources for this category are being prepared. [Placeholder.]</p></div>';
+      : '<div class="market-intro" data-kc-group="'+esc(id)+'"><p>Resources for this category are being prepared.</p></div>';
     return sect(grey?'is-grey':'', id, head + body);
   }
 
@@ -73,7 +73,7 @@
 
     cats.forEach(function(cat, i){ out += categorySection(cat, i % 2 === 1); });
 
-    out += '<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/3a4a6a/8ea0c8?text=" alt="DEON technical support" /></div><div class="cta-body"><h2>Can\'t find what you need?</h2><p>Our technical team will point you to the right catalogue, datasheet, guide or sample for your application. [Placeholder copy.]</p><a href="contact.html?topic=knowledge-center" class="cta-btn">Contact DEON</a></div></div>';
+    out += '<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/3a4a6a/8ea0c8?text=" alt="DEON technical support" /></div><div class="cta-body"><h2>Can\'t find what you need?</h2><p>Our technical team will point you to the right catalogue, datasheet, guide or sample for your application.</p><a href="contact.html?topic=knowledge-center" class="cta-btn">Contact DEON</a></div></div>';
 
     root.innerHTML = out;
     wire(root);

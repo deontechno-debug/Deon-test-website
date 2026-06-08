@@ -27,8 +27,8 @@
     'Company Overview': function (id) {
       return sect(id, '', '<div class="market-eyebrow">About DEON</div><h2>Company overview</h2>'+
         intro([
-          'DEON is a manufacturer, coater and converter of pressure-sensitive adhesive tapes for industry. Founded in 2004, we supply bonding, sealing, insulating, masking and surface-protection tapes to OEMs, tier suppliers and industrial converters worldwide. [Placeholder copy.]',
-          'From base-tape formulation through coating, lamination, slitting and die-cutting, we control the full value chain — and supply application-ready parts to the exact geometry each line requires. The result is a single, accountable source for high-performance tapes, backed by in-house application engineering. [Placeholder copy.]'
+          'DEON is a manufacturer, coater and converter of pressure-sensitive adhesive tapes for industry. Founded in 2004, we supply bonding, sealing, insulating, masking and surface-protection tapes to OEMs, tier suppliers and industrial converters worldwide.',
+          'From base-tape formulation through coating, lamination, slitting and die-cutting, we control the full value chain — and supply application-ready parts to the exact geometry each line requires. The result is a single, accountable source for high-performance tapes, backed by in-house application engineering.'
         ])+
         '<div class="feature-layout" style="margin-top:1rem"><div>'+
           '<div class="market-eyebrow">At a glance</div><h2 style="font-size:28px;line-height:34px">A manufacturer, not a reseller</h2></div>'+
@@ -48,9 +48,9 @@
     'Our Story': function (id) {
       return sect(id, 'is-grey', '<div class="market-eyebrow">Our story</div><h2>Our story</h2>'+
         intro([
-          'DEON began in 2004 with a single coating line and a simple conviction: industrial customers deserve a tape supplier who actually makes the product. We started by supplying electrical and packaging tapes to regional manufacturers, and grew by saying yes to the applications others found too demanding. [Placeholder copy.]',
-          'Through the 2010s we invested in solvent and hot-melt coating, added high-precision converting, and built an in-house lab so we could formulate to a customer brief rather than resell a catalogue. Today DEON serves automotive, electronics, renewable-energy and appliance OEMs alongside our long-standing converter partners. [Placeholder copy.]',
-          'The thread has never changed: control the chemistry, control the conversion, and stand behind every roll. That is what lets us solve problems other suppliers pass on. [Placeholder copy.]'
+          'DEON began in 2004 with a single coating line and a simple conviction: industrial customers deserve a tape supplier who actually makes the product. We started by supplying electrical and packaging tapes to regional manufacturers, and grew by saying yes to the applications others found too demanding.',
+          'Through the 2010s we invested in solvent and hot-melt coating, added high-precision converting, and built an in-house lab so we could formulate to a customer brief rather than resell a catalogue. Today DEON serves automotive, electronics, renewable-energy and appliance OEMs alongside our long-standing converter partners.',
+          'The thread has never changed: control the chemistry, control the conversion, and stand behind every roll. That is what lets us solve problems other suppliers pass on.'
         ]));
     },
 
@@ -64,7 +64,7 @@
         { name: 'M. Rao',     role: 'Head of People and Safety',        bio: 'Builds the team and the safety-first culture across manufacturing, engineering and commercial functions.' }
       ];
       return sect(id, '', '<div class="market-eyebrow">Leadership</div><h2>Leadership team</h2>'+
-        intro(['The people accountable for DEON\'s products, plants and partnerships. [Placeholder bios.]'])+
+        intro(['The people accountable for DEON\'s products, plants and partnerships.'])+
         '<div class="segment-grid">'+leaders.map(function(l,i){
           return segCard('about.html#leadership', BG[i%BG.length], l.name, l.role+' — '+l.bio, 'About');
         }).join('')+'</div>');
@@ -74,8 +74,8 @@
       return sect(id, 'is-grey', '<div class="feature-layout"><div>'+
         '<div class="market-eyebrow">Quality &amp; certifications</div><h2>Quality and certifications</h2>'+
         intro([
-          'Quality is built into the line, not inspected in at the end. Every batch is traceable from raw material to finished roll, with statistical process control on coating weight, adhesion and dimensions. [Placeholder copy.]',
-          'Our products and processes are certified and tested to recognised international standards, and we support customer and third-party audits on request. [Placeholder copy.]'
+          'Quality is built into the line, not inspected in at the end. Every batch is traceable from raw material to finished roll, with statistical process control on coating weight, adhesion and dimensions.',
+          'Our products and processes are certified and tested to recognised international standards, and we support customer and third-party audits on request.'
         ])+'</div>'+
         '<ul class="feature-list">'+
           ['ISO 9001 — Quality management',
@@ -100,7 +100,7 @@
         { city: 'Singapore',       role: 'APAC Sales Office',                              desc: 'Regional sales and partner support across Asia-Pacific.' }
       ];
       return sect(id, '', '<div class="market-eyebrow">Locations</div><h2>Locations</h2>'+
-        intro(['Manufacturing, converting and commercial sites supplying customers in 30+ countries. [Placeholder locations.]'])+
+        intro(['Manufacturing, converting and commercial sites supplying customers in 30+ countries.'])+
         '<div class="segment-grid">'+locations.map(function(l,i){
           return segCard('contact.html?topic=locations', BG[i%BG.length], l.city, l.role+' — '+l.desc, 'Contact');
         }).join('')+'</div>');
@@ -112,7 +112,7 @@
     return sect(id, 'is-grey', '<div class="cta-strip" style="margin:0">'+
       '<div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/13284a/8ea0c8?text=" alt="DEON manufacturing and technology" /></div>'+
       '<div class="cta-body"><h2>Manufacturing &amp; technology</h2>'+
-      '<p>Adhesive technologies, backing materials, coating and converting capabilities, testing and validation, custom development and sustainability — explore how DEON makes its tapes. [Placeholder copy.]</p>'+
+      '<p>Adhesive technologies, backing materials, coating and converting capabilities, testing and validation, custom development and sustainability — explore how DEON makes its tapes.</p>'+
       '<a href="'+esc(href)+'" class="cta-btn">Explore manufacturing &amp; technology</a></div></div>');
   }
 
@@ -125,7 +125,7 @@
     // HERO
     out += '<div class="hero"><div class="hero-media lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/1600x600/2f3f5f/8ea0c8?text=" alt="About DEON" /></div>'+
       '<div class="hero-card"><h1>About DEON</h1>'+
-      '<p>A manufacturer, coater and converter of high-performance adhesive tapes for industry — controlling the full value chain from formulation to application-ready parts. [Placeholder copy.]</p></div></div>';
+      '<p>A manufacturer, coater and converter of high-performance adhesive tapes for industry — controlling the full value chain from formulation to application-ready parts.</p></div></div>';
 
     // One section per architecture item, in frozen order. Skip M&T body -> CTA.
     (ARCH.about || []).forEach(function (item) {
@@ -141,7 +141,7 @@
     // Closing CTA
     out += '<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/3a4a6a/8ea0c8?text=" alt="Talk to DEON" /></div>'+
       '<div class="cta-body"><h2>Work with DEON</h2>'+
-      '<p>Whether you need a standard construction at volume or a custom tape developed to your brief, our team can help. Tell us about your application and we will get in touch. [Placeholder copy.]</p>'+
+      '<p>Whether you need a standard construction at volume or a custom tape developed to your brief, our team can help. Tell us about your application and we will get in touch.</p>'+
       '<a href="contact.html?topic=about" class="cta-btn">Get in touch</a></div></div>';
 
     root.innerHTML = out;

@@ -46,7 +46,7 @@
     out += '<div class="cta-strip"><div class="cta-img lazy-loading-placeholder">'+
       '<img class="fade-in-loaded" src="https://placehold.co/800x600/'+heroBg+'/8ea0c8?text=" alt="'+esc(m.name)+' partnership enquiries" /></div>'+
       '<div class="cta-body"><h2>Become a DEON partner</h2>'+
-      '<p>Tell us about your program — formats, volumes and the constructions you need — and a DEON specialist will scope a partnership built around your business. [Placeholder copy — DEON contact details to be added.]</p>'+
+      '<p>Tell us about your program — formats, volumes and the constructions you need — and a DEON specialist will scope a partnership built around your business.</p>'+
       '<a href="contact.html?market='+encodeURIComponent(m.id)+'" class="cta-btn">Get in touch</a></div></div>';
 
     root.innerHTML=out;

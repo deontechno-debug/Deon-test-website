@@ -17,7 +17,7 @@
     var c=ctx();
     var marketOpts='<option value="">Select a market…</option>'+D.markets().map(function(m){return '<option value="'+esc(m.id)+'"'+(qp('market')===m.id?' selected':'')+'>'+esc(m.name)+'</option>';}).join('');
     var typeSel=(qp('family')||qp('topic'))?'sample':'consultation';
-    var out='<div class="context-bar">'+D.trail.hub('Contact')+'</div><div class="hero"><div class="hero-media lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/1600x600/3a4a6a/8ea0c8?text=" alt="Contact DEON" /></div><div class="hero-card"><h1>Talk to DEON</h1><p>Request a sample, ask for a quote, or get a technical consultation '+esc(c)+'. Our application engineers respond within one business day. [Placeholder.]</p></div></div>';
+    var out='<div class="context-bar">'+D.trail.hub('Contact')+'</div><div class="hero"><div class="hero-media lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/1600x600/3a4a6a/8ea0c8?text=" alt="Contact DEON" /></div><div class="hero-card"><h1>Talk to DEON</h1><p>Request a sample, ask for a quote, or get a technical consultation '+esc(c)+'. Our application engineers respond within one business day.</p></div></div>';
 
     out+='<section class="market-section"><div class="contact-cols">'+
       '<div><div class="market-eyebrow">Inquiry</div><h2>Send an inquiry</h2>'+

@@ -56,7 +56,7 @@
     out+=sect('', '<div class="market-eyebrow">'+(f?esc(f.name):'Product')+'</div><h2>Overview</h2>'+
       '<div class="market-intro"><p>'+esc(p.name)+' is '+esc(p.desc.toLowerCase())+
       (f?(', part of the DEON '+esc(f.name)+' family — '+esc(f.note.toLowerCase())+'.'):'.')+
-      ' Manufactured and converted by DEON, it is supplied on rolls and die-cut to your required geometry for series production. [Placeholder overview — DEON technical copy to follow.]</p></div>');
+      ' Manufactured and converted by DEON, it is supplied on rolls and die-cut to your required geometry for series production.</p></div>');
 
     // 3. KEY FEATURES — derived from product attributes + family benefits
     var features=[];
@@ -67,7 +67,7 @@
     features.push('Available die-cut and converted to your exact geometry.');
     features.push('Backed by DEON application engineering and reliable availability.');
     out+=sect('is-grey', '<div class="feature-layout"><div><div class="market-eyebrow">Features</div><h2>Key features</h2>'+
-      '<div class="market-intro"><p>Why engineers specify '+esc(p.name)+' — the properties that earn it a place on the line. [Placeholder copy.]</p></div></div>'+
+      '<div class="market-intro"><p>Why engineers specify '+esc(p.name)+' — the properties that earn it a place on the line.</p></div></div>'+
       '<ul class="feature-list">'+features.map(function(c){return '<li>'+esc(c)+'</li>';}).join('')+'</ul></div>');
 
     // 4. TECHNICAL SPECIFICATIONS — clean spec table
@@ -78,7 +78,7 @@
       ['Product family', (f?f.name:'—')]
     ];
     out+=sect('', '<div class="market-eyebrow">Specifications</div><h2>Technical specifications</h2>'+
-      '<div class="market-intro"><p>Nominal construction values. Full datasheet figures and tolerances are available on request. [Placeholder data.]</p></div>'+
+      '<div class="market-intro"><p>Nominal construction values. Full datasheet figures and tolerances are available on request.</p></div>'+
       specTable(specRows));
 
     // 5. APPLICATIONS — segment-grid → application pages
@@ -98,7 +98,7 @@
     // 7. CERTIFICATIONS & COMPLIANCE
     var certs=['ISO 9001 — quality-managed manufacturing','RoHS compliant','REACH compliant'];
     out+=sect('is-grey', '<div class="feature-layout"><div><div class="market-eyebrow">Compliance</div><h2>Certifications &amp; compliance</h2>'+
-      '<div class="market-intro"><p>DEON products are manufactured under a quality-managed system and supplied with the documentation your specification requires. [Placeholder — confirm per product.]</p></div></div>'+
+      '<div class="market-intro"><p>DEON products are manufactured under a quality-managed system and supplied with the documentation your specification requires.</p></div></div>'+
       '<ul class="feature-list">'+certs.map(function(c){return '<li>'+esc(c)+'</li>';}).join('')+'</ul></div>');
 
     // 8. DOWNLOADS — download-grid
@@ -120,7 +120,7 @@
     // 10. CTA — request a sample
     out+='<div class="cta-strip"><div class="cta-img lazy-loading-placeholder"><img class="fade-in-loaded" src="https://placehold.co/800x600/'+heroBg+'/8ea0c8?text=" alt="DEON product samples and support" /></div>'+
       '<div class="cta-body"><h2>Request a sample of '+esc(p.name)+'</h2>'+
-      '<p>Get samples, the full datasheet or a tailored recommendation from a DEON application engineer. [Placeholder copy.]</p>'+
+      '<p>Get samples, the full datasheet or a tailored recommendation from a DEON application engineer.</p>'+
       '<a href="contact.html?product='+encodeURIComponent(p.id)+'" class="cta-btn">Request a sample</a></div></div>';
 
     root.innerHTML=out;
