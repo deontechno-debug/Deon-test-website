@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- DEON tape-roll symbol — flat vector favicon.
+       Red outer ring → white separator ring → blue core → white crescent.
+       No gradients/shadows/texture; circular silhouette; survives at 16px. -->
+  <defs>
+    <clipPath id="deonCore"><circle cx="32" cy="32" r="13"/></clipPath>
+  </defs>
+  <circle cx="32" cy="32" r="31"   fill="#ed1c24"/>  <!-- red tape roll (outer) -->
+  <circle cx="32" cy="32" r="18.5" fill="#ffffff"/>  <!-- white separator ring -->
+  <circle cx="32" cy="32" r="13"   fill="#0072ce"/>  <!-- blue core -->
+  <g clip-path="url(#deonCore)">                      <!-- white crescent inside the core -->
+    <circle cx="30"   cy="32" r="10" fill="#ffffff"/>
+    <circle cx="35.5" cy="32" r="10" fill="#0072ce"/>
+  </g>
+</svg>
