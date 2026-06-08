@@ -1,17 +1,14 @@
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <!-- DEON emblem — flat vector favicon.
-       Red disk · white lens/flared channel (thin tails → flares around the core)
-       · blue core. No gradients/shadows/texture; circular silhouette; 16px-safe.
-       The white lens is the intersection of two large circles (above + below). -->
+       Red disk · straight horizontal white channel (left+right) · white ring ·
+       blue core. No gradients/shadows/texture; circular silhouette; 16px-safe. -->
   <defs>
     <clipPath id="deonDisk"><circle cx="32" cy="32" r="30"/></clipPath>
-    <clipPath id="deonLensTop"><circle cx="32" cy="59.25" r="42.25"/></clipPath>
   </defs>
+  <circle cx="32" cy="32" r="30" fill="#ed1c24"/>                 <!-- red disk -->
   <g clip-path="url(#deonDisk)">
-    <circle cx="32" cy="32" r="30" fill="#ed1c24"/>                          <!-- red disk -->
-    <g clip-path="url(#deonLensTop)">
-      <circle cx="32" cy="4.75" r="42.25" fill="#ffffff"/>                   <!-- white lens (∩ of two circles) -->
-    </g>
-    <circle cx="32" cy="32" r="12" fill="#0072ce"/>                          <!-- blue core -->
+    <rect x="0" y="28.5" width="64" height="7" fill="#ffffff"/>   <!-- horizontal white channel -->
   </g>
+  <circle cx="32" cy="32" r="15" fill="#ffffff"/>                 <!-- white separator ring -->
+  <circle cx="32" cy="32" r="12" fill="#0072ce"/>                 <!-- blue core -->
 </svg>

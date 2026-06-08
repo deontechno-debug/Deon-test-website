@@ -251,7 +251,7 @@
     // Favicon — flat-vector DEON tape-roll symbol (SVG primary + PNG fallbacks).
     if(!document.querySelector('link[rel="icon"][href*="favicon.svg"]')){
       document.head.querySelectorAll('link[rel="icon"],link[rel="shortcut icon"]').forEach(function(l){l.remove();});
-      [['icon','image/svg+xml','brand_assets/favicon.svg',null],['icon','image/png','brand_assets/favicon-64.png','64x64'],['icon','image/png','brand_assets/favicon-48.png','48x48'],['icon','image/png','brand_assets/favicon-32.png','32x32'],['icon','image/png','brand_assets/favicon-16.png','16x16'],['apple-touch-icon',null,'brand_assets/favicon-180.png','180x180']].forEach(function(s){var l=document.createElement('link');l.rel=s[0];if(s[1])l.type=s[1];l.href=s[2];if(s[3])l.setAttribute('sizes',s[3]);document.head.appendChild(l);});
+      [['icon','image/svg+xml','brand_assets/favicon.svg?v=4',null],['icon','image/png','brand_assets/favicon-64.png?v=4','64x64'],['icon','image/png','brand_assets/favicon-48.png?v=4','48x48'],['icon','image/png','brand_assets/favicon-32.png?v=4','32x32'],['icon','image/png','brand_assets/favicon-16.png?v=4','16x16'],['apple-touch-icon',null,'brand_assets/favicon-180.png?v=4','180x180']].forEach(function(s){var l=document.createElement('link');l.rel=s[0];if(s[1])l.type=s[1];l.href=s[2];if(s[3])l.setAttribute('sizes',s[3]);document.head.appendChild(l);});
     }
     var anchor=document.getElementById('deon-main')||document.body.firstChild;
     var head=document.createElement('div'); head.innerHTML=headerHTML();
