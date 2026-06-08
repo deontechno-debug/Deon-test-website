@@ -199,25 +199,24 @@
     }
 
     // Scroll progress (Layer 2 — blue material + travelling white joint) is
-    // anchored to the header CONTENT FRAME, not to any UI element: the travel
-    // zone is the symmetric --gutter column [gutter, viewportWidth - gutter], so
-    // left margin === right margin at every width/zoom and the motion stays
-    // centred regardless of logo/nav/utility changes. wire() reads the gutter
-    // from .nav-inner's own padding (the exact offset the header lays out to) on
-    // init+resize, and updates --blue-w (blue body width) per scroll frame. The
-    // blue ::after is `left:--prog-left; width:--blue-w + 5px white gap`, so the
-    // joint travels but never passes the right frame boundary (a small red
-    // sliver always remains beyond it; the red brand line stays full viewport).
+    // anchored to the FUNCTIONAL HEADER FRAME: the travel band runs from the
+    // visual start of the DEON logo to its MIRROR on the utility side, i.e.
+    // [logoLeft, viewportWidth - logoLeft]. Symmetric (left margin === right
+    // margin = logoLeft) and centred at every width/zoom, independent of the
+    // gutter/content frame. wire() reads the logo's left edge on init+resize and
+    // updates --blue-w (blue body width) per scroll frame. The band reads
+    // BLUE → GAP → RED (red base ::before, blue+5px-white-gap overlay ::after);
+    // the joint never passes the mirrored boundary (a small red remainder stays).
     var docEl = document.documentElement;
     var navEl = document.querySelector('nav:not(.crumb)');
-    var navInner = navEl && navEl.querySelector('.nav-inner');
+    var navLogo = navEl && navEl.querySelector('.nav-logo');
     var spTicking = false, regionW = 0;
-    var GAP = 5, RED_MIN = 10, BLUE_MIN = 24;   // white joint width · red sliver kept at max · blue at load
+    var GAP = 5, RED_MIN = 10, BLUE_MIN = 24;   // white joint width · red remainder at max · blue at load
     function measureRegion(){
-      if (!navInner) return;
-      var gutter = parseFloat(getComputedStyle(navInner).paddingLeft) || 0;  // = var(--gutter)
-      regionW = Math.max(0, window.innerWidth - 2 * gutter);                  // symmetric content frame
-      docEl.style.setProperty('--prog-left', Math.round(gutter) + 'px');
+      if (!navLogo) return;
+      var d = navLogo.getBoundingClientRect().left;          // visual start of the DEON logo
+      regionW = Math.max(0, window.innerWidth - 2 * d);       // band [d, vw-d], mirrored/symmetric
+      docEl.style.setProperty('--prog-left', Math.round(d) + 'px');
     }
     function setNavFill(){
       spTicking = false;

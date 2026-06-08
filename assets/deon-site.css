@@ -123,20 +123,18 @@
       align-items: center;
     }
     .nav-left { display: flex; align-items: center; }
-    /* Boundary-driven scroll model — two solid layers + a travelling joint.
-       Layer 1 (::before) — the brand line: solid RED, FULL viewport width
-       (left:0 → right:0), full-bleed at every zoom, never clipped.
-       Layer 2 (::after) — the BLUE material plus a constant-width WHITE
-       separation gap (its right border). Blue originates at the logo-side
-       boundary and grows right as you scroll; the full-bleed red shows wherever
-       blue/gap don't cover — a contracting red band on the search side that
-       merges into the full-bleed remainder. So inside the functional header
-       region the line reads **Blue → white joint → Red**, and the joint travels
-       horizontally as the primary scroll indicator. The gap is a solid 5px white
-       border: fixed width, no fade/blur/glow/pulse, no independent animation.
-       wire() sets --prog-left (region start) and --blue-w (blue body width) so
-       the joint never passes the search boundary — a small red sliver always
-       remains. No gradient, no transparency. */
+    /* Boundary-driven scroll model — anchored to the FUNCTIONAL HEADER FRAME.
+       The travel band runs from the visual start of the DEON logo to its mirror
+       on the utility side: [--prog-left, viewportWidth − --prog-left], where
+       --prog-left = the logo's left edge (NOT the viewport/gutter/content-frame
+       edge). Symmetric: left margin === right margin = --prog-left.
+       Exactly ONE transition, reading **BLUE → GAP → RED** (never RED→BLUE→RED,
+       never multiple blues/gaps): the band has a RED base (::before) overlaid
+       from the left by the BLUE material + a constant 5px WHITE separation gap
+       (::after's right border). The gap is the travelling indicator; blue/red
+       are the materials. The margins carry no line (a full-bleed red would put
+       red left of the blue → forbidden). Solid colours only — no gradient,
+       transparency, fade, blur, glow, or pulse. */
     nav:not(.crumb)::before,
     nav:not(.crumb)::after {
       content: '';
@@ -144,8 +142,8 @@
       bottom: 0;
       height: 3px;
     }
-    nav:not(.crumb)::before {            /* Layer 1 — full-bleed red brand line */
-      left: 0; right: 0;
+    nav:not(.crumb)::before {            /* RED material — band [logo-start → mirror] */
+      left: var(--prog-left, 0px); right: var(--prog-left, 0px);
       background: var(--red);
     }
     nav:not(.crumb)::after {             /* Layer 2 — blue material + travelling white joint */
