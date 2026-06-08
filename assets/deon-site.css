@@ -113,7 +113,10 @@
       justify-content: center;           /* centre the bounded content block */
       /* Nav stays on top of sidebar — hamburger transforms to X here */
       z-index: 1200;
-      box-shadow: 0 1px 0 #e0e0e0;
+      /* No bottom box-shadow: the 3px red/blue progress line IS the nav's bottom
+         edge. A 1px #e0e0e0 shadow here rendered as a white hairline seam just
+         below the progress line (visible over the dark hero) — removed so the
+         line and the content form one continuous edge. */
     }
     /* Max-width header container, bounded to the content column. Layout follows
        Tesa's identity-anchored model: the nav is grouped immediately right of
