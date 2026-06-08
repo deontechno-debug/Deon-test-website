@@ -29,13 +29,15 @@
          into the --gutter margin — the one intentional exception. */
       --logo-offset: calc(30px + 1.5rem);   /* = logoStart − gutter */
       --frame-inset: calc(var(--gutter) + var(--logo-offset));
-      /* Off-canvas nav width + the page "push": when the sidebar opens, the page
-         slides right just enough that its content-frame left edge (--frame-inset)
-         meets the sidebar's right edge — so the nav becomes the left frame and the
-         page reads as a cropped continuation, not an overlapped panel with a void.
+      /* Off-canvas nav width + the page REFRAME: when the sidebar opens, the page
+         content is re-laid-out (not translated) inside the remaining canvas to the
+         right of the sidebar. --page-reframe is the extra LEFT inset added to the
+         page wrappers so their content-frame left edge lands exactly on the
+         sidebar's right edge — the nav becomes the left frame and the page reflows
+         as one continuous composition, no dead gutter, no transform.
          Clamped to 0 once the content already clears the sidebar (wide viewports). */
-      --sidebar-w:  calc(var(--nav-col) + var(--edge));
-      --page-shift: max(0px, calc(var(--sidebar-w) - var(--frame-inset)));
+      --sidebar-w:    calc(var(--nav-col) + var(--edge));
+      --page-reframe: max(0px, calc(var(--sidebar-w) - var(--frame-inset)));
       /* Same gutter resolved against the VIEWPORT (100vw) — for fixed-position
          contexts like the sidebar where % would resolve against the element. */
       --vw-gutter:   max(var(--edge), calc((100vw - var(--content-max)) / 2));
@@ -692,17 +694,21 @@
     }
     .nav-sidebar.open { transform: translateX(0); }
 
-    /* PUSH: when the sidebar opens, the page content slides right by --page-shift
-       (in sync with the drawer) so its content-frame left edge meets the
-       sidebar's right edge. The nav becomes the left frame; the page reads as a
-       cropped continuation rather than a separate panel with an overlap void.
-       The header chrome and fixed overlay/sidebar are excluded. */
-    #deon-main, .footer-search-strip, footer {
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+    /* REFRAME (not a push): when the sidebar opens, the page content is RE-LAID-OUT
+       inside the remaining canvas to the right of the sidebar — its left inset grows
+       by --page-reframe so the content-frame left edge lands exactly on the sidebar's
+       right edge and the content reflows (narrower) to fit. The sidebar is the left
+       frame; the page is the remaining canvas; there is no dead gutter and no
+       transform. Header chrome and the fixed overlay/sidebar are excluded.
+       While open, anchor --frame-inset to the VIEWPORT (--vw-gutter, 100vw-based)
+       instead of the container (100%): adding padding-left narrows #deon-main, which
+       would otherwise collapse the %-gutter to its floor and pull content back under
+       the sidebar. Viewport-anchored, the frame stays constant so content lands on
+       the sidebar's right edge exactly. (Closed, 100% == 100vw, so no visual change.) */
+    body.nav-open { --frame-inset: calc(var(--vw-gutter) + var(--logo-offset)); }
     body.nav-open #deon-main,
     body.nav-open .footer-search-strip,
-    body.nav-open footer { transform: translateX(var(--page-shift)); }
+    body.nav-open footer { padding-left: var(--page-reframe); }
 
     /* Sidebar has no header — nav bar floats above it at z-index 1200 */
     /* top is set dynamically by JS to start below the nav bar */
@@ -875,7 +881,7 @@
       /* Phones: the header collapses, so drop the logo-offset and let content
          use the plain edge gutter (the logoStart frame is a desktop construct).
          The drawer covers most of the screen, so no page-push. */
-      :root { --frame-inset: var(--gutter); --page-shift: 0px; }
+      :root { --frame-inset: var(--gutter); --page-reframe: 0px; }
       .top-bar { font-size: 12px; padding: 0 1rem; }
       .section-tabs { display: none; }
       .nav-inner { padding: 0 1rem; }
