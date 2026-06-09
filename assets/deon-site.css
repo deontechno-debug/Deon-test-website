@@ -706,18 +706,36 @@
        right edge and the content reflows (narrower) to fit. The sidebar is the left
        frame; the page is the remaining canvas; there is no dead gutter and no
        transform. Header chrome and the fixed overlay/sidebar are excluded.
-       While open, the frame inset collapses to a small FIXED value (--edge) so the
-       content meets the sidebar at EVERY width: the normal frame-inset is a viewport-
-       centred gutter that grows huge on wide screens (e.g. ~879px at 2930px), which
-       would exceed the 520px sidebar and clamp --page-reframe to 0 — leaving the
-       content stranded at its wide-screen column with a dead gutter. Pinning the
-       inset to --edge makes --page-reframe = sidebar-w − edge at all widths, so the
-       content-frame left edge sits on the sidebar's right edge and the content
-       reflows to fill the remaining canvas (text keeps its own max-widths). */
-    body.nav-open { --frame-inset: var(--edge); }
+       LEFT edge: scoped to the reframed elements ONLY (not global — a global
+       --frame-inset override also shifted the header chrome), the inset collapses to
+       --edge so --page-reframe (= sidebar-w − edge, constant) lands the content-frame
+       LEFT edge on the sidebar's right edge at EVERY width (the normal viewport-centred
+       gutter grows past 520px on wide screens and would otherwise strand the content).
+       RIGHT edge: the band backgrounds still run full-bleed to the viewport, but the
+       framed CONTENT is capped at --content-max and LEFT-anchored at the sidebar via a
+       100vw-based right padding — so on wide screens the column stays a readable width
+       instead of stretching edge-to-edge (the cards ballooned otherwise). */
     body.nav-open #deon-main,
     body.nav-open .footer-search-strip,
-    body.nav-open footer { padding-left: var(--page-reframe); }
+    body.nav-open footer {
+      --frame-inset: var(--edge);
+      padding-left: var(--page-reframe);
+    }
+    /* cap the framed content column (full-bleed band bgs are unaffected — they have no
+       frame-inset padding). 100vw is exact here: the drawer locks body scroll, and
+       every framed wrapper's right edge is the viewport right edge. */
+    body.nav-open #deon-main .context-bar,
+    body.nav-open #deon-main .hero-card,
+    body.nav-open #deon-main .hero-search-section,
+    body.nav-open #deon-main .markets-section,
+    body.nav-open #deon-main .benefits-heading,
+    body.nav-open #deon-main .benefit-block,
+    body.nav-open #deon-main .discover-section,
+    body.nav-open #deon-main .market-section,
+    body.nav-open .footer-search-strip,
+    body.nav-open footer {
+      padding-right: max(var(--edge), calc(100vw - var(--sidebar-w) - var(--content-max)));
+    }
 
     /* Sidebar has no header — nav bar floats above it at z-index 1200 */
     /* top is set dynamically by JS to start below the nav bar */
