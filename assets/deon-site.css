@@ -29,21 +29,6 @@
          into the --gutter margin — the one intentional exception. */
       --logo-offset: calc(30px + 1.5rem);   /* = logoStart − gutter */
       --frame-inset: calc(var(--gutter) + var(--logo-offset));
-      /* Off-canvas nav width + the page REFRAME: when the sidebar opens, the page
-         content is re-laid-out (not translated) inside the remaining canvas to the
-         right of the sidebar. --page-reframe is the extra LEFT inset added to the
-         page wrappers so their content-frame left edge lands exactly on the
-         sidebar's right edge — the nav becomes the left frame and the page reflows
-         as one continuous composition, no dead gutter, no transform.
-         Clamped to 0 once the content already clears the sidebar (wide viewports). */
-      --sidebar-w:    calc(var(--nav-col) + var(--edge));
-      /* Constant reframe offset: with the open-state inset pinned to --edge, the page
-         pushes right by (sidebar-w − edge) = --nav-col so its content-frame left edge
-         lands exactly on the sidebar's right edge at EVERY width. Must NOT reference
-         --frame-inset: that var is substituted here at :root with the big viewport
-         gutter and frozen, so a body.nav-open override of --frame-inset can't reach it
-         (which left content stranded under/right-of the sidebar on wide screens). */
-      --page-reframe: calc(var(--sidebar-w) - var(--edge));
       /* Same gutter resolved against the VIEWPORT (100vw) — for fixed-position
          contexts like the sidebar where % would resolve against the element. */
       --vw-gutter:   max(var(--edge), calc((100vw - var(--content-max)) / 2));
@@ -700,42 +685,10 @@
     }
     .nav-sidebar.open { transform: translateX(0); }
 
-    /* REFRAME (not a push): when the sidebar opens, the page content is RE-LAID-OUT
-       inside the remaining canvas to the right of the sidebar — its left inset grows
-       by --page-reframe so the content-frame left edge lands exactly on the sidebar's
-       right edge and the content reflows (narrower) to fit. The sidebar is the left
-       frame; the page is the remaining canvas; there is no dead gutter and no
-       transform. Header chrome and the fixed overlay/sidebar are excluded.
-       LEFT edge: scoped to the reframed elements ONLY (not global — a global
-       --frame-inset override also shifted the header chrome), the inset collapses to
-       --edge so --page-reframe (= sidebar-w − edge, constant) lands the content-frame
-       LEFT edge on the sidebar's right edge at EVERY width (the normal viewport-centred
-       gutter grows past 520px on wide screens and would otherwise strand the content).
-       RIGHT edge: the band backgrounds still run full-bleed to the viewport, but the
-       framed CONTENT is capped at --content-max and LEFT-anchored at the sidebar via a
-       100vw-based right padding — so on wide screens the column stays a readable width
-       instead of stretching edge-to-edge (the cards ballooned otherwise). */
-    body.nav-open #deon-main,
-    body.nav-open .footer-search-strip,
-    body.nav-open footer {
-      --frame-inset: var(--edge);
-      padding-left: var(--page-reframe);
-    }
-    /* cap the framed content column (full-bleed band bgs are unaffected — they have no
-       frame-inset padding). 100vw is exact here: the drawer locks body scroll, and
-       every framed wrapper's right edge is the viewport right edge. */
-    body.nav-open #deon-main .context-bar,
-    body.nav-open #deon-main .hero-card,
-    body.nav-open #deon-main .hero-search-section,
-    body.nav-open #deon-main .markets-section,
-    body.nav-open #deon-main .benefits-heading,
-    body.nav-open #deon-main .benefit-block,
-    body.nav-open #deon-main .discover-section,
-    body.nav-open #deon-main .market-section,
-    body.nav-open .footer-search-strip,
-    body.nav-open footer {
-      padding-right: max(var(--edge), calc(100vw - var(--sidebar-w) - var(--content-max)));
-    }
+    /* The sidebar OVERLAYS a FIXED page (Tesa model): opening it must never move,
+       resize or crop page content. body.nav-open only locks background scroll and
+       shows the dimming overlay — it applies NO transform/padding to #deon-main, so
+       the user keeps full visual context of the page behind the (dimmed) overlay. */
 
     /* Sidebar has no header — nav bar floats above it at z-index 1200 */
     /* top is set dynamically by JS to start below the nav bar */
@@ -911,7 +864,7 @@
       /* Phones: the header collapses, so drop the logo-offset and let content
          use the plain edge gutter (the logoStart frame is a desktop construct).
          The drawer covers most of the screen, so no page-push. */
-      :root { --frame-inset: var(--gutter); --page-reframe: 0px; }
+      :root { --frame-inset: var(--gutter); }
       .top-bar { font-size: 12px; padding: 0 1rem; }
       .section-tabs { display: none; }
       .nav-inner { padding: 0 1rem; }

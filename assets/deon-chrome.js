@@ -84,18 +84,15 @@
   }
 
   function sidebarHTML(){
-    // main — the "Tapes" root-node context block (orientation) above the primary nav list.
-    var ctx = '<div class="nav-sidebar-context"><div class="nav-sidebar-context-heading">Tapes</div><ul>' +
-      '<li><a href="#" data-drill="markets"><span>Markets</span>'+CTX_ARROW+'</a></li>' +
-      '<li><a href="#" data-drill="applications"><span>Applications</span>'+CTX_ARROW+'</a></li>' +
-      '<li><a href="#" data-drill="products"><span>Products</span>'+CTX_ARROW+'</a></li>' +
-      '<li><a href="contact.html"><span>Contact us</span></a></li></ul></div>';
+    // main — the "Tapes" root node + ONE primary navigation list (no duplicated
+    // context block). Items with a child panel show a chevron; leaves do not.
+    var heading = '<div class="nav-sidebar-context-heading">Tapes</div>';
     var primary = '<ul class="nav-sidebar-primary">' + ARCH.level1.map(function(it){
       return it.panel
         ? '<li><a href="#" data-drill="'+it.panel+'"><span>'+esc(it.label)+'</span>'+PRIM_ARROW+'</a></li>'
         : '<li><a href="'+esc(it.href)+'"><span>'+esc(it.label)+'</span></a></li>';
     }).join('') + '</ul>';
-    var main = '<div class="nav-panel is-current" data-panel="main"><div class="nav-sidebar-body">' + ctx + '<div class="nav-sidebar-divider"></div>' + primary + '</div></div>';
+    var main = '<div class="nav-panel is-current" data-panel="main"><div class="nav-sidebar-body">' + heading + primary + '</div></div>';
 
     var panels = [];
     // markets → market list (drill into each; special single-page markets link straight to their page)
