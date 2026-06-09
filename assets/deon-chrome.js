@@ -36,7 +36,7 @@
     }).join('');
     return '' +
     '<div class="top-bar" id="topBar"><span>This page is also available in a language that may suit you better: &nbsp;🇮🇳 India &nbsp;<a href="#">English</a></span><button class="top-bar-close" id="topBarClose">Close &times;</button></div>' +
-    '<div class="section-tabs"><a href="index.html" class="section-tab" aria-label="Home">&#8962;</a><a href="#" class="section-tab" aria-label="Tapes material platform">Tapes</a><a href="index.html" class="section-tab active" aria-label="Films material platform" aria-current="true">Films</a></div>' +
+    '<div class="section-tabs"><a href="index.html" class="section-tab" aria-label="Home">&#8962;</a><a href="index.html" class="section-tab active" aria-label="Tapes material platform" aria-current="true">Tapes</a><a href="#" class="section-tab" aria-label="Films material platform">Films</a></div>' +
     '<nav>' +
       '<div class="nav-inner">' +
         '<div class="nav-left">' +
