@@ -33,6 +33,7 @@
          contexts like the sidebar where % would resolve against the element. */
       --vw-gutter:   max(var(--edge), calc((100vw - var(--content-max)) / 2));
       --nav-col:     480px;    /* sidebar navigation column (right of the gutter) */
+      --nav-colw:    18rem;    /* width of ONE drilldown column (multi-column nav) */
     }
 
     html { scroll-behavior: smooth; }
@@ -669,8 +670,8 @@
          overflow boundary. The content emerges at the page's content-column
          edge (--nav-pad ≈ the page gutter) and the panel width is fixed, so the
          drawer no longer balloons on ultra-wide / zoomed-out viewports. */
-      --nav-pad: var(--edge);
-      width: calc(var(--nav-col) + var(--nav-pad));
+      --nav-pad: 1.5rem;
+      width: var(--nav-colw);   /* one column by default; JS widens it per open columns */
       max-width: 92vw;
       background: var(--white);
       /* Above nav bar so sidebar covers nav's left portion */
@@ -758,23 +759,31 @@
     /* Each level is a full-size panel; only one is "current" at a time.
        Drilling deeper slides the new panel in from the right while the
        previous one parallax-shifts left underneath it. */
+    /* MULTI-COLUMN DRILLDOWN (Tesa model): the open path renders as columns side
+       by side — drilling into an item reveals its children in a NEW column to the
+       right while the parent column stays visible, so the user keeps context of
+       where they are in the hierarchy. JS marks the deepest N panels that fit the
+       viewport as columns (.is-col), orders them, and sets the drawer width; on
+       narrow screens N collapses to 1 (a single-column stack). */
     .nav-sidebar-panels {
-      position: relative;
-      flex: 1;
-      overflow: hidden;
+      display: flex; flex-direction: row; align-items: stretch;
+      flex: 1; overflow: hidden;
     }
     .nav-panel {
-      position: absolute;
-      inset: 0;
-      display: flex;
+      width: var(--nav-colw);
+      flex: none;
+      display: none;                 /* only panels on the open path become columns */
       flex-direction: column;
       background: var(--white);
-      transform: translateX(100%);
-      transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+      border-right: 1px solid #ececec;
     }
-    .nav-panel.is-current { transform: translateX(0); }
-    .nav-panel.is-left    { transform: translateX(-28%); }   /* previous level, parallaxed behind */
-    .nav-sidebar-panels.no-anim .nav-panel { transition: none; }
+    .nav-panel.is-col  { display: flex; }
+    .nav-panel.is-last { border-right: none; }
+    /* trail: the parent item whose child column is open reads as active */
+    .nav-sidebar-primary li a.is-trail,
+    .nav-sub-list li a.is-trail { color: var(--blue); background: rgba(15,55,127,0.05); font-weight: 500; }
+    /* with the parent column visible alongside, the per-column back arrow is noise */
+    .nav-sidebar.is-multicol .nav-panel-back { display: none; }
 
     /* Sub-panel header — fixed while the list scrolls; back arrow + section title */
     .nav-panel-header {
