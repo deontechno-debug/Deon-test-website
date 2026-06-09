@@ -37,7 +37,13 @@
          as one continuous composition, no dead gutter, no transform.
          Clamped to 0 once the content already clears the sidebar (wide viewports). */
       --sidebar-w:    calc(var(--nav-col) + var(--edge));
-      --page-reframe: max(0px, calc(var(--sidebar-w) - var(--frame-inset)));
+      /* Constant reframe offset: with the open-state inset pinned to --edge, the page
+         pushes right by (sidebar-w − edge) = --nav-col so its content-frame left edge
+         lands exactly on the sidebar's right edge at EVERY width. Must NOT reference
+         --frame-inset: that var is substituted here at :root with the big viewport
+         gutter and frozen, so a body.nav-open override of --frame-inset can't reach it
+         (which left content stranded under/right-of the sidebar on wide screens). */
+      --page-reframe: calc(var(--sidebar-w) - var(--edge));
       /* Same gutter resolved against the VIEWPORT (100vw) — for fixed-position
          contexts like the sidebar where % would resolve against the element. */
       --vw-gutter:   max(var(--edge), calc((100vw - var(--content-max)) / 2));
@@ -700,12 +706,15 @@
        right edge and the content reflows (narrower) to fit. The sidebar is the left
        frame; the page is the remaining canvas; there is no dead gutter and no
        transform. Header chrome and the fixed overlay/sidebar are excluded.
-       While open, anchor --frame-inset to the VIEWPORT (--vw-gutter, 100vw-based)
-       instead of the container (100%): adding padding-left narrows #deon-main, which
-       would otherwise collapse the %-gutter to its floor and pull content back under
-       the sidebar. Viewport-anchored, the frame stays constant so content lands on
-       the sidebar's right edge exactly. (Closed, 100% == 100vw, so no visual change.) */
-    body.nav-open { --frame-inset: calc(var(--vw-gutter) + var(--logo-offset)); }
+       While open, the frame inset collapses to a small FIXED value (--edge) so the
+       content meets the sidebar at EVERY width: the normal frame-inset is a viewport-
+       centred gutter that grows huge on wide screens (e.g. ~879px at 2930px), which
+       would exceed the 520px sidebar and clamp --page-reframe to 0 — leaving the
+       content stranded at its wide-screen column with a dead gutter. Pinning the
+       inset to --edge makes --page-reframe = sidebar-w − edge at all widths, so the
+       content-frame left edge sits on the sidebar's right edge and the content
+       reflows to fill the remaining canvas (text keeps its own max-widths). */
+    body.nav-open { --frame-inset: var(--edge); }
     body.nav-open #deon-main,
     body.nav-open .footer-search-strip,
     body.nav-open footer { padding-left: var(--page-reframe); }
