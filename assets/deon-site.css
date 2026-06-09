@@ -684,7 +684,16 @@
       display: flex; flex-direction: column;
       overflow: hidden;
     }
-    .nav-sidebar.open { transform: translateX(0); }
+    /* Anchored to the DEON frame, not the browser edge: when open the drawer's left
+       edge lands on --frame-inset (logoStart) — the SAME left guide as the logo,
+       breadcrumbs, body content and scroll-progress gap — so it reads as part of the
+       site's compositional grid, emerging from inside the frame rather than from x=0.
+       The dimmed page stays visible in the [0, logoStart] outer margin. Closed stays
+       translateX(-100%) so the panel is fully hidden off the left edge (no sliver).
+       NB: must use the VIEWPORT-based gutter (--vw-gutter, 100vw) here — a transform's
+       % (as in --frame-inset's --gutter) resolves against the element's OWN width, not
+       the viewport, which collapsed the offset to the 40px floor at every width. */
+    .nav-sidebar.open { transform: translateX(calc(var(--vw-gutter) + var(--logo-offset))); }
 
     /* The sidebar OVERLAYS a FIXED page (Tesa model): opening it must never move,
        resize or crop page content. body.nav-open only locks background scroll and
@@ -878,7 +887,10 @@
       .section-tabs { display: none; }
       .nav-inner { padding: 0 1rem; }
       /* Phones: small edge gutter, cover most of the screen. */
-      .nav-sidebar { --nav-pad: 1rem; width: min(92vw, calc(var(--nav-col) + var(--nav-pad))); }
+      .nav-sidebar { --nav-pad: 1rem; }
+      /* phones: the logoStart frame collapses; the mobile content inset is 1rem, so
+         anchor the drawer at 1rem to match (not the desktop logoStart offset). */
+      .nav-sidebar.open { transform: translateX(1rem); }
 
       .nav-links {
         display: none;

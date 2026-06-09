@@ -159,7 +159,12 @@
     // MULTI-COLUMN: render the open path as columns side by side. Show the deepest
     // N panels that fit the viewport (>=1); on narrow screens N collapses to 1.
     function colW(){ var raw=getComputedStyle(sidebar).getPropertyValue('--nav-colw').trim(), n=parseFloat(raw)||18, base=parseFloat(getComputedStyle(document.documentElement).fontSize)||16; return /px/.test(raw)?n:n*base; }
-    function maxCols(){ var w=colW(); return Math.max(1, Math.floor(Math.min(window.innerWidth*0.92, 4*w)/w)); }
+    // logoStart (= --frame-inset, the DEON frame's left guide); measured off the footer's
+    // framed padding, with a fallback mirroring the CSS tokens.
+    function frameLeftPx(){ var f=document.querySelector('footer'); if(f){var pl=parseFloat(getComputedStyle(f).paddingLeft); if(pl)return pl;} var base=parseFloat(getComputedStyle(document.documentElement).fontSize)||16, g=Math.max(2.5*base,(window.innerWidth-1280)/2); return window.innerWidth<=768?g:g+30+1.5*base; }
+    // The drawer starts at logoStart and must stay inside the frame [logoStart, mirror],
+    // so the columns fit within (viewport - 2*logoStart).
+    function maxCols(){ var w=colW(); return Math.max(1, Math.floor(Math.min(window.innerWidth-2*frameLeftPx(), 4*w)/w)); }
     function renderPanels(resetScroll){
       var visible=panelStack.slice(-maxCols());
       Object.keys(panelEls).forEach(function(name){
