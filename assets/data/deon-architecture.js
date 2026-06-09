@@ -91,3 +91,55 @@
     productFamilies: PRODUCT_FAMILIES, knowledge: KNOWLEDGE, press: PRESS, about: ABOUT, manufacturing: MANUFACTURING, slug: slug
   };
 })();
+
+/* ============================================================
+   LOAD-TIME INTEGRITY VALIDATOR — asserts the catalog graph, the IA, and the
+   facet registry are mutually consistent and fails LOUDLY (console.error) on any
+   drift, so a typo can't silently orphan a node or break the filter rail once
+   content scales. Runs once on load (all data globals are defined by now);
+   read-only and wrapped so it can never break a page. Re-run: DEON_VALIDATE().
+   ============================================================ */
+(function () {
+  function run() {
+    var errs = [], warns = [];
+    try {
+      var C = window.DEON_CATALOG, D = window.DEON, A = window.DEON_ARCH, F = window.DEON_FACETS;
+      if (!C || !D || !A) return { errors: ['core globals missing'], warnings: [] };
+      var fam = {}; (C.productFamilies || []).forEach(function (f) { fam[f.id] = f; });
+      var appIds = {}; (C.applications || []).forEach(function (a) { appIds[a.id] = true; });
+      var mkt = {}; (C.markets || []).forEach(function (m) { mkt[m.id] = m; });
+
+      var famHasProduct = {};
+      (C.products || []).forEach(function (p) {
+        if (!fam[p.familyId]) errs.push('product "' + p.id + '" -> unknown family "' + p.familyId + '"');
+        famHasProduct[p.familyId] = true;
+        if (F && D.facets) ['adhesive', 'backing'].forEach(function (field) {
+          if (p[field] != null && !D.facets.groupOf(field, p[field]))
+            errs.push('product "' + p.id + '": ' + field + ' value "' + p[field] + '" is not in the facet registry');
+        });
+      });
+      (C.productFamilies || []).forEach(function (f) { if (!famHasProduct[f.id]) warns.push('family "' + f.id + '" has 0 products'); });
+      (C.segments || []).forEach(function (s) { if (!mkt[s.marketId]) errs.push('segment "' + s.id + '" -> unknown market "' + s.marketId + '"'); });
+
+      var grpCount = {};
+      (A.applicationGroups || []).forEach(function (g) {
+        g.apps.forEach(function (a) {
+          grpCount[a.id] = (grpCount[a.id] || 0) + 1;
+          if (!appIds[a.id]) errs.push('application group "' + g.name + '" -> unknown application "' + a.id + '"');
+        });
+      });
+      (C.applications || []).forEach(function (a) {
+        var n = grpCount[a.id] || 0;
+        if (n === 0) errs.push('application "' + a.id + '" is in NO application group');
+        else if (n > 1) warns.push('application "' + a.id + '" is in ' + n + ' application groups');
+      });
+    } catch (e) { errs.push('validator threw: ' + e); }
+
+    if (errs.length) console.error('[DEON integrity] ' + errs.length + ' ERROR(S):\n  ' + errs.join('\n  '));
+    if (warns.length) console.warn('[DEON integrity] ' + warns.length + ' warning(s):\n  ' + warns.join('\n  '));
+    if (!errs.length && !warns.length) console.debug('[DEON integrity] OK — catalog, IA and facet registry consistent.');
+    return { errors: errs, warnings: warns };
+  }
+  window.DEON_VALIDATE = run;
+  run();
+})();

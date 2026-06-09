@@ -3875,3 +3875,38 @@
     }
   ]
 };})();
+
+/* ============================================================
+   FACET ENUM REGISTRY (window.DEON_FACETS) — controlled vocabulary
+   that normalizes the free-text product attribute values into a small,
+   ordered set of parent GROUPS. Product records keep their precise raw
+   value (e.g. "rubber-resin"); the registry maps each raw value to a
+   filterable group (e.g. "Rubber"), so the finder can show 4 adhesive +
+   7 backing groups instead of 10 + 28 raw checkboxes (16 of them
+   singletons). EVERY raw value in the catalog MUST appear here — the
+   load-time validator (deon-architecture.js) fails loudly on any that
+   don't, so a new product attribute can't silently break the filter rail.
+   ============================================================ */
+window.DEON_FACETS = {
+  adhesive: {
+    label: 'Adhesive Type',
+    groups: [
+      { id: 'acrylic',  label: 'Acrylic',  values: ['acrylic', 'tackified acrylic', 'conductive acrylic'] },
+      { id: 'rubber',   label: 'Rubber',   values: ['rubber', 'synthetic rubber', 'rubber-resin', 'natural rubber', 'self-amalgamating rubber'] },
+      { id: 'hotmelt',  label: 'Hot-melt', values: ['hotmelt'] },
+      { id: 'silicone', label: 'Silicone', values: ['silicone'] }
+    ]
+  },
+  backing: {
+    label: 'Backing material',
+    groups: [
+      { id: 'film',      label: 'Film',                values: ['PET', 'PE film', 'PVC', 'BOPP', 'MOPP', 'PV film', 'polyimide'] },
+      { id: 'foam',      label: 'Foam',                values: ['acrylic foam core', 'PE foam', 'PU foam', 'EPDM foam'] },
+      { id: 'paper',     label: 'Paper',               values: ['crepe paper', 'kraft paper', 'tissue', 'washi paper'] },
+      { id: 'cloth',     label: 'Cloth & nonwoven',    values: ['PET cloth', 'cotton cloth', 'PE-coated cloth', 'PET fleece'] },
+      { id: 'foil',      label: 'Foil',                values: ['aluminium foil', 'copper foil', 'reinforced aluminium foil'] },
+      { id: 'filament',  label: 'Filament-reinforced', values: ['glass-filament PET', 'glass-filament BOPP', 'bi-directional glass filament', 'polyester-filament PET'] },
+      { id: 'specialty', label: 'Specialty',           values: ['EPR', 'none'] }
+    ]
+  }
+};

@@ -179,5 +179,36 @@
     }
   };
 
+  // ---- Facet registry access (controlled vocabulary -> filter groups) ----
+  // Reads window.DEON_FACETS; degrades gracefully if it is absent.
+  (function () {
+    var REG = window.DEON_FACETS || {};
+    // raw value -> group descriptor, per field (built once)
+    var valueIndex = {};
+    Object.keys(REG).forEach(function (field) {
+      var idx = {};
+      (REG[field].groups || []).forEach(function (g) {
+        (g.values || []).forEach(function (v) { idx[v] = g; });
+      });
+      valueIndex[field] = idx;
+    });
+    DEON.facets = {
+      field: function (field) { return REG[field] || null; },
+      groups: function (field) { return REG[field] ? REG[field].groups.slice() : []; },
+      // the group a raw attribute value belongs to (descriptor) or null if unregistered
+      groupOf: function (field, value) { return (valueIndex[field] || {})[value] || null; },
+      // groups that have >=1 product in `products`, each with a live count and the
+      // member values actually present — so the finder renders only non-empty groups.
+      groupsPresent: function (field, products) {
+        var reg = REG[field]; if (!reg) return [];
+        return reg.groups.map(function (g) {
+          var present = g.values.filter(function (v) { return products.some(function (p) { return p[field] === v; }); });
+          var count = products.filter(function (p) { return g.values.indexOf(p[field]) >= 0; }).length;
+          return { id: g.id, label: g.label, values: g.values, present: present, count: count };
+        }).filter(function (g) { return g.count > 0; });
+      }
+    };
+  })();
+
   window.DEON = DEON;
 })();

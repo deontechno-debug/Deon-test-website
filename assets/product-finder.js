@@ -61,17 +61,33 @@
         minN=q('minN'), maxN=q('maxN'), minR=q('minR'), maxR=q('maxR'), fill=q('fill');
     var visible = PAGE;
 
-    function uniq(key){return [...new Set(data.map(function(d){return d[key];}))].sort();}
-    function buildOpts(container, values, group){
-      container.innerHTML = values.map(function(v){return '<label class="pdb-check"><input type="checkbox" value="'+esc(v)+'" data-group="'+group+'"><span>'+esc(v)+'</span></label>';}).join('');
+    // Grouped facets from the registry (DEON.facets): collapses the raw attribute
+    // values into a few parent groups; falls back to raw distinct values if absent.
+    function buildOpts(container, field){
+      var FA = window.DEON && DEON.facets;
+      var groups = FA ? FA.groupsPresent(field, data) : null;
+      if (groups && groups.length) {
+        container.innerHTML = groups.map(function(g){return '<label class="pdb-check"><input type="checkbox" value="'+esc(g.id)+'" data-group="'+field+'"><span>'+esc(g.label)+'</span></label>';}).join('');
+      } else {
+        var vals=[...new Set(data.map(function(d){return d[field];}))].sort();
+        container.innerHTML = vals.map(function(v){return '<label class="pdb-check"><input type="checkbox" value="'+esc(v)+'" data-group="'+field+'"><span>'+esc(v)+'</span></label>';}).join('');
+      }
     }
-    buildOpts(q('adhesiveOpts'), uniq('adhesive'), 'adhesive');
-    buildOpts(q('backingOpts'), uniq('backing'), 'backing');
+    buildOpts(q('adhesiveOpts'), 'adhesive');
+    buildOpts(q('backingOpts'), 'backing');
 
     function checked(group){return [...root.querySelectorAll('input[data-group="'+group+'"]:checked')].map(function(i){return i.value;});}
+    // grouped mode: checked values are group ids -> a product matches if the group of
+    // its raw attribute value is selected; falls back to raw-value match.
+    function matchesFacet(field, val, sel){
+      if(!sel.length) return true;
+      var FA = window.DEON && DEON.facets;
+      if(FA && FA.field(field)){ var g=FA.groupOf(field,val); return g ? sel.indexOf(g.id)>=0 : false; }
+      return sel.indexOf(val)>=0;
+    }
     function filtered(){
       var lo=+minN.value, hi=+maxN.value, a=checked('adhesive'), b=checked('backing');
-      return data.filter(function(d){ return d.t>=lo && d.t<=hi && (!a.length||a.indexOf(d.adhesive)>=0) && (!b.length||b.indexOf(d.backing)>=0); });
+      return data.filter(function(d){ return d.t>=lo && d.t<=hi && matchesFacet('adhesive',d.adhesive,a) && matchesFacet('backing',d.backing,b); });
     }
     function render(){
       var list=filtered(); countEl.textContent=fmt(list.length);
