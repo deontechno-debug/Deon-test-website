@@ -437,8 +437,14 @@
       /* image ~45%, blue content ~55% — matches tesa proportions */
       grid-template-columns: 45fr 55fr;
       min-height: 320px;
-      margin-top: 2px;
-      padding: 0;                             /* BREAKOUT: full-bleed CTA panel */
+      /* EDITORIAL COMPOSITION, NOT a fluid container: the module escapes the inner
+         content grid but is CAPPED to the DEON frame [logoStart, mirror] via
+         --frame-inset side margins (= frameOffset, mirrored) — the same frame as the
+         header / content / scroll-progress gap. On wide screens the frame is a constant
+         ~1172px, so the image+CTA keep their designed dimensions and extra viewport
+         width becomes whitespace rather than stretching the panel indefinitely. */
+      margin: 2px var(--frame-inset) 0;
+      padding: 0;
     }
     /* keep the CTA copy a fixed readable measure even as the panel breaks out */
     .cta-body h2, .cta-body p { max-width: 30rem; }
