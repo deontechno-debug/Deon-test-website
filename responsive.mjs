@@ -18,7 +18,6 @@ const URLS = [
   ['manufacturing', 'manufacturing-technology.html'],
   ['careers', 'careers.html'],
   ['contact', 'contact.html'],
-  ['search', 'search.html?q=tape'],
   ['converter', 'converter-partners.html'],
   ['oem', 'oem-partners.html'],
 ];

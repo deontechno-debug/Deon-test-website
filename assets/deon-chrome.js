@@ -45,7 +45,7 @@
         '</div>' +
         '<ul class="nav-links" id="navLinks">' + links + '</ul>' +
         '<div class="nav-right">' +
-          '<button class="nav-icon-btn" aria-label="Search" onclick="location.href=\'search.html\'"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>' +
+          '<button class="nav-icon-btn" id="searchBtn" type="button" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>' +
           '<button class="nav-icon-btn" aria-label="Language">EN<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>' +
         '</div>' +
       '</div>' +
@@ -145,6 +145,77 @@
     return '<div class="nav-overlay" id="navOverlay"></div>' +
       '<aside class="nav-sidebar" id="navSidebar" aria-hidden="true"><div class="nav-sidebar-panels" id="navPanels">' +
         main + panels.join('') + '</div></aside>';
+  }
+
+  // ---------- SEARCH OVERLAY (Tesa-style dropdown beneath the header; replaces the
+  //            search.html destination page — search is now a navigation utility) ----------
+  var SEARCH_ORDER = ['Markets','Applications','Products','Resources','Press & Insights'];
+  function searchIndex(){
+    var R = D.raw, U = D.url, idx = [];
+    function add(type,title,sub,href,extra){ idx.push({ type:type, title:title, sub:sub||'', href:href, s:(title+' '+(sub||'')+' '+(extra||'')).toLowerCase() }); }
+    (R.markets||[]).forEach(function(m){ add('Markets', m.name, m.tagline, U.market(m.id), m.intro); });
+    (R.applications||[]).forEach(function(a){ add('Applications', a.name, a.summary, U.application(a.id), a.overview); });
+    (R.productFamilies||[]).forEach(function(f){ add('Products', f.name, f.note, U.productFamily(f.id), f.overview); });
+    (R.products||[]).forEach(function(p){ add('Products', p.name, p.desc, U.product(p.id), (p.adhesive||'')+' '+(p.backing||'')); });
+    (R.resources||[]).forEach(function(r){ add('Resources', r.title, (r.type||r.category||''), (r.url&&r.url!=='#')?r.url:'knowledge-center.html'); });
+    (R.insights||[]).forEach(function(n){ add('Press & Insights', n.title, n.category, (n.url&&n.url!=='#')?n.url:'press.html', n.excerpt); });
+    return idx;
+  }
+  var SEARCH_SUGGEST = [
+    { label:'Markets', href:'market.html' }, { label:'Applications', href:'applications.html' },
+    { label:'Products', href:'products.html' }, { label:'Resources', href:'knowledge-center.html' },
+    { label:'Electronics', href:'market.html?m=electronics' }, { label:'Automotive', href:'market.html?m=automotive' },
+    { label:'Electrical Tapes', href:'products.html?family=electrical-tapes' }, { label:'Contact us', href:'contact.html' }
+  ];
+  function searchHTML(){
+    return '<div class="search-overlay" id="searchOverlay" aria-hidden="true">' +
+      '<div class="search-backdrop" id="searchBackdrop"></div>' +
+      '<div class="search-panel" role="dialog" aria-label="Search DEON">' +
+        '<form class="search-field" id="searchForm" role="search">' +
+          '<svg class="search-field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
+          '<input type="search" id="searchInput" autocomplete="off" spellcheck="false" placeholder="Search markets, applications, products and resources" aria-label="Search the DEON ecosystem" />' +
+          '<button type="button" class="search-close" id="searchClose" aria-label="Close search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>' +
+        '</form>' +
+        '<div class="search-results" id="searchResults"></div>' +
+      '</div></div>';
+  }
+  function wireSearch(){
+    var ov = document.getElementById('searchOverlay'); if(!ov) return;
+    var input = document.getElementById('searchInput'), results = document.getElementById('searchResults'),
+        backdrop = document.getElementById('searchBackdrop'), closeBtn = document.getElementById('searchClose'),
+        form = document.getElementById('searchForm');
+    var INDEX = null;
+    function idx(){ return INDEX || (INDEX = searchIndex()); }
+    function hitHTML(h){ return '<a class="search-hit" href="'+esc(h.href)+'"><span class="search-hit-title">'+esc(h.title)+'</span>'+(h.sub?'<span class="search-hit-sub">'+esc(h.sub)+'</span>':'')+'</a>'; }
+    function suggestHTML(){ return '<div class="search-group"><div class="search-group-label">Suggested destinations</div><div class="search-chips">'+SEARCH_SUGGEST.map(function(s){return '<a class="search-chip" href="'+esc(s.href)+'">'+esc(s.label)+'</a>';}).join('')+'</div></div>'; }
+    function render(){
+      var q = input.value.trim().toLowerCase();
+      if(!q){ results.innerHTML = suggestHTML(); return; }
+      var hits = idx().filter(function(i){ return i.s.indexOf(q) >= 0; });
+      if(!hits.length){ results.innerHTML = '<div class="search-empty">No results for “'+esc(input.value.trim())+'”. Try a market, application, product or resource.</div>'; return; }
+      var g = {}; hits.forEach(function(h){ (g[h.type]=g[h.type]||[]).push(h); });
+      results.innerHTML = SEARCH_ORDER.filter(function(t){return g[t];}).map(function(t){
+        var list = g[t], shown = list.slice(0,6);
+        return '<div class="search-group"><div class="search-group-label">'+esc(t)+'<span class="search-group-count">'+list.length+'</span></div>'+
+          shown.map(hitHTML).join('') + (list.length>shown.length ? '<div class="search-more">+'+(list.length-shown.length)+' more</div>' : '') + '</div>';
+      }).join('');
+    }
+    function position(){ var navEl=document.querySelector('nav'); var b=navEl?navEl.getBoundingClientRect().bottom:72; ov.style.top=Math.max(0,b)+'px'; }
+    function open(prefill){ position(); ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); if(prefill!=null) input.value=prefill; render(); requestAnimationFrame(function(){ input.focus(); }); }
+    function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); }
+    input.addEventListener('input', render);
+    form.addEventListener('submit', function(e){ e.preventDefault(); render(); });
+    closeBtn.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && ov.classList.contains('open')) close(); });
+    window.addEventListener('resize', function(){ if(ov.classList.contains('open')) position(); });
+    // search icon in the header
+    var btn = document.getElementById('searchBtn'); if(btn) btn.addEventListener('click', function(){ open(); });
+    // any legacy search forms (footer strip, homepage hero) now open the overlay
+    document.querySelectorAll('form.footer-search-form, form.hero-search, form[action="search.html"]').forEach(function(f){
+      f.addEventListener('submit', function(e){ e.preventDefault(); var i=f.querySelector('input'); open(i?i.value:''); });
+    });
+    window.DEONSearch = { open: open, close: close };
   }
 
   // ---------- BEHAVIOUR (panel-stack, ported from electronics) ----------
@@ -293,10 +364,11 @@
     var anchor=document.getElementById('deon-main')||document.body.firstChild;
     var head=document.createElement('div'); head.innerHTML=headerHTML();
     while(head.firstChild) document.body.insertBefore(head.firstChild, anchor);
-    var foot=document.createElement('div'); foot.innerHTML=footerHTML()+sidebarHTML();
+    var foot=document.createElement('div'); foot.innerHTML=footerHTML()+sidebarHTML()+searchHTML();
     while(foot.firstChild) document.body.appendChild(foot.firstChild);
     document.documentElement.classList.add('-loaded');
     wire();
+    wireSearch();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',mount);
   else mount();
