@@ -161,7 +161,7 @@
     function colW(){ var raw=getComputedStyle(sidebar).getPropertyValue('--nav-colw').trim(), n=parseFloat(raw)||18, base=parseFloat(getComputedStyle(document.documentElement).fontSize)||16; return /px/.test(raw)?n:n*base; }
     // logoStart (= --frame-inset, the DEON frame's left guide); measured off the footer's
     // framed padding, with a fallback mirroring the CSS tokens.
-    function frameLeftPx(){ var f=document.querySelector('footer'); if(f){var pl=parseFloat(getComputedStyle(f).paddingLeft); if(pl)return pl;} var base=parseFloat(getComputedStyle(document.documentElement).fontSize)||16, g=Math.max(2.5*base,(window.innerWidth-1280)/2); return window.innerWidth<=768?g:g+30+1.5*base; }
+    function frameLeftPx(){ var base=parseFloat(getComputedStyle(document.documentElement).fontSize)||16, g=Math.max(2.5*base,(window.innerWidth-1280)/2); return window.innerWidth<=768?g:g+30+1.5*base; }
     // PERSISTENT HIERARCHICAL EXPLORER (Tesa model): render the ENTIRE open path as
     // columns side by side — every parent level stays visible, none is ever replaced or
     // hidden, so the user always sees where they are / came from / can go without a back
@@ -177,7 +177,10 @@
       // trail: in each column, highlight the item whose child column is open
       panelStack.forEach(function(name,i){ var el=panelEls[name]; if(!el)return; el.querySelectorAll('[data-drill]').forEach(function(a){ a.classList.toggle('is-trail', a.getAttribute('data-drill')===panelStack[i+1]); }); });
       var avail=window.innerWidth - frameLeftPx() - 8;   // logoStart -> viewport edge
-      sidebar.style.width=Math.min(panelStack.length*colW(), Math.max(colW(), avail))+'px';
+      var W=Math.min(panelStack.length*colW(), Math.max(colW(), avail));
+      sidebar.style.width=W+'px';
+      // Two-region allocation: the page content begins directly after the nav region.
+      document.documentElement.style.setProperty('--nav-region', W+'px');
       sidebar.classList.toggle('is-multicol', panelStack.length>1);
       requestAnimationFrame(function(){ if(navPanels.scrollWidth>navPanels.clientWidth+1) navPanels.scrollLeft=navPanels.scrollWidth; });
       if(resetScroll){ var last=panelEls[panelStack[panelStack.length-1]]; var sc=last&&last.querySelector('.nav-panel-scroll, .nav-sidebar-body'); if(sc)sc.scrollTop=0; }
@@ -196,8 +199,10 @@
       sidebar.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; document.body.classList.add('nav-open');
       if(wasOpen){ if(target==='main'){ while(panelStack.length>1)panelStack.pop(); renderPanels(false);} else if(panelStack[panelStack.length-1]!==target){ panelStack=['main']; renderPanels(false); requestAnimationFrame(function(){pushPanel(target);}); } }
     }
-    function closeSidebar(){ hamburger.classList.remove('is-open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); sidebar.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; document.body.classList.remove('nav-open'); }
-    hamburger.addEventListener('click',function(){ sidebar.classList.contains('open')?closeSidebar():openSidebar('main'); });
+    function closeSidebar(){ hamburger.classList.remove('is-open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); sidebar.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; document.body.classList.remove('nav-open'); document.documentElement.style.setProperty('--nav-region','0px'); }
+    // Open to a 2-column state (root + first section) so the navigation reads as a
+    // meaningful region capable of the explorer, not a single narrow column.
+    hamburger.addEventListener('click',function(){ sidebar.classList.contains('open')?closeSidebar():openSidebar('markets'); });
     overlay.addEventListener('click',closeSidebar);
     document.addEventListener('keydown',function(e){ if(e.key==='Escape' && sidebar.classList.contains('open')) closeSidebar(); });
     navPanels.querySelectorAll('[data-drill]').forEach(function(el){ el.addEventListener('click',function(e){

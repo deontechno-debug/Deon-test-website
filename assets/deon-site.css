@@ -701,10 +701,22 @@
        the viewport, which collapsed the offset to the 40px floor at every width. */
     .nav-sidebar.open { transform: translateX(calc(var(--vw-gutter) + var(--logo-offset))); }
 
-    /* The sidebar OVERLAYS a FIXED page (Tesa model): opening it must never move,
-       resize or crop page content. body.nav-open only locks background scroll and
-       shows the dimming overlay — it applies NO transform/padding to #deon-main, so
-       the user keeps full visual context of the page behind the (dimmed) overlay. */
+    /* TWO-REGION LAYOUT inside the DEON frame: open = [ Nav region ][ Content region ].
+       The navigation owns a meaningful column block (sized by the explorer's open
+       columns, written to --nav-region by JS); the page content is allocated the
+       remaining frame by reserving that width in its OWN box (padding-left =
+       --nav-region) so it begins DIRECTLY AFTER the navigation — one composition, not a
+       menu floating over the page. While open, the content's frame is anchored to the
+       viewport (--vw-gutter) so its right edge stays on the mirror (the container %
+       gutter would otherwise collapse against the narrowed box and overrun the frame).
+       Header chrome and the fixed overlay/sidebar are excluded. */
+    body.nav-open #deon-main,
+    body.nav-open .footer-search-strip,
+    body.nav-open footer {
+      --frame-inset: calc(var(--vw-gutter) + var(--logo-offset));
+      padding-left: var(--nav-region, 0px);
+      transition: padding-left 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+    }
 
     /* Sidebar has no header — nav bar floats above it at z-index 1200 */
     /* top is set dynamically by JS to start below the nav bar */
