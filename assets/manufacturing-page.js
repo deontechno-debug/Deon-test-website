@@ -34,6 +34,15 @@
       return segCard('#'+slug(category), BG[i%BG.length], t.name, t.summary, 'How we use it');
     }).join('')+'</div>';
   }
+  // Hidden per-technology anchor targets so every technology deep link
+  // (DEON.url.technology(id) -> manufacturing-technology.html#<id>, emitted by the
+  // market / electronics technology sections) resolves to the category section that
+  // documents it. Skips any technology whose id already equals the section's own id.
+  function techAnchors(category){
+    var sid = slug(category);
+    return D.technologies().filter(function(t){return t.category===category && t.id!==sid;})
+      .map(function(t){return '<span class="tech-anchor" id="'+esc(t.id)+'"></span>';}).join('');
+  }
 
   function render(){
     var root = document.getElementById('deon-main');
@@ -60,6 +69,7 @@
 
     // ── 1. Adhesive Technologies (segment-grid from DEON.technologies) ──
     out += sect(slug('Adhesive Technologies'),'is-grey',
+      techAnchors('Adhesive Technologies') +
       head('Adhesive technologies','Adhesive chemistry, engineered to the joint') +
       intro([
         'The adhesive is where a tape earns or loses an application. DEON formulates and coats across the three principal pressure-sensitive chemistries — <strong>acrylic</strong> (solvent and water-based), <strong>rubber and synthetic-rubber hot-melt</strong>, and <strong>silicone</strong> — plus engineered systems such as viscoelastic acrylic-foam structural adhesives and thermally or electrically functional constructions.',
@@ -69,6 +79,7 @@
 
     // ── 2. Backing Materials (segment-grid from DEON.technologies) ──
     out += sect(slug('Backing Materials'),'',
+      techAnchors('Backing Materials') +
       head('Backing materials','The backing carries the adhesive — and the performance') +
       intro([
         'The backing sets a tape’s mechanical, thermal, dielectric and dimensional behaviour. DEON coats onto a broad substrate library — polyester (PET) and polyimide (PI) films, plasticised PVC, woven and non-woven cloth, PE/PU/acrylic foams, aluminium and metallised foils, saturated crepe and flat papers, and PE/PP protection films.',
@@ -78,6 +89,7 @@
 
     // ── 3. Manufacturing Capabilities ──
     out += sect(slug('Manufacturing Capabilities'),'is-grey',
+      techAnchors('Manufacturing Capabilities') +
       featureLayout('Manufacturing capabilities','From coating line to finished roll',
         [
           'DEON operates dedicated <strong>solvent, hot-melt and water-based (emulsion) coating lines</strong>, so each adhesive chemistry is laid down on its optimal process. Precision coating heads — comma-bar, slot-die and reverse-roll — control coat weight to tight tolerances across the full web width, with in-line drying ovens, UV/EB and thermal curing stages, and corona treatment for adhesion to low-surface-energy films.',
@@ -88,6 +100,7 @@
 
     // ── 4. Testing & Validation ──
     out += sect(slug('Testing & Validation'),'',
+      techAnchors('Testing & Validation') +
       featureLayout('Testing & validation','An in-house lab that qualifies every batch',
         [
           'Performance claims are only as good as the test behind them. DEON’s laboratory characterises every construction against recognised methods — <strong>peel adhesion</strong> (180° and 90°, to steel and to application substrates), <strong>static and dynamic shear</strong> (holding power under load and at temperature), <strong>tack</strong> (loop and rolling-ball), and <strong>temperature resistance</strong> across continuous and peak service ranges.',
@@ -108,6 +121,7 @@
 
     // ── 6. R&D & Innovation ──
     out += sect(slug('R&D & Innovation'),'',
+      techAnchors('R&D & Innovation') +
       featureLayout('R&D & innovation','Where the next DEON construction comes from',
         [
           'DEON’s R&amp;D agenda tracks where industrial assembly is heading: <strong>lightweighting and bonded assembly</strong> replacing rivets and welds, <strong>thermal management</strong> in ever-denser electronics and EV battery packs, reliable bonding to <strong>low-surface-energy plastics</strong> and composites, and thinner dielectric films that survive higher reflow temperatures.',
