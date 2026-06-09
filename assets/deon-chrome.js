@@ -162,22 +162,25 @@
     // logoStart (= --frame-inset, the DEON frame's left guide); measured off the footer's
     // framed padding, with a fallback mirroring the CSS tokens.
     function frameLeftPx(){ var f=document.querySelector('footer'); if(f){var pl=parseFloat(getComputedStyle(f).paddingLeft); if(pl)return pl;} var base=parseFloat(getComputedStyle(document.documentElement).fontSize)||16, g=Math.max(2.5*base,(window.innerWidth-1280)/2); return window.innerWidth<=768?g:g+30+1.5*base; }
-    // The drawer starts at logoStart and must stay inside the frame [logoStart, mirror],
-    // so the columns fit within (viewport - 2*logoStart).
-    function maxCols(){ var w=colW(); return Math.max(1, Math.floor(Math.min(window.innerWidth-2*frameLeftPx(), 4*w)/w)); }
+    // PERSISTENT HIERARCHICAL EXPLORER (Tesa model): render the ENTIRE open path as
+    // columns side by side — every parent level stays visible, none is ever replaced or
+    // hidden, so the user always sees where they are / came from / can go without a back
+    // button. The drawer grows with the path, anchored at logoStart and capped at the
+    // viewport; a path deeper than fits scrolls horizontally to reveal the newest level.
     function renderPanels(resetScroll){
-      var visible=panelStack.slice(-maxCols());
       Object.keys(panelEls).forEach(function(name){
-        var el=panelEls[name], vi=visible.indexOf(name);
+        var el=panelEls[name], idx=panelStack.indexOf(name);
         el.classList.remove('is-col','is-last');
-        if(vi!==-1){ el.classList.add('is-col'); if(vi===visible.length-1)el.classList.add('is-last'); el.style.order=vi; el.setAttribute('aria-hidden','false'); }
+        if(idx!==-1){ el.classList.add('is-col'); if(idx===panelStack.length-1)el.classList.add('is-last'); el.style.order=idx; el.setAttribute('aria-hidden','false'); }
         else { el.style.order=''; el.setAttribute('aria-hidden','true'); }
       });
       // trail: in each column, highlight the item whose child column is open
       panelStack.forEach(function(name,i){ var el=panelEls[name]; if(!el)return; el.querySelectorAll('[data-drill]').forEach(function(a){ a.classList.toggle('is-trail', a.getAttribute('data-drill')===panelStack[i+1]); }); });
-      sidebar.style.width=(visible.length*colW())+'px';
-      sidebar.classList.toggle('is-multicol', visible.length>1);
-      if(resetScroll){ var last=panelEls[visible[visible.length-1]]; var sc=last&&last.querySelector('.nav-panel-scroll, .nav-sidebar-body'); if(sc)sc.scrollTop=0; }
+      var avail=window.innerWidth - frameLeftPx() - 8;   // logoStart -> viewport edge
+      sidebar.style.width=Math.min(panelStack.length*colW(), Math.max(colW(), avail))+'px';
+      sidebar.classList.toggle('is-multicol', panelStack.length>1);
+      requestAnimationFrame(function(){ if(navPanels.scrollWidth>navPanels.clientWidth+1) navPanels.scrollLeft=navPanels.scrollWidth; });
+      if(resetScroll){ var last=panelEls[panelStack[panelStack.length-1]]; var sc=last&&last.querySelector('.nav-panel-scroll, .nav-sidebar-body'); if(sc)sc.scrollTop=0; }
     }
     function pushPanel(name){ if(!panelEls[name]||panelStack[panelStack.length-1]===name)return; panelStack.push(name); renderPanels(true); }
     function popPanel(){ if(panelStack.length>1){panelStack.pop(); renderPanels(false);} }
@@ -196,7 +199,7 @@
     function closeSidebar(){ hamburger.classList.remove('is-open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); sidebar.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; document.body.classList.remove('nav-open'); }
     hamburger.addEventListener('click',function(){ sidebar.classList.contains('open')?closeSidebar():openSidebar('main'); });
     overlay.addEventListener('click',closeSidebar);
-    document.addEventListener('keydown',function(e){ if(e.key!=='Escape')return; if(panelStack.length>1)popPanel(); else closeSidebar(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape' && sidebar.classList.contains('open')) closeSidebar(); });
     navPanels.querySelectorAll('[data-drill]').forEach(function(el){ el.addEventListener('click',function(e){
       e.preventDefault();
       // drilling from a PARENT column truncates the path to that column, then opens

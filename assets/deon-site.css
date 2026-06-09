@@ -776,8 +776,10 @@
        narrow screens N collapses to 1 (a single-column stack). */
     .nav-sidebar-panels {
       display: flex; flex-direction: row; align-items: stretch;
-      flex: 1; overflow: hidden;
+      flex: 1; overflow-x: auto; overflow-y: hidden;
     }
+    .nav-sidebar-panels::-webkit-scrollbar { height: 6px; }
+    .nav-sidebar-panels::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 3px; }
     .nav-panel {
       width: var(--nav-colw);
       flex: none;
@@ -791,8 +793,9 @@
     /* trail: the parent item whose child column is open reads as active */
     .nav-sidebar-primary li a.is-trail,
     .nav-sub-list li a.is-trail { color: var(--blue); background: rgba(15,55,127,0.05); font-weight: 500; }
-    /* with the parent column visible alongside, the per-column back arrow is noise */
-    .nav-sidebar.is-multicol .nav-panel-back { display: none; }
+    /* persistent explorer: no back button anywhere — every parent column stays
+       visible, so navigation is by clicking column items, never a back action */
+    .nav-panel-back { display: none; }
 
     /* Sub-panel header — fixed while the list scrolls; back arrow + section title */
     .nav-panel-header {
@@ -807,7 +810,8 @@
       margin-right: 0.6rem;
       background: none; border: none; cursor: pointer;
       color: var(--text-mid);
-      display: flex; align-items: center; justify-content: flex-start;
+      display: none;   /* persistent explorer: no back button (navigate via columns) */
+      align-items: center; justify-content: flex-start;
       padding: 0;
       transition: color 0.15s;
     }
@@ -825,7 +829,7 @@
     /* Sub-panel scrollable list — left padding aligns items under the title */
     .nav-panel-scroll {
       flex: 1; overflow-y: auto;
-      padding: 0 1.375rem 2.25rem calc(var(--nav-pad) + 2rem);   /* sub-items indented under the title (matches the back chevron + gap) */
+      padding: 0 1.375rem 2.25rem var(--nav-pad);   /* items align under the column title (no back chevron anymore) */
       -webkit-overflow-scrolling: touch;
       scrollbar-width: thin;
       scrollbar-color: rgba(0,0,0,0.2) transparent;
