@@ -10,12 +10,18 @@
 (function () {
   'use strict';
   var D = window.DEON, ARCH = window.DEON_ARCH;
-  if (!D || !ARCH) { console.warn('DEON chrome: data/architecture not loaded'); return; }
+  // The shared search ENGINE only needs the data layer (D); the chrome RENDERING
+  // (header / sidebar / footer) additionally needs the IA (ARCH) and is guarded in
+  // mount(). Bailing here only when D is missing keeps window.DEON_SEARCH — and thus
+  // the /search results page — alive even if architecture.js fails to load.
+  if (!D) { console.warn('DEON chrome: data not loaded'); return; }
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function slugify(s){ return (ARCH && ARCH.slug) ? ARCH.slug(s) : String(s==null?'':s).toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
 
   var CTX_ARROW = '<span class="ctx-arrow"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M2 1.5L7.5 7L2 12.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-  var PRIM_ARROW = '<span class="prim-arrow"><svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M1.25 1L6 6L1.25 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-  var SUB_ARROW = '<span class="sub-arrow"><svg width="6.5" height="11" viewBox="0 0 7 12" fill="none"><path d="M1.25 1L6 6L1.25 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  // Tesa-style small chevron (›) on drillable rows — lighter affordance than a long arrow.
+  var PRIM_ARROW = '<span class="prim-arrow"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1.5L6.5 7L1 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  var SUB_ARROW = '<span class="sub-arrow"><svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M1 1.5L6.5 7L1 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
   var BACK = '<svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M7 1.5L1.5 7.5L7 13.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   // ---------- HEADER ----------
@@ -31,8 +37,8 @@
       // highlight is keyed on this, NOT on per-page URLs.
       var sec = it.panel || (it.href || '').replace(/\.html.*$/, '');
       return it.panel
-        ? '<li><a href="#" data-open-panel="'+esc(it.panel)+'" data-section="'+esc(sec)+'" aria-haspopup="true">'+esc(it.label)+'</a></li>'
-        : '<li><a href="'+esc(it.href)+'" data-section="'+esc(sec)+'">'+esc(it.label)+'</a></li>';
+        ? '<li><a href="#" data-open-panel="'+esc(it.panel)+'" data-section="'+esc(sec)+'" aria-haspopup="true"><span class="nav-link-label">'+esc(it.label)+'</span></a></li>'
+        : '<li><a href="'+esc(it.href)+'" data-section="'+esc(sec)+'"><span class="nav-link-label">'+esc(it.label)+'</span></a></li>';
     }).join('');
     return '' +
     '<div class="top-bar" id="topBar"><span>This page is also available in a language that may suit you better: &nbsp;🇮🇳 India &nbsp;<a href="#">English</a></span><button class="top-bar-close" id="topBarClose">Close &times;</button></div>' +
@@ -143,77 +149,119 @@
       ARCH.about.map(function(r){ return subLink(r.name, r.href); }).join(''), 'Back to menu'));
 
     return '<div class="nav-overlay" id="navOverlay"></div>' +
-      '<aside class="nav-sidebar" id="navSidebar" aria-hidden="true"><div class="nav-sidebar-panels" id="navPanels">' +
+      '<aside class="nav-sidebar" id="navSidebar" aria-hidden="true">' +
+        '<button class="nav-stack-back" data-stack-back type="button" aria-label="Back one level">'+BACK+'</button>' +
+        '<div class="nav-sidebar-panels" id="navPanels">' +
         main + panels.join('') + '</div></aside>';
   }
 
-  // ---------- SEARCH OVERLAY (Tesa-style dropdown beneath the header; replaces the
-  //            search.html destination page — search is now a navigation utility) ----------
-  var SEARCH_ORDER = ['Markets','Applications','Products','Resources','Press & Insights'];
-  function searchIndex(){
+  // ---------- SEARCH ENGINE (shared) ----------
+  // ONE index + matcher over the whole content graph, exposed as window.DEON_SEARCH
+  // so BOTH the header overlay (discovery) and the /search results page (refinement)
+  // read the same source of truth. Records carry the type-specific attributes the
+  // results page filters on (products: thickness / adhesive / backing / family;
+  // resources: resource type) so the adaptive facet rail needs no second index.
+  var SEARCH_TYPES = ['Markets','Applications','Products','Resources','Press & Insights'];
+  var SEARCH_INDEX = null;
+  function buildSearchIndex(){
     var R = D.raw, U = D.url, idx = [];
-    function add(type,title,sub,href,extra){ idx.push({ type:type, title:title, sub:sub||'', href:href, s:(title+' '+(sub||'')+' '+(extra||'')).toLowerCase() }); }
-    (R.markets||[]).forEach(function(m){ add('Markets', m.name, m.tagline, U.market(m.id), m.intro); });
-    (R.applications||[]).forEach(function(a){ add('Applications', a.name, a.summary, U.application(a.id), a.overview); });
-    (R.productFamilies||[]).forEach(function(f){ add('Products', f.name, f.note, U.productFamily(f.id), f.overview); });
-    (R.products||[]).forEach(function(p){ add('Products', p.name, p.desc, U.product(p.id), (p.adhesive||'')+' '+(p.backing||'')); });
-    (R.resources||[]).forEach(function(r){ add('Resources', r.title, (r.type||r.category||''), (r.url&&r.url!=='#')?r.url:'knowledge-center.html'); });
-    (R.insights||[]).forEach(function(n){ add('Press & Insights', n.title, n.category, (n.url&&n.url!=='#')?n.url:'press.html', n.excerpt); });
+    function add(rec){ rec.s = (rec.title + ' ' + (rec.sub||'') + ' ' + (rec._extra||'')).toLowerCase(); delete rec._extra; idx.push(rec); }
+    (R.markets||[]).forEach(function(m){ add({ type:'Markets', title:m.name, sub:m.tagline, href:U.market(m.id), id:m.id, _extra:m.intro }); });
+    (R.applications||[]).forEach(function(a){ add({ type:'Applications', title:a.name, sub:a.summary, href:U.application(a.id), id:a.id, _extra:a.overview }); });
+    (R.productFamilies||[]).forEach(function(f){ add({ type:'Products', kind:'family', title:f.name, sub:'Product family', href:U.productFamily(f.id), id:f.id, familyId:f.id, familyName:f.name, _extra:f.overview }); });
+    (R.products||[]).forEach(function(p){ var f=D.productFamily(p.familyId); add({ type:'Products', kind:'product', title:p.name, sub:p.desc, href:U.product(p.id), id:p.id, familyId:p.familyId, familyName:f?f.name:'', t:p.t, adhesive:p.adhesive, backing:p.backing, _extra:(p.adhesive||'')+' '+(p.backing||'')+' '+(f?f.name:'') }); });
+    (R.resources||[]).forEach(function(r){ add({ type:'Resources', title:r.title, sub:[r.type,r.format].filter(Boolean).join(' · '), href:(r.url&&r.url!=='#')?r.url:('knowledge-center.html#'+slugify(r.category||'')), id:r.id, resType:r.type, _extra:(r.category||'')+' '+(r.type||'') }); });
+    (R.insights||[]).forEach(function(n){ add({ type:'Press & Insights', title:n.title, sub:n.category, href:(n.url&&n.url!=='#')?n.url:('press.html#'+slugify(n.category||'')), id:n.id, _extra:n.excerpt }); });
     return idx;
   }
-  var SEARCH_SUGGEST = [
-    { label:'Markets', href:'market.html' }, { label:'Applications', href:'applications.html' },
-    { label:'Products', href:'products.html' }, { label:'Resources', href:'knowledge-center.html' },
-    { label:'Electronics', href:'market.html?m=electronics' }, { label:'Automotive', href:'market.html?m=automotive' },
-    { label:'Electrical Tapes', href:'products.html?family=electrical-tapes' }, { label:'Contact us', href:'contact.html' }
-  ];
+  function searchIndexAll(){ return SEARCH_INDEX || (SEARCH_INDEX = buildSearchIndex()); }
+  function searchMatch(raw){
+    var q = String(raw==null?'':raw).trim().toLowerCase();
+    if (q.length < 3) return [];
+    var toks = q.split(/\s+/).filter(Boolean);                       // token AND — every word must appear
+    return searchIndexAll().filter(function(r){ return toks.every(function(t){ return r.s.indexOf(t) >= 0; }); });
+  }
+  function searchGroup(hits){ var g={}; hits.forEach(function(h){ (g[h.type]=g[h.type]||[]).push(h); }); return g; }
+  window.DEON_SEARCH = {
+    TYPES: SEARCH_TYPES, MIN_CHARS: 3, GROUP_MAX: 5,
+    index: searchIndexAll, match: searchMatch, group: searchGroup,
+    resultsUrl: function(q){ return 'search.html?q=' + encodeURIComponent(String(q==null?'':q).trim()); }
+  };
+
+  // ---------- SEARCH OVERLAY (DISCOVERY — a minimal panel beneath the header) ----------
+  // Default state shows ONLY the field + the scope hint; no suggested destinations,
+  // chips, shortcuts or region filters. Live grouped previews begin at 3 characters
+  // (max 5 per group). Enter hands off to the /search results page for refinement.
   function searchHTML(){
     return '<div class="search-overlay" id="searchOverlay" aria-hidden="true">' +
       '<div class="search-backdrop" id="searchBackdrop"></div>' +
-      '<div class="search-panel" role="dialog" aria-label="Search DEON">' +
+      '<div class="search-panel" role="dialog" aria-modal="true" aria-label="Search DEON">' +
         '<form class="search-field" id="searchForm" role="search">' +
           '<svg class="search-field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' +
-          '<input type="search" id="searchInput" autocomplete="off" spellcheck="false" placeholder="Search markets, applications, products and resources" aria-label="Search the DEON ecosystem" />' +
+          '<input type="search" id="searchInput" autocomplete="off" spellcheck="false" placeholder="Search deontapes.com" aria-label="Search the DEON ecosystem" />' +
           '<button type="button" class="search-close" id="searchClose" aria-label="Close search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>' +
         '</form>' +
         '<div class="search-results" id="searchResults"></div>' +
       '</div></div>';
   }
   function wireSearch(){
+    var DS = window.DEON_SEARCH;
     var ov = document.getElementById('searchOverlay'); if(!ov) return;
     var input = document.getElementById('searchInput'), results = document.getElementById('searchResults'),
         backdrop = document.getElementById('searchBackdrop'), closeBtn = document.getElementById('searchClose'),
         form = document.getElementById('searchForm');
-    var INDEX = null;
-    function idx(){ return INDEX || (INDEX = searchIndex()); }
-    function hitHTML(h){ return '<a class="search-hit" href="'+esc(h.href)+'"><span class="search-hit-title">'+esc(h.title)+'</span>'+(h.sub?'<span class="search-hit-sub">'+esc(h.sub)+'</span>':'')+'</a>'; }
-    function suggestHTML(){ return '<div class="search-group"><div class="search-group-label">Suggested destinations</div><div class="search-chips">'+SEARCH_SUGGEST.map(function(s){return '<a class="search-chip" href="'+esc(s.href)+'">'+esc(s.label)+'</a>';}).join('')+'</div></div>'; }
+    function hitHTML(h){
+      return '<a class="search-hit" href="'+esc(h.href)+'">' +
+        '<span class="search-hit-main"><span class="search-hit-title">'+esc(h.title)+'</span>' +
+        (h.sub?'<span class="search-hit-sub">'+esc(h.sub)+'</span>':'') + '</span>' +
+        '<span class="search-hit-type">'+esc(h.type)+'</span></a>';
+    }
     function render(){
-      var q = input.value.trim().toLowerCase();
-      if(!q){ results.innerHTML = suggestHTML(); return; }
-      var hits = idx().filter(function(i){ return i.s.indexOf(q) >= 0; });
-      if(!hits.length){ results.innerHTML = '<div class="search-empty">No results for “'+esc(input.value.trim())+'”. Try a market, application, product or resource.</div>'; return; }
-      var g = {}; hits.forEach(function(h){ (g[h.type]=g[h.type]||[]).push(h); });
-      results.innerHTML = SEARCH_ORDER.filter(function(t){return g[t];}).map(function(t){
-        var list = g[t], shown = list.slice(0,6);
-        return '<div class="search-group"><div class="search-group-label">'+esc(t)+'<span class="search-group-count">'+list.length+'</span></div>'+
-          shown.map(hitHTML).join('') + (list.length>shown.length ? '<div class="search-more">+'+(list.length-shown.length)+' more</div>' : '') + '</div>';
+      var raw = input.value;
+      if(raw.trim().length < DS.MIN_CHARS){ results.innerHTML = ''; return; }   // minimal default: field only
+      var hits = DS.match(raw);
+      if(!hits.length){ results.innerHTML = '<div class="search-empty">No matches for “'+esc(raw.trim())+'”. Press Enter to search the full catalogue.</div>'; return; }
+      var g = DS.group(hits);
+      results.innerHTML = DS.TYPES.filter(function(t){ return g[t]; }).map(function(t){
+        var list = g[t], shown = list.slice(0, DS.GROUP_MAX);
+        return '<div class="search-group"><div class="search-group-label">'+esc(t)+'<span class="search-group-count">'+list.length+'</span></div>' +
+          shown.map(hitHTML).join('') +
+          (list.length>shown.length ? '<a class="search-more" href="'+esc(DS.resultsUrl(raw))+'">View all '+list.length+' in '+esc(t)+' &rarr;</a>' : '') + '</div>';
       }).join('');
     }
+    var panel = ov.querySelector('.search-panel'), prevFocus = null;
     function position(){ var navEl=document.querySelector('nav'); var b=navEl?navEl.getBoundingClientRect().bottom:72; ov.style.top=Math.max(0,b)+'px'; }
-    function open(prefill){ position(); ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); if(prefill!=null) input.value=prefill; render(); requestAnimationFrame(function(){ input.focus(); }); }
-    function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); }
+    // Reopen always starts from the minimal default (field + scope hint): the input is
+    // cleared unless an explicit prefill is passed. Honours the aria-modal contract:
+    // background scroll is locked, focus moves in, and is restored to the trigger on close.
+    function open(prefill){ prevFocus = document.activeElement; position(); ov.classList.add('open'); ov.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; input.value = (prefill!=null ? prefill : ''); render(); requestAnimationFrame(function(){ input.focus(); }); }
+    function close(){ ov.classList.remove('open'); ov.setAttribute('aria-hidden','true'); document.body.style.overflow=''; input.value=''; if(prevFocus && prevFocus.focus) prevFocus.focus(); }
+    // Hand off to the /search results page. A blank query still goes there (the page
+    // opens in its empty "search the ecosystem" state) — Enter / a second icon click
+    // never dead-ends in the overlay.
+    function go(){ var q=input.value.trim(); location.href = q ? DS.resultsUrl(q) : 'search.html'; }
     input.addEventListener('input', render);
-    form.addEventListener('submit', function(e){ e.preventDefault(); render(); });
+    form.addEventListener('submit', function(e){ e.preventDefault(); go(); });        // Enter -> /search?q=
     closeBtn.addEventListener('click', close);
-    backdrop.addEventListener('click', close);
+    backdrop.addEventListener('click', close);                                        // click outside
     document.addEventListener('keydown', function(e){ if(e.key==='Escape' && ov.classList.contains('open')) close(); });
+    // Focus trap — keep Tab / Shift+Tab within the panel while the modal is open.
+    ov.addEventListener('keydown', function(e){
+      if(e.key!=='Tab' || !ov.classList.contains('open')) return;
+      var f = Array.prototype.filter.call(panel.querySelectorAll('input,button,a[href]'), function(el){ return el.offsetParent!==null && !el.disabled; });
+      if(!f.length) return;
+      var first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    });
     window.addEventListener('resize', function(){ if(ov.classList.contains('open')) position(); });
-    // search icon in the header
-    var btn = document.getElementById('searchBtn'); if(btn) btn.addEventListener('click', function(){ open(); });
-    // any legacy search forms (footer strip, homepage hero) now open the overlay
+    // Header search icon: first click opens the overlay (discovery); clicking it again
+    // while open hands off to the /search results page (with the current query, if any).
+    var btn = document.getElementById('searchBtn');
+    if(btn) btn.addEventListener('click', function(){ ov.classList.contains('open') ? go() : open(); });
+    // legacy query forms (footer strip / hero) hand off straight to the refinement page
     document.querySelectorAll('form.footer-search-form, form.hero-search, form[action="search.html"]').forEach(function(f){
-      f.addEventListener('submit', function(e){ e.preventDefault(); var i=f.querySelector('input'); open(i?i.value:''); });
+      f.addEventListener('submit', function(e){ e.preventDefault(); var i=f.querySelector('input'); var q=i?i.value.trim():''; if(q) location.href=DS.resultsUrl(q); else open(); });
     });
     window.DEONSearch = { open: open, close: close };
   }
@@ -249,21 +297,41 @@
       panelStack.forEach(function(name,i){ var el=panelEls[name]; if(!el)return; el.querySelectorAll('[data-drill]').forEach(function(a){ a.classList.toggle('is-trail', a.getAttribute('data-drill')===panelStack[i+1]); }); });
       var avail=window.innerWidth - frameLeftPx() - 8;   // logoStart -> viewport edge
       var W=Math.min(panelStack.length*colW(), Math.max(colW(), avail));
-      sidebar.style.width=W+'px';
-      // Two-region allocation: the page content begins directly after the nav region.
+      // Full-bleed left (Tesa): the panel runs to x=0; its content is inset (padding-left)
+      // so the first column aligns to the DEON frame. Total width = that inset + columns.
+      // From the 3rd column on, the panel takes FULL-PAGE COVERAGE (white fills the
+      // viewport) with the columns CENTERED; shallower levels stay sized to their open
+      // columns over the dimmed page, anchored to the frame.
+      var full = panelStack.length >= 3;
+      var padL=parseFloat(getComputedStyle(sidebar).paddingLeft)||0;
+      sidebar.style.width = full ? '100vw' : (padL+W)+'px';
       document.documentElement.style.setProperty('--nav-region', W+'px');
       sidebar.classList.toggle('is-multicol', panelStack.length>1);
+      sidebar.classList.toggle('is-drilled', panelStack.length>1);   // shows the single gutter back arrow
       requestAnimationFrame(function(){ if(navPanels.scrollWidth>navPanels.clientWidth+1) navPanels.scrollLeft=navPanels.scrollWidth; });
       if(resetScroll){ var last=panelEls[panelStack[panelStack.length-1]]; var sc=last&&last.querySelector('.nav-panel-scroll, .nav-sidebar-body'); if(sc)sc.scrollTop=0; }
     }
     function pushPanel(name){ if(!panelEls[name]||panelStack[panelStack.length-1]===name)return; panelStack.push(name); renderPanels(true); }
     function popPanel(){ if(panelStack.length>1){panelStack.pop(); renderPanels(false);} }
     function setPanelsInstant(name){ panelStack=(name&&name!=='main'&&panelEls[name])?['main',name]:['main']; renderPanels(true); }
-    window.addEventListener('resize',function(){ if(sidebar.classList.contains('open')) renderPanels(false); });
+    var resizeAnimTimer;
+    window.addEventListener('resize',function(){
+      if(!sidebar.classList.contains('open')) return;
+      // SNAP the width while the viewport changes (zoom/resize). A width:100vw panel otherwise
+      // transitions to each new resolved width — a ~380ms "push to fill" wiggle on every zoom.
+      // Kill the transition for the duration of the gesture; restore it 200ms after the last
+      // resize event so drilling still animates.
+      sidebar.classList.add('is-resizing');
+      clearTimeout(resizeAnimTimer);
+      resizeAnimTimer=setTimeout(function(){ sidebar.classList.remove('is-resizing'); }, 200);
+      var navEl=document.querySelector('nav'); var nt=Math.max(0, navEl?navEl.getBoundingClientRect().top:0);
+      sidebar.style.top=nt+'px';
+      renderPanels(false);
+    });
     function openSidebar(target){
       target=target||'main';
-      var navEl=document.querySelector('nav'); var navBottom=navEl?navEl.getBoundingClientRect().bottom:72;
-      sidebar.style.top=Math.max(0,navBottom)+'px';
+      var navEl=document.querySelector('nav'); var navTop=Math.max(0, navEl?navEl.getBoundingClientRect().top:0);
+      sidebar.style.top=navTop+'px';   // covers the nav bar too (CSS bottom:0); logo + hamburger float on top
       var wasOpen=sidebar.classList.contains('open');
       if(!wasOpen) setPanelsInstant(target);
       hamburger.classList.add('is-open'); sidebar.classList.add('open'); overlay.classList.add('open');
@@ -273,7 +341,7 @@
     function closeSidebar(){ hamburger.classList.remove('is-open'); sidebar.classList.remove('open'); overlay.classList.remove('open'); sidebar.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; document.body.classList.remove('nav-open'); document.documentElement.style.setProperty('--nav-region','0px'); }
     // Open to a 2-column state (root + first section) so the navigation reads as a
     // meaningful region capable of the explorer, not a single narrow column.
-    hamburger.addEventListener('click',function(){ sidebar.classList.contains('open')?closeSidebar():openSidebar('markets'); });
+    hamburger.addEventListener('click',function(){ sidebar.classList.contains('open')?closeSidebar():openSidebar('main'); });
     overlay.addEventListener('click',closeSidebar);
     document.addEventListener('keydown',function(e){ if(e.key==='Escape' && sidebar.classList.contains('open')) closeSidebar(); });
     navPanels.querySelectorAll('[data-drill]').forEach(function(el){ el.addEventListener('click',function(e){
@@ -285,6 +353,7 @@
       pushPanel(el.getAttribute('data-drill'));
     }); });
     navPanels.querySelectorAll('[data-panel-back]').forEach(function(el){ el.addEventListener('click',function(e){e.preventDefault();popPanel();}); });
+    var stackBack=sidebar.querySelector('[data-stack-back]'); if(stackBack) stackBack.addEventListener('click',function(e){e.preventDefault();popPanel();});
     document.querySelectorAll('[data-open-panel]').forEach(function(el){ el.addEventListener('click',function(e){e.preventDefault();openSidebar(el.getAttribute('data-open-panel'));}); });
     // Wayfinding: mark the sidebar link matching the current page as active.
     var here = (location.pathname.split('/').pop() || 'index.html') + location.search;
@@ -356,6 +425,7 @@
   }
 
   function mount(){
+    if (!ARCH) { console.warn('DEON chrome: architecture not loaded — header/sidebar not rendered'); return; }
     // Favicon — flat-vector DEON tape-roll symbol (SVG primary + PNG fallbacks).
     if(!document.querySelector('link[rel="icon"][href*="favicon.svg"]')){
       document.head.querySelectorAll('link[rel="icon"],link[rel="shortcut icon"]').forEach(function(l){l.remove();});
@@ -366,6 +436,14 @@
     while(head.firstChild) document.body.insertBefore(head.firstChild, anchor);
     var foot=document.createElement('div'); foot.innerHTML=footerHTML()+sidebarHTML()+searchHTML();
     while(foot.firstChild) document.body.appendChild(foot.firstChild);
+    // Reparent the veil AND the white panel INTO <nav> so page/links/veil/sheet/controls share
+    // ONE stacking context: the nav's sticky stacking context otherwise traps every nav child on
+    // a single plane, so a body-level veil (behind the nav) could never dim the nav links. Inside
+    // <nav>, plain z-index orders them — page+links UNDER the veil (z1), white sheet OVER it (z2),
+    // logo+×+search+EN OVER everything (z3). The veil (fixed, inset:0) sits in the nav's z-band so
+    // it dims the page too; the tabs/language bar (z1300) stay above it. nav has no transform, so
+    // both fixed children keep the viewport as their containing block.
+    (function(){ var nv=document.querySelector('nav:not(.crumb)'), ov=document.getElementById('navOverlay'), pnl=document.getElementById('navSidebar'); if(nv){ if(ov) nv.appendChild(ov); if(pnl) nv.appendChild(pnl); } })();
     document.documentElement.classList.add('-loaded');
     wire();
     wireSearch();

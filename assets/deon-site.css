@@ -32,8 +32,13 @@
       /* Same gutter resolved against the VIEWPORT (100vw) — for fixed-position
          contexts like the sidebar where % would resolve against the element. */
       --vw-gutter:   max(var(--edge), calc((100vw - var(--content-max)) / 2));
+      /* logoStart resolved against the VIEWPORT — the off-canvas explorer anchors its
+         OWN left edge here (not left:0 + a transform that sweeps the gutter), so the
+         drawer begins exactly on the DEON frame and the [0, logoStart] band is only
+         ever page background / overlay. */
+      --frame-left:  calc(var(--vw-gutter) + var(--logo-offset));
       --nav-col:     480px;    /* sidebar navigation column (right of the gutter) */
-      --nav-colw:    18rem;    /* width of ONE drilldown column (multi-column nav) */
+      --nav-colw:    22rem;    /* width of ONE drilldown column — big & airy, Tesa-style (wider, more horizontal air) */
     }
 
     html { scroll-behavior: smooth; }
@@ -55,7 +60,7 @@
 
     /* ── TOP LANGUAGE BAR ───────────────────────────────── */
     .top-bar {
-      position: relative; z-index: 1200;
+      position: relative; z-index: 1300;   /* above the in-nav menu veil — stays uncovered */
       background: var(--blue);          /* full-bleed bar; content on the grid */
       color: var(--white);
       font-size: 14px;
@@ -80,7 +85,7 @@
 
     /* ── SECTION TABS ───────────────────────────────────── */
     .section-tabs {
-      position: relative; z-index: 1200;
+      position: relative; z-index: 1300;   /* above the in-nav menu veil — Tapes|Films stay bright */
       background: var(--blue);          /* full-bleed bar; tabs align to the grid */
       display: flex;
       align-items: stretch;
@@ -655,68 +660,97 @@
     .footer-legal-links a:hover { color: var(--blue); }
 
     /* ── SLIDE-OUT NAV SIDEBAR ─────────────────────────── */
+    /* The veil is a LIGHT, near-neutral haze (Tesa) — it MUTES the page rather than
+       DARKENING it, so everything stays clean and legible under the dim. A heavy dark tint
+       crushes contrast and reads muddy; a light scrim de-emphasises while preserving the
+       page. It is reparented INTO <nav> (deon-chrome.js) so it sits IN FRONT of the nav
+       links — dimming them at FULL font colour, exactly like the page — while the white
+       sheet + the four live controls ride ABOVE it. The blue tabs + language bar (z1300)
+       stay above it, uncovered. */
     .nav-overlay {
       position: fixed; inset: 0;
-      /* Darker, navy-tinted backdrop pulls focus to the open sidebar */
-      background: rgba(8,18,36,0.62);
-      z-index: 900;
+      background: rgba(16, 38, 68, 0.55);   /* deep-navy fade at 0.55 — same transparency as the old light scrim, navy shade */
+      z-index: 1;              /* inside <nav>: above the page + nav links (z0), below sheet (z2) */
       opacity: 0; pointer-events: none;
       transition: opacity 0.3s ease;
     }
     .nav-overlay.open { opacity: 1; pointer-events: all; }
 
+    /* MENU OPEN — ONE light veil dims the whole page AND the nav bar UNIFORMLY. Four z-layers
+       inside the nav's own stacking context (panel + overlay reparented INTO <nav>):
+         • page content + nav LINKS  → UNDER the veil: dimmed by it at FULL font colour — no
+           opacity/colour trick on the text; the single veil does the dimming, like the page.
+         • light veil (.nav-overlay, z1).
+         • white sheet (.nav-sidebar, z2).
+         • logo + × (.nav-left) AND search + EN (.nav-right) → ABOVE the veil (z3), fully
+           ACTIVE/bright. These four are the only live controls (Tesa).
+       The nav background goes transparent so the veil + sheet show through; the brand line hides. */
+    body.nav-open nav:not(.crumb) { background: transparent; }
+    body.nav-open nav:not(.crumb)::before,
+    body.nav-open nav:not(.crumb)::after { opacity: 0; }
+    /* The four live controls ride ABOVE the veil + sheet (.nav-right = search + EN stays fully
+       active; .nav-left = logo + × already bright). */
+    body.nav-open .nav-left,
+    body.nav-open .nav-right { position: relative; z-index: 3; }
+    /* The two utilities are clickable but NOT restyled on hover while the menu is open. */
+    body.nav-open .nav-right .nav-icon-btn:hover { color: var(--navy); }
+
     .nav-sidebar {
       position: fixed;
-      top: 0; left: 0; bottom: 0;
-      /* ONE continuous white panel anchored to the browser's left edge — NOT a
-         nav column plus a separate white filler strip. The leading whitespace
-         is the panel's OWN padding (--nav-pad), so every interactive element
-         sits on a single continuous surface with white to its left; hover,
-         focus rings and the back-arrow translate are never clipped by an inset
-         overflow boundary. The content emerges at the page's content-column
-         edge (--nav-pad ≈ the page gutter) and the panel width is fixed, so the
-         drawer no longer balloons on ultra-wide / zoomed-out viewports. */
+      top: 0; bottom: 0;        /* JS sets the precise top (below the header); full-height panel */
+      /* FULL-BLEED LEFT (Tesa): the white panel surface runs to the viewport's LEFT EDGE
+         (x=0). Its CONTENT is inset by padding-left = frame-left − nav-pad, so the first
+         column's rows land exactly on the DEON frame (logoStart, the logo's left guide).
+         The band left of the text is the panel's OWN white — not a dimmed gutter.
+         box-sizing:border-box folds the inset into the width; JS sets the live width. */
+      left: 0;
       --nav-pad: 1.5rem;
-      width: var(--nav-colw);   /* one column by default; JS widens it per open columns */
-      max-width: 92vw;
+      /* STANDARDIZED first-panel position: the first column is ALWAYS anchored to the
+         DEON frame (logoStart) — left-aligned, in line with the logo and the page
+         content, so it reads as intentional (not floating/centered). It stays here at
+         EVERY level — it never jumps to re-center — and columns simply grow to the
+         RIGHT. At the full-coverage level the white just fills the space on the right.
+         This is the tesa look: a touch left of centre because the content is left-aligned. */
+      padding-left: calc(var(--frame-left) - var(--nav-pad));
+      padding-top: var(--nav-h);   /* the panel covers the nav row; menu content starts below the logo/× */
+      width: calc(var(--frame-left) - var(--nav-pad) + var(--nav-colw));   /* JS widens per open columns */
+      max-width: 100vw;
+      /* FULL HEIGHT (Tesa): the panel runs from the header to the bottom of the viewport;
+         each column's list scrolls inside (.nav-panel-scroll) if it overflows. */
       background: var(--white);
-      /* Above nav bar so sidebar covers nav's left portion */
-      z-index: 1100;
-      /* Below section tabs (1200) so tabs float above sidebar */
+      /* The panel is reparented INTO <nav> (deon-chrome.js), so this z-index is RELATIVE to
+         the nav's other children: ABOVE the nav links (z0, covered by the sheet) and BELOW
+         the live controls .nav-left/.nav-right (z2, riding on top). The whole nav sits at
+         z1200, so the sheet still floats above the page + overlay (z900) and below the tabs. */
+      z-index: 2;
       border-right: 1px solid rgba(15, 55, 127, 0.18);
-      /* Hidden off the left edge when closed. */
+      box-shadow: 18px 0 44px -22px rgba(8, 18, 36, 0.22);   /* subtle right cast over the dimmed page */
+      /* Classic slide-in from the left edge — the panel IS full-bleed white, so the
+         sweep is the menu arriving, not a slab crossing a gutter. */
+      visibility: hidden;
       transform: translateX(-100%);
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1), width 0.38s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s linear 0.42s;
       display: flex; flex-direction: column;
       overflow: hidden;
     }
-    /* Anchored to the DEON frame, not the browser edge: when open the drawer's left
-       edge lands on --frame-inset (logoStart) — the SAME left guide as the logo,
-       breadcrumbs, body content and scroll-progress gap — so it reads as part of the
-       site's compositional grid, emerging from inside the frame rather than from x=0.
-       The dimmed page stays visible in the [0, logoStart] outer margin. Closed stays
-       translateX(-100%) so the panel is fully hidden off the left edge (no sliver).
-       NB: must use the VIEWPORT-based gutter (--vw-gutter, 100vw) here — a transform's
-       % (as in --frame-inset's --gutter) resolves against the element's OWN width, not
-       the viewport, which collapsed the offset to the 40px floor at every width. */
-    .nav-sidebar.open { transform: translateX(calc(var(--vw-gutter) + var(--logo-offset))); }
-
-    /* TWO-REGION LAYOUT inside the DEON frame: open = [ Nav region ][ Content region ].
-       The navigation owns a meaningful column block (sized by the explorer's open
-       columns, written to --nav-region by JS); the page content is allocated the
-       remaining frame by reserving that width in its OWN box (padding-left =
-       --nav-region) so it begins DIRECTLY AFTER the navigation — one composition, not a
-       menu floating over the page. While open, the content's frame is anchored to the
-       viewport (--vw-gutter) so its right edge stays on the mirror (the container %
-       gutter would otherwise collapse against the narrowed box and overrun the frame).
-       Header chrome and the fixed overlay/sidebar are excluded. */
-    body.nav-open #deon-main,
-    body.nav-open .footer-search-strip,
-    body.nav-open footer {
-      --frame-inset: calc(var(--vw-gutter) + var(--logo-offset));
-      padding-left: var(--nav-region, 0px);
-      transition: padding-left 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+    .nav-sidebar.open {
+      visibility: visible;
+      transform: translateX(0);
+      transition: transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1), width 0.38s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s;
     }
+    /* While the viewport is resizing / the browser is zooming, SNAP the width — a `width:100vw`
+       panel otherwise TRANSITIONS to each new resolved width, reading as a "push to fill" wiggle.
+       Killing the transition during resize keeps the full-coverage panel always-filled and still
+       in place; the drill-in animation (no resize happening) is unaffected. (JS toggles the class.) */
+    .nav-sidebar.is-resizing { transition: none; }
+    /* FULL-PAGE COVERAGE (3rd level on) just widens the panel to fill the viewport; the
+       columns stay LEFT-ALIGNED on the frame (white fills the right) — not centered. */
+
+    /* OVERLAY model (Tesa): the explorer floats over the page and the .nav-overlay
+       dims it — the page content is NOT reflowed. Pushing it with padding-left forced
+       the responsive grids to recompute into a cramped strip (squished cards / broken
+       wraps); overlaying leaves the page intact behind the dim, exactly like tesa.com.
+       Background scroll is locked by JS (body overflow:hidden) while the menu is open. */
 
     /* Sidebar has no header — nav bar floats above it at z-index 1200 */
     /* top is set dynamically by JS to start below the nav bar */
@@ -724,7 +758,7 @@
     /* Scrollable body — thin macOS-style auto-hiding scrollbar */
     .nav-sidebar-body {
       flex: 1; overflow-y: auto;
-      padding: 1.1rem 1.375rem 2rem var(--nav-pad);   /* content inset on the continuous panel surface */
+      padding: 2.6rem 1.5rem 1.7rem var(--nav-pad);   /* extra top inset = breathing room below the logo (Tesa) */
       -webkit-overflow-scrolling: touch;
       scrollbar-width: thin;
       scrollbar-color: rgba(0,0,0,0.2) transparent;
@@ -742,8 +776,8 @@
        A true top-level heading (brand blue, title case, larger than the nav rows
        below it), NOT a metadata caption. Inherits the sidebar nav font. */
     .nav-sidebar-context-heading {
-      font-size: 22px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.1;
-      color: var(--blue); margin-bottom: 0.85rem;
+      font-size: 22px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15;
+      color: var(--blue); margin-bottom: 0.9rem;   /* uniform with .nav-panel-title (cols 2/3) */
     }
     .nav-sidebar-context ul { list-style: none; margin-bottom: 0; }
     .nav-sidebar-context ul li a {
@@ -768,7 +802,7 @@
     .nav-sidebar-primary { list-style: none; }
     .nav-sidebar-primary li a {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0.46rem 0.55rem; margin: 0 -0.55rem;
+      padding: 0.7rem 0.55rem; margin: 0 -0.55rem;   /* uniform with cols 2/3 (.nav-sub-list) */
       border-radius: 4px;
       font-size: 17px; font-weight: 400;
       color: var(--navy); text-decoration: none;
@@ -777,9 +811,10 @@
     .nav-sidebar-primary li a:hover { color: var(--blue); background: rgba(15,55,127,0.045); }
     .nav-sidebar-primary li a.is-active { color: var(--blue); font-weight: 500; }
     .nav-sidebar-primary li a .prim-arrow {
-      display: flex; align-items: center; flex-shrink: 0; color: #9aa7b8;
-      transition: color 0.15s;
+      display: flex; align-items: center; flex-shrink: 0; color: var(--navy);
+      transition: color 0.15s, transform 0.15s;
     }
+    .nav-sidebar-primary li a:hover .prim-arrow { transform: translateX(2px); }
     .nav-sidebar-primary li a:hover .prim-arrow { color: var(--blue); }
 
     /* ── SIDEBAR PANELS (drill-down navigation) ─────────── */
@@ -808,19 +843,35 @@
     }
     .nav-panel.is-col  { display: flex; }
     .nav-panel.is-last { border-right: none; }
-    /* trail: the parent item whose child column is open reads as active */
+    /* trail: the parent item whose child column is open reads as active — LIGHT (Tesa):
+       a hairline blue left-marker + blue text/weight, NOT a filled block. */
     .nav-sidebar-primary li a.is-trail,
-    .nav-sub-list li a.is-trail { color: var(--blue); background: rgba(15,55,127,0.05); font-weight: 500; }
-    /* persistent explorer: no back button anywhere — every parent column stays
-       visible, so navigation is by clicking column items, never a back action */
+    .nav-sub-list li a.is-trail { color: var(--blue); font-weight: 500; background: none; box-shadow: inset 2px 0 0 var(--blue); }
+    /* persistent explorer: no PER-COLUMN back button — every parent column stays visible. */
     .nav-panel-back { display: none; }
+    /* SINGLE back control (Tesa): one ← in the left gutter, left of the first column, shown
+       only after you've drilled in. Steps back one level (popPanel). */
+    .nav-stack-back {
+      position: absolute;
+      left: calc(var(--frame-left) - 2.85rem);   /* in the gutter, just left of the first column */
+      top: calc(var(--nav-h) + 2.5rem);           /* aligned with the column headings */
+      width: 1.7rem; height: 1.7rem;
+      display: none;
+      align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer;
+      color: var(--navy); padding: 0; border-radius: 4px;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .nav-sidebar.is-drilled .nav-stack-back { display: flex; }
+    .nav-stack-back:hover { color: var(--blue); transform: translateX(-2px); }
+    .nav-stack-back:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
     /* Sub-panel header — fixed while the list scrolls; back arrow + section title */
     .nav-panel-header {
       flex-shrink: 0;
       display: flex;
       align-items: center;
-      padding: 1rem 1.375rem 0.7rem var(--nav-pad);   /* back chevron + title on the continuous surface */
+      padding: 2.6rem 1.5rem 0.7rem var(--nav-pad);   /* top inset matches col 1 = breathing room below the logo */
     }
     .nav-panel-back {
       flex-shrink: 0;
@@ -836,8 +887,8 @@
     .nav-panel-back:hover { color: var(--blue); }
     .nav-panel-back:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
     .nav-panel-title {
-      font-size: 19px; font-weight: 500;
-      color: var(--navy); line-height: 1.1;
+      font-size: 22px; font-weight: 600;   /* uniform across all column headings */
+      color: var(--navy); line-height: 1.15;
       text-decoration: none;
       transition: color 0.15s;
     }
@@ -847,7 +898,7 @@
     /* Sub-panel scrollable list — left padding aligns items under the title */
     .nav-panel-scroll {
       flex: 1; overflow-y: auto;
-      padding: 0 1.375rem 2.25rem var(--nav-pad);   /* items align under the column title (no back chevron anymore) */
+      padding: 0 1.5rem 1.75rem var(--nav-pad);   /* items align under the column title */
       -webkit-overflow-scrolling: touch;
       scrollbar-width: thin;
       scrollbar-color: rgba(0,0,0,0.2) transparent;
@@ -859,10 +910,10 @@
     .nav-sub-list { list-style: none; }
     .nav-sub-list li a {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem;
-      padding: 0.46rem 0.55rem; margin: 0 -0.55rem;
+      gap: 0.9rem;
+      padding: 0.7rem 0.55rem; margin: 0 -0.55rem;
       border-radius: 4px;
-      font-size: 15px; font-weight: 400;
+      font-size: 17px; font-weight: 400;
       color: var(--navy); text-decoration: none;
       transition: color 0.15s, background 0.15s;
     }
@@ -871,10 +922,10 @@
     .nav-sub-list li a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
     .nav-sub-list .sub-arrow {
       flex-shrink: 0; display: flex; align-items: center;
-      color: #9aa7b8;
-      transition: color 0.15s;
+      color: var(--navy);
+      transition: color 0.15s, transform 0.15s;
     }
-    .nav-sub-list li a:hover .sub-arrow { color: var(--blue); }
+    .nav-sub-list li a:hover .sub-arrow { color: var(--blue); transform: translateX(2px); }
 
     /* ── SEARCH OVERLAY (dropdown utility, framed to the DEON grid) ──────── */
     .search-overlay { position: fixed; left: 0; right: 0; bottom: 0; top: 0; z-index: 1150; pointer-events: none; }
@@ -899,19 +950,23 @@
     .search-field input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
     .search-close { flex-shrink: 0; background: none; border: none; cursor: pointer; color: var(--text-mid); display: flex; padding: 0.35rem; border-radius: 4px; transition: color 0.15s, background 0.15s; }
     .search-close:hover { color: var(--navy); background: rgba(15, 55, 127, 0.06); }
+    .search-close:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .search-close:active { transform: translateY(1px); }
     .search-results { max-height: min(62vh, 540px); overflow-y: auto; padding: 0.4rem 1.5rem 1.25rem; }
+    .search-results:empty { padding: 0; }                  /* minimal default: collapse to field only */
     .search-group { padding: 0.85rem 0 0.3rem; }
     .search-group-label { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
-    .search-group-count { color: #aab4c2; font-weight: 600; }
-    .search-hit { display: flex; flex-direction: column; gap: 1px; padding: 0.5rem 0.6rem; margin: 0 -0.6rem; border-radius: 5px; text-decoration: none; transition: background 0.13s; }
+    .search-group-count { color: #7a8696; font-weight: 600; }
+    .search-hit { display: flex; align-items: center; gap: 0.9rem; padding: 0.5rem 0.6rem; margin: 0 -0.6rem; border-radius: 5px; text-decoration: none; transition: background 0.13s; }
     .search-hit:hover { background: rgba(15, 55, 127, 0.05); }
     .search-hit:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+    .search-hit-main { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
     .search-hit-title { font-size: 16px; font-weight: 500; color: var(--navy); }
     .search-hit-sub { font-size: 13px; color: var(--text-mid); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .search-more { font-size: 13px; color: var(--blue); padding: 0.35rem 0.6rem; }
-    .search-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .search-chip { font-size: 14px; color: var(--navy); text-decoration: none; padding: 0.45rem 0.9rem; border: 1px solid #dfe4ea; border-radius: 999px; transition: color 0.15s, border-color 0.15s, background 0.15s; }
-    .search-chip:hover { color: var(--blue); border-color: var(--blue); background: rgba(15, 55, 127, 0.04); }
+    .search-hit-type { flex-shrink: 0; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mid); background: #eef1f5; padding: 0.2rem 0.5rem; border-radius: 3px; }
+    .search-more { display: inline-block; font-size: 13px; font-weight: 600; color: var(--blue); padding: 0.5rem 0.6rem 0.2rem; }
+    .search-more:hover { text-decoration: underline; }
+    .search-more:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 3px; }
     .search-empty { padding: 1.4rem 0.6rem; color: var(--text-mid); font-size: 15px; }
 
     /* ── RESPONSIVE ─────────────────────────────────────── */
@@ -946,11 +1001,9 @@
       .top-bar { font-size: 12px; padding: 0 1rem; }
       .section-tabs { display: none; }
       .nav-inner { padding: 0 1rem; }
-      /* Phones: small edge gutter, cover most of the screen. */
-      .nav-sidebar { --nav-pad: 1rem; }
-      /* phones: the logoStart frame collapses; the mobile content inset is 1rem, so
-         anchor the drawer at 1rem to match (not the desktop logoStart offset). */
-      .nav-sidebar.open { transform: translateX(1rem); }
+      /* Phones: full-bleed white from the edge with a small content inset (the
+         logoStart frame collapses on phones). Slide-in inherited from the base rule. */
+      .nav-sidebar { padding-left: 1rem; --nav-pad: 1rem; max-width: 100vw; }
 
       .nav-links {
         display: none;
@@ -1279,10 +1332,36 @@
    ============================================================ */
 .crumb { font-size: 13px; color: var(--text-mid); margin-bottom: 0.65rem; display: flex; flex-wrap: wrap; align-items: center; }
 .crumb a { color: var(--text-mid); font-weight: 600; transition: color .15s ease; }
-.crumb a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+.crumb a:hover { color: var(--blue); }   /* underline now wipes in via .anim-underline below */
 .crumb a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .crumb-current { color: var(--text-mid); font-weight: 600; }
 .crumb .sep { margin: 0 0.45rem; opacity: 0.5; }
+
+/* ─── ANIMATED UNDERLINE ──────────────────────────────────────────
+   Ported from the shadcn `animated-underline` component
+   (after:scale-x-0 → hover:scale-x-100, origin flips bottom-right →
+   bottom-left): a 1px brand-BLUE line that wipes IN from the left on
+   hover and back OUT to the right on leave — transforms only. Exposed
+   as the reusable `.anim-underline` utility and wired onto breadcrumb
+   links + the top-nav link labels (text still turns blue on hover; the
+   ACTIVE section keeps the line on as a persistent location marker). */
+.anim-underline, .crumb a { position: relative; }
+.nav-link-label { position: relative; display: inline-block; line-height: 1.15; }
+.anim-underline::after, .crumb a::after, .nav-link-label::after {
+  content: ""; position: absolute; left: 0; bottom: -2px;
+  width: 100%; height: 1px; background: var(--blue);          /* --primary → DEON blue */
+  transform: scaleX(0); transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+.anim-underline:hover::after,
+.crumb a:hover::after,
+.nav-links li a:hover .nav-link-label::after,
+.nav-links li a.is-active-section .nav-link-label::after {
+  transform: scaleX(1); transform-origin: bottom left;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-underline::after, .crumb a::after, .nav-link-label::after { transition: none; }
+}
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .tag { display: inline-flex; align-items: center; font-size: 14px; font-weight: 600; color: var(--text);
@@ -1321,9 +1400,6 @@
 .searchbox { display: flex; gap: 0.6rem; max-width: 660px; margin-bottom: 2rem; }
 .searchbox input { flex: 1; font-family: inherit; font-size: 17px; padding: 0.9rem 1rem; border: 1px solid #d0d5db; }
 .searchbox input:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; border-color: var(--blue); }
-.search-group { margin-bottom: 2.5rem; }
-.search-group > h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-mid); margin-bottom: 1rem; }
-.search-empty { color: var(--text-mid); }
 
 @media (max-width: 768px) { .contact-cols { grid-template-columns: 1fr; gap: 2rem; } }
 
@@ -1417,4 +1493,88 @@
 }
 @media (max-width: 520px) {
   .carousel-item, .carousel.peritem-3 .carousel-item { flex-basis: 100%; }
+}
+
+/* ============================================================
+   SEARCH RESULTS PAGE (search.html?q=…) — refinement experience.
+   Two-region layout: persistent content-type rail + adaptive facet
+   rail on the left, grouped results on the right. Aligns to the DEON
+   content frame and reuses the site's blue / navy / grey system.
+   ============================================================ */
+.srp-head { padding: 2.75rem var(--frame-inset) 1.5rem; }
+.srp-eyebrow { font-family: 'Montserrat','Inter',sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.6rem; }
+.srp-head h1 { font-size: 2.4rem; line-height: 1.1; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 1.4rem; }
+.srp-searchbox { display: flex; align-items: center; gap: 0.6rem; max-width: 720px; border: 1px solid #cdd5df; border-radius: 6px; padding: 0.15rem 0.15rem 0.15rem 1rem; background: var(--white); transition: border-color 0.15s, box-shadow 0.15s; }
+.srp-searchbox:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0, 114, 206, 0.12); }
+.srp-searchbox-icon { display: flex; color: var(--blue); flex-shrink: 0; }
+.srp-searchbox input { flex: 1; min-width: 0; border: none; outline: none; background: none; font: 400 17px/1.3 inherit; color: var(--navy); padding: 0.7rem 0; }
+.srp-searchbox input::placeholder { color: #98a4b4; }
+.srp-searchbox input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.srp-search-btn { flex-shrink: 0; font: 600 14px/1 'Montserrat','Inter',sans-serif; letter-spacing: 0.04em; color: var(--white); background: var(--blue); border: none; border-radius: 5px; padding: 0.8rem 1.4rem; cursor: pointer; transition: background 0.15s, transform 0.12s; }
+.srp-search-btn:hover { background: var(--navy); }
+.srp-search-btn:active { transform: translateY(1px); }
+.srp-search-btn:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+.srp { display: grid; grid-template-columns: 264px 1fr; gap: 2.5rem; align-items: start; padding: 0.5rem var(--frame-inset) 4.5rem; }
+
+/* ── filter rail ─────────────────────────────────────── */
+.srp-rail { position: sticky; top: calc(var(--nav-h) + 1rem); max-height: calc(100vh - var(--nav-h) - 2rem); overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.2) transparent; }
+.srp-rail::-webkit-scrollbar { width: 5px; }
+.srp-rail::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 3px; }
+.srp-rail-head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 0.85rem; border-bottom: 2px solid var(--navy); margin-bottom: 0.4rem; }
+.srp-rail-title { font-family: 'Montserrat','Inter',sans-serif; font-size: 17px; font-weight: 600; color: var(--text); }
+.srp-clear { background: none; border: none; cursor: pointer; font: 400 13px inherit; color: var(--blue); padding: 0; }
+.srp-clear:hover { text-decoration: underline; }
+.srp-clear:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+.srp-clear:active { color: var(--navy); }
+.srp-fgroup { border-bottom: 1px solid #e6e9ee; padding: 1.1rem 0; }
+.srp-fgroup-head { font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text); margin-bottom: 0.7rem; }
+.srp-fgroup-note { font-size: 11.5px; line-height: 1.45; color: var(--text-mid); margin: -0.35rem 0 0.75rem; }
+.srp-fgroup-empty { font-size: 13px; color: var(--text-mid); }
+.srp-subhead { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-mid); margin: 1rem 0 0.5rem; }
+.srp-subhead:first-child { margin-top: 0; }
+.srp-check { display: flex; align-items: center; gap: 0.55rem; padding: 0.3rem 0; font-size: 14px; color: var(--text-mid); cursor: pointer; line-height: 1.35; }
+.srp-check input { accent-color: var(--blue); width: 15px; height: 15px; flex-shrink: 0; cursor: pointer; }
+.srp-check-label { flex: 1; min-width: 0; }
+.srp-check-count { font-size: 12px; color: #7a8696; font-variant-numeric: tabular-nums; }
+.srp-check.is-empty { color: #8a96a6; cursor: default; }
+.srp-check.is-empty input { cursor: default; }
+.srp-range { display: flex; gap: 0.6rem; }
+.srp-range label { display: flex; align-items: center; gap: 0.3rem; font-size: 12px; color: var(--text-mid); }
+.srp-range input { width: 4.6rem; font: 400 14px inherit; padding: 0.4rem 0.5rem; border: 1px solid #cdd5df; border-radius: 4px; }
+.srp-range input:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; border-color: var(--blue); }
+
+/* ── results column ──────────────────────────────────── */
+.srp-summary { font-size: 15px; color: var(--text-mid); padding-bottom: 0.85rem; border-bottom: 2px solid var(--navy); margin-bottom: 1.75rem; }
+.srp-summary strong { color: var(--navy); font-weight: 700; }
+.srp-group { margin-bottom: 2.5rem; }
+.srp-group-head { display: flex; align-items: center; gap: 0.6rem; font-family: 'Montserrat','Inter',sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
+.srp-group-count { color: #7a8696; font-weight: 600; }
+.srp-list { display: flex; flex-direction: column; }
+.srp-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0.6rem; margin: 0 -0.6rem; border-top: 1px solid #e9ecf1; text-decoration: none; transition: background 0.13s; }
+.srp-card:first-child { border-top: none; }
+.srp-card:hover { background: rgba(0, 114, 206, 0.04); }
+.srp-card:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.srp-thumb { flex-shrink: 0; width: 52px; height: 52px; display: block; border: 1px solid #e3e8ef; border-radius: 3px; overflow: hidden; }
+.srp-thumb svg { width: 100%; height: 100%; display: block; }
+.srp-card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+.srp-card-title { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 17px; font-weight: 600; color: var(--navy); line-height: 1.25; }
+.srp-card .srp-arrow { color: var(--blue); flex-shrink: 0; opacity: 0; transform: translateX(-3px); transition: opacity 0.15s, transform 0.15s; }
+.srp-card:hover .srp-card-title { color: var(--blue); }
+.srp-card:hover .srp-arrow { opacity: 1; transform: translateX(0); }
+.srp-card-sub { font-size: 14px; line-height: 1.5; color: var(--text-mid); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.srp-card-attrs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.15rem; }
+.srp-chip { font-size: 12px; color: var(--text); background: #eef1f5; padding: 0.2rem 0.55rem; border-radius: 3px; }
+.srp-card-type { flex-shrink: 0; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mid); background: #f0f2f6; padding: 0.25rem 0.55rem; border-radius: 3px; margin-top: 0.15rem; }
+.srp-empty { padding: 1.5rem 0; }
+.srp-empty h3 { font-size: 1.4rem; color: var(--navy); margin-bottom: 0.6rem; }
+.srp-empty p { font-size: 15px; line-height: 1.6; color: var(--text-mid); max-width: 540px; }
+
+@media (max-width: 860px) {
+  .srp { grid-template-columns: 1fr; gap: 1.5rem; }
+  .srp-rail { position: static; max-height: none; overflow: visible; }
+}
+@media (max-width: 520px) {
+  .srp-head h1 { font-size: 1.9rem; }
+  .srp-search-btn { padding: 0.8rem 1rem; }
 }
