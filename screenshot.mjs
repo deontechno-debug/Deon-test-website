@@ -2,6 +2,22 @@ import puppeteer from 'puppeteer';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+
+// Anthropic's API drops the per-image cap to 2000px/side once a request
+// carries many images (the whole conversation is re-sent each turn, so a long
+// session is always "many images"). A fullPage shot of a long page blows past
+// 2000px tall and gets stripped ("could not be processed and was removed").
+// Clamp the longest side so Claude can always read the shot back. -Z only
+// downscales, never upscales, and preserves aspect ratio.
+const MAX_SIDE = 1960;
+function clampForVision(file) {
+  try {
+    execFileSync('sips', ['-Z', String(MAX_SIDE), file], { stdio: 'ignore' });
+  } catch (e) {
+    console.warn(`Image clamp skipped (sips unavailable): ${e.message}`);
+  }
+}
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const url = process.argv[2] || 'http://localhost:3000';
@@ -38,6 +54,8 @@ await new Promise(r => setTimeout(r, 1800));
 
 await page.screenshot({ path: filepath, fullPage: true });
 await browser.close();
+
+clampForVision(filepath);
 
 console.log(`Saved: temporary screenshots/${filename}`);
 console.log(`Path:  ${filepath}`);
